@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
-import Link from 'link-react';
+import {Link} from 'react-router-dom';
+import OverviewPage from './overview';
+import InsightsPage from "./insights";
+import RecommendationPage from "./recommendation";
 
 class Sidebar extends Component {
 
@@ -10,14 +13,14 @@ render(){
         <div className='shadow-md z-10 absolute w-full'>
         <div className='md:flex justify-between bg-white py-0 md:px-6 px-9'>
             <div className='font-bold text-3xl cursor-pointer flex items-center'>
-                <Link href="/">
-                {/* <Image src={"/../public/images/Logo.png"} width={110} height={100} /> */}
-                </Link>
+            
+            <img src={"/Logo.png"} width={110} height={100} />
+            
             </div>
             <div className='md:flex md:items-center mr-12 md:pb-0 pb-12 md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all-duration-500 ease-in'>
             {/* <div className='px-10 text-pink-400 text-l'>{session["user"]["email"]}</div> */}
-            <Link href="/login">
-                <button className={`md:bg-rose-300 text-xl-center py-4 px-6 md:rounded-lg md:hover:bg-rose-400 md:text-right ${open ? 'border-none shadow-none text-xl hover:font-bold px-0' : 'top-[-490px]'}`}>
+            <Link to="/login">
+                <button className={`md:bg-rose-300 text-xl-center py-4 px-6 md:rounded-lg md:hover:bg-rose-400 md:text-right`}>
                         <a className='md:text-white text-rose-400 md:font-bold font-semibold'>Sign Out → </a>
                 </button>
             </Link>
@@ -29,8 +32,8 @@ render(){
         <aside className='sticky top-0 h-screen'>
         <div className='shadow-xl flex md:grid-rows-4 h-screen w-36 bg-gradient-to-t from-transparent to-rose-300 p-3'>
             <ul className='text-center'>
-                <li className={`mt-28 cursor-pointer p-1 rounded-r-lg py-3 ${router.pathname == "/dashboard/overview" ? "bg-rose-100 text-rose-400 px-6" : ""}`}>
-                    <Link href="../dashboard/overview">
+                <li className={`mt-28 cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/overview" ? "bg-rose-100 text-rose-400 px-6" : ""}`}>
+                    <Link to="/overview" element={<OverviewPage/>}>
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
                         <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,8 +44,8 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${router.pathname == "/dashboard/insights" ? "bg-rose-100 text-rose-400 px-7" : ""}`}>
-                    <Link href= "../dashboard/insights">
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/insights" ? "bg-rose-100 text-rose-400 px-7" : ""}`}>
+                    <Link to= "/insights" element={<InsightsPage/>}>
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
                         <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -53,8 +56,8 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${router.pathname == "/dashboard/recommendation" ? "bg-rose-100 text-rose-400 px-3" : ""}`}>
-                    <Link href= "../dashboard/recommendation">
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/recommendation" ? "bg-rose-100 text-rose-400 px-3" : ""}`}>
+                    <Link to= "/recommendation" element={<RecommendationPage/>} >
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
                         <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,8 +68,8 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${router.pathname == "/dashboard/survey" ? "bg-rose-100 text-rose-400 px-8" : ""}`}>
-                    <Link href= "../dashboard/survey">
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/survey" ? "bg-rose-100 text-rose-400 px-8" : ""}`}>
+                    <Link to= "/survey">
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
                         <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -2,7 +2,7 @@ import Sidebar from './sidebar';
 import {useEffect} from "react";
 import { Fade } from 'react-reveal';
 import SBChart from './Chart';
-import Link from 'link-react';
+import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -106,11 +106,11 @@ function InsightsPage() {
             {/* Chart */}
             <div className='text-rose-400 mt-10 text-xl font-bold tracking-tight text-center mb-10'>Stress Breakdown</div>
             <div className='grid md:grid-cols-2'>
-            <Link href = '../insights/sb_insights'>
+            
               <div className='ml-1 cursor-pointer rounded-lg'>
                 <SBChart /> 
               </div>
-            </Link>
+           
 
             <div className='text-center mt-52'> 
             {/* <FilterButton/>   */}
