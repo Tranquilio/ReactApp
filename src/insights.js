@@ -1,7 +1,7 @@
-import Sidebar from './sidebar';
+import Sidebar from './/components/Sidebar'
 import {useEffect} from "react";
 import { Fade } from 'react-reveal';
-import SBChart from './Chart';
+import SBChart from './/components/Chart';
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';

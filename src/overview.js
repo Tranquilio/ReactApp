@@ -1,6 +1,5 @@
-import Sidebar from './sidebar'
+import Sidebar from './/components/Sidebar'
 import {useEffect} from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 var average;
 var sum = 0;

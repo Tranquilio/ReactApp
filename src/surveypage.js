@@ -1,4 +1,4 @@
-import Sidebar from './sidebar'
+import Sidebar from './/components/Sidebar'
 import SurveyInfo from './/components/SurveyInfo';
 
 function SurveyPage() {

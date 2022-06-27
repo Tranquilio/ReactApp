@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import { useState } from "react";
-// import { Fade } from "react-reveal";
+import { Fade } from "react-reveal";
 import { useEffect } from "react";
 import classes from "./surveyinfo.module.css";
 // import { useSession } from "next-auth/react";
@@ -152,7 +152,7 @@ function SurveyInfo() {
             <div className={classes.column}>
                 <input type="file" onChange={changeHandler} name="1" accept=".csv"></input>
                 <br></br>
-                <div>{showEmailData()}</div>
+                <Fade>{showEmailData()}</Fade>
                 <br></br>
                 <button onClick={submitHandler1} disabled={(emailCsvInfo == null)}>Save</button>
             </div>
@@ -162,7 +162,7 @@ function SurveyInfo() {
             <div className={classes.column}>
                 <input type="file" onChange={changeHandler} name="2" accept=".csv"></input>
                 <br></br>
-                <div>{showMetricData()}</div>
+                <Fade>{showMetricData()}</Fade>
                 <br></br>
                 <button onClick={submitHandler2} disabled={(emailCsvInfo == null)}>Save</button>
             </div>
