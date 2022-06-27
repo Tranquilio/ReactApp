@@ -1,5 +1,4 @@
-
-// import Sidebar from './/components/Sidebar'
+import Sidebar from './sidebar'
 import SurveyInfo from './/components/SurveyInfo';
 
 function SurveyPage() {
@@ -8,7 +7,7 @@ function SurveyPage() {
     
     <div className='h-screen'>      
         <div className='flex'>
-            {/* <Sidebar />     */}
+            <Sidebar />    
         {/* Add in the file upload box and the table */}
             <SurveyInfo></SurveyInfo>
         </div>
