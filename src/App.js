@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Survey />} />
+        <Route path="/survey" element={<Survey />} />
         <Route path="/profile/survey" element={<SurveyPage />} />
       </Routes>
     </BrowserRouter>

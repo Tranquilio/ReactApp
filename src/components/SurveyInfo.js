@@ -1,4 +1,4 @@
-// import Link from "next/link";
+import {Link} from "react-router-dom";
 import { useState } from "react";
 // import { Fade } from "react-reveal";
 import { useEffect } from "react";
@@ -168,21 +168,24 @@ function SurveyInfo() {
             </div>
 
             {/* Preview Survey */}
-            {/* <Link href="/survey">
+            <Link to="/survey">
                 <button className='shadow-xl py-5 px-5 mt-10 rounded-full text-white bg-rose-300 hover:bg-rose-400'>Preview survey here</button>
-            </Link> */}
+            </Link>
 
         </div>
         {/* Deploy Survey button */}
-        {/* <Link href="">
+        <Link to="">
             <button className='shadow-xl py-5 px-5 mt-10 rounded-full text-white bg-rose-300 hover:bg-rose-400' onClick={
                 () => {
-                    (!deployState) ? generateLink() : () => {};
-                    setDeploy(true);
+                    console.log(deployState)
+                    if(!deployState) {
+                        generateLink();
+                        setDeploy(true);
+                    }                    
                 }}> 
                 <a className='tracking-tight md:text-white text-rose-400 md:font-bold font-semibold px-2 text-xl'>{code}</a>
             </button>
-        </Link> */}
+        </Link>
     </div>
 }
 
