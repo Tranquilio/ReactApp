@@ -8,6 +8,7 @@ import {
     LinearScale,
   } from 'chart.js';
 import { PolarArea } from 'react-chartjs-2';
+import axios from "axios";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
   
@@ -21,9 +22,7 @@ function Chart() {
 
     async function getChartData() {
         //Call api get answers
-        const result = await fetch('/api/database', {
-            method : 'GET',
-        });
+        const result = await axios.get('/api/database')
         data =  await result.json();
         //console.log(data);
         calcInfo();

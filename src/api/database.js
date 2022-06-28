@@ -1,44 +1,69 @@
-// import {MongoClient} from 'mongodb';
-const MongoClient = require("mongodb");
-async function handler(req, res)  {
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const dotenv = require('dotenv');
 
-    if(req.method == "POST") {
-        const data = req.body;
+// const app = express();
+// dotenv.config();
+// connectDB();
 
-        // New account db
-        const client = await MongoClient.connect('mongodb+srv://aayush:aayush@tranquilio.xq7yx.mongodb.net/tranquilio?retryWrites=true&w=majority');
-        //const client = await MongoClient.connect('mongodb+srv://user1:YBqHeN3NPYFq3rgJ@cluster0.hrcwq.mongodb.net/tranquilio?retryWrites=true&w=majority');
-        const db = client.db();
-        console.log(typeof(db));
-
-        const collection = await db.collection('answers');
-        const result = await collection.insertOne(JSON.parse(data));
-
-        // console.log(result);
-        client.close();
-
-        res.status(200).json({response: "Info inserted"});
-    }
-
-    if(req.method == "GET") {
-        var output = {};
-        // New account db
-        const client = await MongoClient.connect('mongodb+srv://aayush:aayush@tranquilio.xq7yx.mongodb.net/tranquilio?retryWrites=true&w=majority');
-        //const client = await MongoClient.connect('mongodb+srv://user1:YBqHeN3NPYFq3rgJ@cluster0.hrcwq.mongodb.net/tranquilio?retryWrites=true&w=majority');
-        const db = client.db();
-
-        const collection = await db.collection('answers');
-        const result = collection.find({username: "Not logged in"}).sort({}); //No specific query type (should probably have multiple endpoints later for different queries)     
+// const connectDB = async() => {
+//     try {
+//         const client = await mongoose.connect(process.env.CONNECTION_STRING, {
+//         useUnifiedTopology: true,
+//         useNewUrlParser: true,
+//         useCreateIndex: true,
+//     });
+//         console.log('MongoDB Connected')
         
-        await result.forEach(item => {
-            output = item;
-            // console.log(item);
-        });
+//     } catch (error) {
+//         console.error(`Error: ${error.message}`);
+//         process.exit();
+//     }
+// };
+
+// app.get("/components/Chart", (req,res) => {
+//     res.s
+// })
+
+// // async function handler(req, res)  {
+
+// //     if(req.method == "POST") {
+// //         const data = req.body;
+
+// //         // New account db
+// //         const client = await MongoClient.connect('mongodb+srv://aayush:aayush@tranquilio.xq7yx.mongodb.net/tranquilio?retryWrites=true&w=majority');
+// //         //const client = await MongoClient.connect('mongodb+srv://user1:YBqHeN3NPYFq3rgJ@cluster0.hrcwq.mongodb.net/tranquilio?retryWrites=true&w=majority');
+// //         const db = client.db();
+// //         console.log(typeof(db));
+
+// //         const collection = await db.collection('answers');
+// //         const result = await collection.insertOne(JSON.parse(data));
+
+// //         // console.log(result);
+// //         client.close();
+
+// //         res.status(200).json({response: "Info inserted"});
+// //     }
+
+// //     if(req.method == "GET") {
+// //         var output = {};
+// //         // New account db
+// //         const client = await MongoClient.connect('mongodb+srv://aayush:aayush@tranquilio.xq7yx.mongodb.net/tranquilio?retryWrites=true&w=majority');
+// //         //const client = await MongoClient.connect('mongodb+srv://user1:YBqHeN3NPYFq3rgJ@cluster0.hrcwq.mongodb.net/tranquilio?retryWrites=true&w=majority');
+// //         const db = client.db();
+
+// //         const collection = await db.collection('answers');
+// //         const result = collection.find({username: "Not logged in"}).sort({}); //No specific query type (should probably have multiple endpoints later for different queries)     
         
-        client.close();
+// //         await result.forEach(item => {
+// //             output = item;
+// //             // console.log(item);
+// //         });
+        
+// //         client.close();
 
-        res.status(200).send(output)
-    }
-}
+// //         res.status(200).send(output)
+// //     }
+// // }
 
-export default handler;
+// // export default handler;

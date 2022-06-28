@@ -2,6 +2,7 @@ import { Form } from "@quillforms/renderer-core";
 import "@quillforms/renderer-core/build-style/style.css";
 import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
 import "./styles.css";
+import "./custom-block";
 
 registerCoreBlocks();
 
@@ -16,104 +17,24 @@ const Survey = () => {
               name: "welcome-screen",
               id: "jg1401r",
               attributes: {
-                label: "Welcome to our survey",
-                description: "This is just a description",
+                label: "Welcome to our survey, ready when you are!",
                 attachment: {
                   type: "image",
+                  backgroundImage: "https://img.freepik.com/free-vector/welcome-neon-sign-vector_53876-76088.jpg?t=st=1656421912~exp=1656422512~hmac=853443135486ff2edbfe1c0930fba0bba476701d458976d32d4b3de0dff1a309&w=900",
                   url:
-                    "https://quillforms.com/wp-content/uploads/2022/01/4207-ai-1.jpeg"
+                    "https://img.freepik.com/free-vector/welcome-neon-sign-vector_53876-76088.jpg?t=st=1656421912~exp=1656422512~hmac=853443135486ff2edbfe1c0930fba0bba476701d458976d32d4b3de0dff1a309&w=900"
                 }
               }
             },
             {
-              name: "short-text",
-              id: "kd12edg",
+              name: "my-custom-block-unique-name",
+              id: "jg1402r",
               attributes: {
+                label: "Question",
                 required: true,
-                label: "Let's start with your name"
-              }
-            },
-            {
-              name: "number",
-              id: "wer3qdkdb",
-              attributes: {
-                required: true,
-                label: "Great {{field:kdsfkdg}}, can you type your age?"
-              }
-            },
-            {
-              name: "long-text",
-              id: "m35612edg",
-              attributes: {
-                required: true,
-                label: "Type a brief about yourself!"
-              }
-            },
-            {
-              name: "date",
-              id: "a213rsew",
-              attributes: {
-                required: true,
-                label: "Please type your birth of date!"
-              }
-            },
-            {
-              name: "email",
-              id: "iqfrqwr13r",
-              attributes: {
-                required: true,
-                label: "Thanks {{field:kdsfkdg}}, please insert your email!"
-              }
-            },
-            {
-              name: "dropdown",
-              id: "nb913rqw",
-              attributes: {
-                required: true,
-                label: "Please select one choice",
-                choices: [
-                  {
-                    label: "Choice 1",
-                    value: "choice-1"
-                  },
-                  {
-                    label: "Choice 2",
-                    value: "choice-2"
-                  },
-                  {
-                    label: "Choice 2",
-                    value: "choice-3"
-                  }
-                ]
-              }
-            },
-            {
-              name: "multiple-choice",
-              id: "gqr1294c",
-              attributes: {
-                required: true,
-                multiple: true,
-                verticalAlign: false,
-                label: "Which subjects do you love the most?",
-                choices: [
-                  {
-                    label: "Physics",
-                    value: "physics"
-                  },
-                  {
-                    label: "Math",
-                    value: "math"
-                  },
-                  {
-                    label: "English",
-                    value: "english"
-                  },
-                  {
-                    label: "Biology",
-                    value: "biology"
-                  }
-                ]
-              }
+                start: 1,
+                end: 6
+              },
             },
             {
               name: "statement",
@@ -123,16 +44,16 @@ const Survey = () => {
                 buttonText: "Continue",
                 quotationMarks: true
               }
-            },
+            },  
             {
-              name: "website",
-              id: "bv91em9123",
+              name: "End of Survey",
+              id: "jg1403r",
               attributes: {
-                required: true,
-                multiple: true,
-                label: "Please insert your website url!"
+                label: "Tranquilio's vision is to empower the 21st Century Workforce.",
+                description: "By understanding what's causing us stress and burnout at work, we can start the conversation on how organizations approach workplace mental wellbeing.",
+                description: "We appreciate you for completing this assessment!",
               }
-            }
+            },                
           ],
           settings: {
             animationDirection: "vertical",
