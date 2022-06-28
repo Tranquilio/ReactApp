@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
-import OverviewPage from '../overview';
-import InsightsPage from "../insights";
-import RecommendationPage from "../recommendation";
+import logo from '../Logo.png'
+import OverviewPage from '../profile/overview';
+import InsightsPage from "../profile/insights";
+import RecommendationPage from "../profile/recommendation";
 
 class Sidebar extends Component {
 
@@ -14,7 +15,7 @@ render(){
         <div className='md:flex justify-between bg-white py-0 md:px-6 px-9'>
             <div className='font-bold text-3xl cursor-pointer flex items-center'>
             
-            <img src={"../Logo.png"} width={110} height={100} />
+            <img src={logo} width={110} height={100} />
             
             </div>
             <div className='md:flex md:items-center mr-12 md:pb-0 pb-12 md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all-duration-500 ease-in'>
@@ -32,7 +33,7 @@ render(){
         <aside className='sticky top-0 h-screen'>
         <div className='shadow-xl flex md:grid-rows-4 h-screen w-36 bg-gradient-to-t from-transparent to-rose-300 p-3'>
             <ul className='text-center'>
-                <li className={`mt-28 cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/overview" ? "bg-rose-100 text-rose-400 px-6" : ""}`}>
+                <li className={`mt-28 cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/overview" ? "bg-rose-100 text-rose-400 px-6" : ""}`}>
                     <Link to="../profile/overview" element={<OverviewPage/>}>
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
@@ -44,7 +45,7 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/insights" ? "bg-rose-100 text-rose-400 px-7" : ""}`}>
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/insights" ? "bg-rose-100 text-rose-400 px-7" : ""}`}>
                     <Link to= "/profile/insights" element={<InsightsPage/>}>
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
@@ -56,7 +57,7 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/recommendation" ? "bg-rose-100 text-rose-400 px-3" : ""}`}>
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/recommendation" ? "bg-rose-100 text-rose-400 px-3" : ""}`}>
                     <Link to= "/profile/recommendation" element={<RecommendationPage/>} >
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
@@ -68,7 +69,7 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/survey" ? "bg-rose-100 text-rose-400 px-8" : ""}`}>
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/survey" ? "bg-rose-100 text-rose-400 px-8" : ""}`}>
                     <Link to= "/profile/survey">
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">

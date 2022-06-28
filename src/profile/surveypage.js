@@ -1,5 +1,5 @@
-import Sidebar from './/components/Sidebar'
-import SurveyInfo from './/components/SurveyInfo';
+import Sidebar from '../components/Sidebar'
+import SurveyInfo from '../components/SurveyInfo';
 
 function SurveyPage() {
   return (  

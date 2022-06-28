@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Survey from "./survey";
-import SurveyPage from "./surveypage";
-import OverviewPage from "./overview";
-import InsightsPage from "./insights";
-import RecommendationPage from "./recommendation";
+import SurveyPage from "./profile/surveypage";
+import OverviewPage from "./profile/overview";
+import InsightsPage from "./profile/insights";
+import RecommendationPage from "./profile/recommendation";
+import Data from "./api/database";
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/profile/overview" element={<OverviewPage />} />
         <Route path="/profile/insights" element={<InsightsPage />} />
         <Route path="/profile/recommendation" element={<RecommendationPage />} /> 
+        <Route path="/api/database" element={<Data />} /> 
       </Routes>
     </BrowserRouter>
   );

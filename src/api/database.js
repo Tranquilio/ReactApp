@@ -1,5 +1,5 @@
-import {MongoClient} from 'mongodb';
-
+// import {MongoClient} from 'mongodb';
+const MongoClient = require("mongodb");
 async function handler(req, res)  {
 
     if(req.method == "POST") {

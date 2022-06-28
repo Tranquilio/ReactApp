@@ -1,7 +1,7 @@
-import Sidebar from './/components/Sidebar'
+import Sidebar from '..//components/Sidebar'
 import {useEffect} from "react";
 import { Fade } from 'react-reveal';
-import SBChart from './/components/Chart';
+import SBChart from '..//components/Chart';
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid';
@@ -44,9 +44,13 @@ function InsightsPage() {
 
   return (  
     <div className='bg-gradient-to-r from-transparent to-pink-50'>  
+    
     <div className='flex'>
-      <Sidebar />
-      <Container sx={{ mt: 20, mb: 4 }}>
+    <div className='flex z-10'>
+    <Sidebar />
+    </div>
+     
+      <Container sx={{ mt: 20, mb: 4 }} className='relative'>
             <Fade bottom cascade>
               <div className='text-2xl font-semibold text-center mb-10'>Our measurement of your organisational well-being based on 
               <div className='text-rose-300 font-bold text-3xl'>six psychologically valid construct</div></div>
@@ -67,7 +71,7 @@ function InsightsPage() {
               <div className='text-xl font-bold text-center text-rose-400'>What is it?</div>
               <div className='mt-10 px-16'></div>
             </Paper>
-            </Grid>
+            </Grid> 
                 
             {/* Box 2 */}
             <Grid item xs={12} md={4} lg={3}>
@@ -86,6 +90,7 @@ function InsightsPage() {
             </Paper>
             </Grid>
 
+            {/* Box 3 */}
             <Grid item xs={12} md={4} lg={3}>
             <Paper
               sx={{
