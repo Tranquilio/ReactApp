@@ -93,7 +93,7 @@
                    margin-right: 6px;
                    margin-bottom: 10px;
                    border-radius: 4px;
-                   background-color: #dac5ed;
+                 
                    color: #ffffff;
                    box-shadow: #dac5ed 0px 0px
                      0px 1px inset;
@@ -101,6 +101,7 @@
                    transition: all 0.1s ease-out 0s;
                    &:hover {
                      background: #9b51e0;
+                
                    }
                    &:last-child {
                      margin-right: 0;

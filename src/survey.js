@@ -3,11 +3,13 @@ import "@quillforms/renderer-core/build-style/style.css";
 import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
 import "./styles.css";
 import "./custom-block";
+import "./custom-block2";
 
 registerCoreBlocks();
 
 const Survey = () => {
   return (
+
     <div style={{ width: "100%", height: "100vh" }}>
       <Form
         formId="1"
@@ -20,9 +22,8 @@ const Survey = () => {
                 label: "Welcome to our survey, ready when you are!",
                 attachment: {
                   type: "image",
-                  backgroundImage: "https://img.freepik.com/free-vector/welcome-neon-sign-vector_53876-76088.jpg?t=st=1656421912~exp=1656422512~hmac=853443135486ff2edbfe1c0930fba0bba476701d458976d32d4b3de0dff1a309&w=900",
-                  url:
-                    "https://img.freepik.com/free-vector/welcome-neon-sign-vector_53876-76088.jpg?t=st=1656421912~exp=1656422512~hmac=853443135486ff2edbfe1c0930fba0bba476701d458976d32d4b3de0dff1a309&w=900"
+                  url: "",
+                    
                 }
               }
             },
@@ -46,14 +47,16 @@ const Survey = () => {
               }
             },  
             {
-              name: "End of Survey",
+              name: "statement",
               id: "jg1403r",
+              color: "#FFFFFF",
               attributes: {
                 label: "Tranquilio's vision is to empower the 21st Century Workforce.",
-                description: "By understanding what's causing us stress and burnout at work, we can start the conversation on how organizations approach workplace mental wellbeing.",
-                description: "We appreciate you for completing this assessment!",
-              }
-            },                
+                description: "By understanding what's causing us stress and burnout at work, we can start the conversation on how organizations approach workplace mental wellbeing. We appreciate you for completing this assessment!",
+                quotationMarks: true,
+                buttonText: "Fantastic!",
+              }, 
+            },             
           ],
           settings: {
             animationDirection: "vertical",
@@ -67,13 +70,16 @@ const Survey = () => {
             logo: {
               src: ""
             },
-            questionsColor: "#000",
+            backgroundImage: "https://images.pexels.com/photos/6331085/pexels-photo-6331085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+            backgroundColor: "",
+            questionsColor: "#fff",
             answersColor: "#0aa7c2",
-            buttonsFontColor: "#fff",
-            buttonsBorderRadius: 25,
+            buttonsFontColor: "#000",
+            buttonsBgColor: "#fff",
+            buttonsBorderRadius: 10,
             errorsFontColor: "#fff",
             errorsBgColor: "#f00",
-            progressBarFillColor: "#000",
+            progressBarFillColor: "#9b51e0",
             progressBarBgColor: "#ccc"
           }
         }}
@@ -85,6 +91,7 @@ const Survey = () => {
         }}
       />
     </div>
+
   );
 };
 

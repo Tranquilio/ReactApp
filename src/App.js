@@ -5,6 +5,7 @@ import OverviewPage from "./profile/overview";
 import InsightsPage from "./profile/insights";
 import RecommendationPage from "./profile/recommendation";
 import Data from "./api/database";
+import Assessment from "./lastSurveyPage";
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/profile/insights" element={<InsightsPage />} />
         <Route path="/profile/recommendation" element={<RecommendationPage />} /> 
         <Route path="/api/database" element={<Data />} /> 
+        <Route path="/assessment" element={<Assessment />} /> 
       </Routes>
     </BrowserRouter>
   );
