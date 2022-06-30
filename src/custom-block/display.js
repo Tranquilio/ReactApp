@@ -93,23 +93,23 @@
                    margin-right: 6px;
                    margin-bottom: 10px;
                    border-radius: 4px;
-                 
-                   color: #ffffff;
-                   box-shadow: #dac5ed 0px 0px
+                   background: rgba(255, 255, 255, 0.1);
+                   color: #fff;
+                   box-shadow: rgb(255 255 255 / 60%) 0px 0px 0px 1px inset;
                      0px 1px inset;
                    position: relative;
                    transition: all 0.1s ease-out 0s;
                    &:hover {
-                     background: #9b51e0;
-                
+                     background: rgba(255, 255, 255, 0.3);
+                     color: #fff;
                    }
                    &:last-child {
                      margin-right: 0;
                    }
                    &.selected {
-                     background: #9b51e0;
+                     background: #fff;
                      color: ${tinyColor(theme.answersColor).isDark()
-                       ? "#fff"
+                       ? "#9b51e0"
                        : "#333"};
                    }
                  `,
