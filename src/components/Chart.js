@@ -22,44 +22,24 @@ function Chart() {
 
     async function getChartData() {
         //Call api get answers
-        const result = await axios.get('/api/database')
-        data =  await result.json();
-        //console.log(data);
-        calcInfo();
+        const result = await axios.get('http://localhost:5000/api/scores')
+        data =  await result.data;
+        console.log(data);
+        calcInfo(data);
     }
 
     //Calculate information for one person
-    function calcInfo() {
+    function calcInfo(data) {
         categories = [];
         scores = [];
-        var answers = data["answers"];
-        var intermediate = {};
-        //console.log(answers);
-        for(var index in answers) {
-            var current = answers[index];
-            var cat = current["category"];
-            //Instead can simply sum here
-            if(intermediate[cat] == undefined) {
-                intermediate[cat] = [];
-            }
-            intermediate[cat].push(current["answer"]);
-        }
-        //console.log(intermediate);
-        for (var key in intermediate) {
+        
+        for (var key in data) {
             categories.push(key);
-            var value = intermediate[key];
-            //console.log(value);
-            var total = 0;
-            for(var index in value) {
-                total += parseInt(value[index]);
-            }
-            //console.log(total);
-            output[key] = total / value.length;
-            scores.push(total / value.length);
+            scores.push(data[key]);
         }
-        console.log(output);
-        //console.log(categories);
-        //console.log(scores);
+
+        console.log(categories);
+        console.log(scores);
         setLoad(true);
     }
 
