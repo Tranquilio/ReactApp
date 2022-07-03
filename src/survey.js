@@ -111,7 +111,7 @@ const Survey = () => {
               id: "kd12edg",
               attributes: {
                 required: true,
-                label: "One last thing before we share your result! What is your current role in your company?"
+                label: "One last thing before we share your result! \n\n What is your current role in your company?"
               }
             }, 
             {
