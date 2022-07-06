@@ -31,7 +31,7 @@ render(){
        
         {/* Side bar */}
         <aside className='sticky top-0 h-screen'>
-        <div className='shadow-xl flex md:grid-rows-4 h-screen w-36 bg-gradient-to-t from-transparent to-rose-300 p-3'>
+        <div className='shadow-xl text-white flex md:grid-rows-4 h-screen w-36 bg-gradient-to-t from-transparent to-rose-300 p-3'>
             <ul className='text-center'>
                 <li className={`mt-28 cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/overview" ? "bg-rose-100 text-rose-400 px-6" : ""}`}>
                     <Link to="../profile/overview" element={<OverviewPage/>}>

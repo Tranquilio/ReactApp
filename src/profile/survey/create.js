@@ -1,8 +1,8 @@
-import Sidebar from '../components/Sidebar'
-import SurveyInfo from '../components/SurveyInfo';
+import Sidebar from '../..//components/Sidebar'
+import {useEffect} from "react";
 
-function SurveyPage() {
-  return (  
+function CreatePage() {
+    return (
     <div className='bg-gradient-to-r from-transparent to-pink-50'>
     
     <div className='h-screen'>      
@@ -31,7 +31,7 @@ function SurveyPage() {
         </div>
     </div>
     </div>
-  );  
+    );
 }
 
-export default SurveyPage;
+export default CreatePage;
