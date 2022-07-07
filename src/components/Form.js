@@ -95,7 +95,7 @@ function Form() {
     // }
     const [dep, setDep] = useState('');
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event) => {
         setDep(event.target.value);
     };
 

@@ -27,7 +27,7 @@ function SurveyPage() {
                 </li>
               </ul>
             
-              {/* <SurveyInfo /> */}
+              <SurveyInfo />
           </div>
         </div>
     </div>
