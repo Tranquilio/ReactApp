@@ -13,16 +13,17 @@ render(){
         {/* Top bar */}
         <div className='shadow-md z-10 absolute w-full'>
         <div className='md:flex justify-between bg-white py-0 md:px-6 px-9'>
-            <div className='font-bold text-3xl cursor-pointer flex items-center'>
+            <div className='font-bold text-3xl cursor-pointer flex items-center mr-3'>
             
-            <img src={logo} width={110} height={100} />
+            <img src={logo} width={180} />
             
             </div>
             <div className='md:flex md:items-center mr-12 md:pb-0 pb-12 md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all-duration-500 ease-in'>
             {/* <div className='px-10 text-pink-400 text-l'>{session["user"]["email"]}</div> */}
+            <div className='mr-10 font-semibold text-xl text-pink-400'>Welcome John!</div>
             <Link to="/login">
-                <button className={`md:bg-rose-300 text-xl-center py-4 px-6 md:rounded-lg md:hover:bg-rose-400 md:text-right`}>
-                        <a className='md:text-white text-rose-400 md:font-bold font-semibold'>Sign Out → </a>
+                <button className={`md:bg-pink-400 text-xl-center py-4 px-6 md:rounded-lg md:hover:bg-pink-500 md:text-right`}>
+                        <a className='md:text-white text-pink-400 md:font-bold font-semibold'>Sign Out → </a>
                 </button>
             </Link>
             </div>
@@ -31,9 +32,9 @@ render(){
        
         {/* Side bar */}
         <aside className='sticky top-0 h-screen'>
-        <div className='shadow-xl text-white flex md:grid-rows-4 h-screen w-36 bg-gradient-to-t from-transparent to-rose-300 p-3'>
+        <div className='shadow-xl text-white flex md:grid-rows-4 h-screen w-36 bg-gradient-to-t from-transparent to-pink-400 p-3'>
             <ul className='text-center'>
-                <li className={`mt-28 cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/overview" ? "bg-rose-100 text-rose-400 px-6" : ""}`}>
+                <li className={`mt-28 cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/overview" ? "bg-pink-100 text-pink-400 px-6" : ""}`}>
                     <Link to="../profile/overview" element={<OverviewPage/>}>
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
@@ -45,7 +46,7 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/insights" ? "bg-rose-100 text-rose-400 px-7" : ""}`}>
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/insights" ? "bg-pink-100 text-pink-400 px-7" : ""}`}>
                     <Link to= "/profile/insights" element={<InsightsPage/>}>
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
@@ -57,7 +58,7 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/recommendation" ? "bg-rose-100 text-rose-400 px-3" : ""}`}>
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/recommendation" ? "bg-pink-100 text-pink-400 px-3" : ""}`}>
                     <Link to= "/profile/recommendation" element={<RecommendationPage/>} >
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">
@@ -69,7 +70,7 @@ render(){
                         </span>
                     </Link>
                 </li>
-                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/survey" ? "bg-rose-100 text-rose-400 px-8" : ""}`}>
+                <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == ("/profile/survey" || "/profile/survey/create" || "/profile/survey/preview" || "/profile/survey/deploy") ? "bg-pink-100 text-pink-400 px-8" : ""}`}>
                     <Link to= "/profile/survey">
                         <span>
                         <a class="flex items-center h-10 mt-auto hover:text-rose-400">

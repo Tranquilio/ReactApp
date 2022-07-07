@@ -3,6 +3,7 @@ import {useEffect} from "react";
 import { useState } from "react";
 import {Link} from 'react-router-dom';
 import Modal from '../..//components/Modal'
+import classes from "./nav.module.css";
 
 var code = "Deploy survey";
 
@@ -32,37 +33,41 @@ function DeployPage() {
         </div>
             <div>
               <ul className='p-48 flex -mt-10 gap-60'>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey" ? "text-rose-400" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <a href="/profile/survey">Onboard</a>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-rose-400" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <a href="/profile/survey/create">Create</a>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-rose-400" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <a href="/profile/survey/preview">Preview</a>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-rose-400" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <a href="/profile/survey/deploy">Deploy</a>
                 </li>
               </ul>
             
-            <div className='text-center'>
+                <div className='text-center'>
                 <div className='text-2xl font-bold'>
                     Ready to deploy survey?
                 </div>
                 
                 <Link to="">
-                    <button className='shadow-xl py-5 px-5 mt-10 rounded-full text-white bg-rose-300 hover:bg-rose-400' onClick={clicked} >
-                        <a className='tracking-tight md:text-white text-rose-400 px-2 text-xl'>{code}</a>
+                    <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500' onClick={clicked} >
+                        <a className='tracking-tight md:text-white text-rose-400 px-2'>{code}</a>
                     </button>
                 </Link>
             
                 {choice &&
-                <a className='tracking-tight md:text-white text-rose-400 md:font-bold font-semibold px-2 text-xl'>{generateLink()}</a>
+                <a className='tracking-tight md:text-white text-rose-400 md:font-bold font-semibold px-2'>{generateLink()}</a>
                 }
-            </div>
 
-         
+              <div className='gap-10 mt-48 flex justify-center items-center'>
+              <Link to="/profile/survey">
+              <div className={classes.backarrow}>Back</div>
+              </Link>
+              </div>
+            </div>
 
             {modalOn && < Modal setModalOn={setModalOn} setChoice={setChoice} />}
 

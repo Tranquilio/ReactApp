@@ -1,7 +1,6 @@
 import Sidebar from '../..//components/Sidebar'
-import {useEffect} from "react";
-import { useState } from "react";
 import {Link} from 'react-router-dom';
+import classes from "./nav.module.css";
 
 function PreviewPage () {
 
@@ -13,28 +12,45 @@ function PreviewPage () {
             <div className='flex z-10'>
              <Sidebar />
             </div>
-                <div>
-                  <ul className='p-48 flex -mt-10 gap-60'>
-                    <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/" ? "text-rose-400" : ""}`}>
-                      <a href="/profile/survey/">Onboard</a>
-                    </li>
-                    <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-rose-400" : ""}`}>
-                      <a href="/profile/survey/create">Create</a>
-                    </li>
-                    <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-rose-400" : ""}`}>
-                      <a href="/profile/survey/preview">Preview</a>
-                    </li>
-                    <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-rose-400" : ""}`}>
-                      <a href="/profile/survey/deploy">Deploy</a>
-                    </li>
-                  </ul>
+              <div>
+                <ul className='p-48 flex -mt-10 gap-60'>
+                  <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                    <a href="/profile/survey">Onboard</a>
+                  </li>
+                  <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                    <a href="/profile/survey/create">Create</a>
+                  </li>
+                  <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                    <a href="/profile/survey/preview">Preview</a>
+                  </li>
+                  <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                    <a href="/profile/survey/deploy">Deploy</a>
+                  </li>
+                </ul>
+                
+                <div className='text-center'>
+                <div className='font-bold text-2xl'>Message to your Employees</div>
+                {/* Edited text by the HR */}
+                <div>{Text}</div>
                 
                 <Link to="/survey">
-                    <button className='shadow-xl py-5 px-5 mt-10 rounded-full text-white bg-rose-300 hover:bg-rose-400'>Preview survey here</button>
+                    <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
                 </Link> 
+                
+              <div className='gap-10 mt-48 flex justify-center items-center'>
+              <Link to="/profile/survey">
+              <div className={classes.backarrow}>Back</div>
+              </Link>
+
+              <Link to="/profile/survey/preview">
+              <div className={classes.nextarrow}>Next</div>
+              </Link>
+              </div>
     
               </div>
+
             </div>
+        </div>
         </div>
         </div>
        

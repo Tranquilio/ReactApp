@@ -1,5 +1,6 @@
 import Sidebar from '../components/Sidebar'
 import SurveyInfo from '../components/SurveyInfo';
+import classes from "./survey/nav.module.css";
 
 function SurveyPage() {
   return (  
@@ -12,16 +13,16 @@ function SurveyPage() {
         </div>
             <div>
               <ul className='p-48 flex -mt-10 gap-60'>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey" ? "text-rose-400" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <a href="/profile/survey">Onboard</a>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-rose-400" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <a href="/profile/survey/create">Create</a>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-rose-400" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <a href="/profile/survey/preview">Preview</a>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-rose-400" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <a href="/profile/survey/deploy">Deploy</a>
                 </li>
               </ul>

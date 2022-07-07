@@ -1,6 +1,6 @@
 import { Form } from "@quillforms/renderer-core";
 import "@quillforms/renderer-core/build-style/style.css";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
 import "./styles.css";
 import "./custom-block";
