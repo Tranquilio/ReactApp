@@ -34,16 +34,16 @@ function DeployPage() {
             <div>
               <ul className='p-48 flex -mt-10 gap-60'>
                 <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-                  <a href="/profile/survey">Onboard</a>
+                  <Link to="/profile/survey">Onboard</Link>
                 </li>
                 <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-                  <a href="/profile/survey/create">Create</a>
+                  <Link to="/profile/survey/create">Create</Link>
                 </li>
                 <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-                  <a href="/profile/survey/preview">Preview</a>
+                  <Link to="/profile/survey/preview">Preview</Link>
                 </li>
                 <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-                  <a href="/profile/survey/deploy">Deploy</a>
+                  <Link to="/profile/survey/deploy">Deploy</Link>
                 </li>
               </ul>
             
@@ -63,8 +63,10 @@ function DeployPage() {
                 }
 
               <div className='gap-10 mt-48 flex justify-center items-center'>
-              <Link to="/profile/survey">
-              <div className={classes.backarrow}>Back</div>
+              <Link to="/profile/survey/preview">
+              <div className={classes.backarrow}>
+                <div className="rotate-180 ">Back</div>
+              </div>
               </Link>
               </div>
             </div>

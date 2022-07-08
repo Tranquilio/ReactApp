@@ -142,7 +142,6 @@ function Form() {
                     </TextField>
                 </Grid>
                 <CKEditor
-                    
                     editor={ ClassicEditor }
                     data="<p>Dear Employees,
                     We are proud to announce that ...</p>"
