@@ -41,13 +41,15 @@ function CreatePage() {
                 </li>
               </ul>
             
-              <div className='text-center -mt-32'>
+              <div className='text-center -mt-32 ml-11'>
               
               <Paper elevation={3}>
+                <div className='p-5'>
                 <Form />
+                </div>
               </Paper>
 
-              <div className='gap-10 mt-6 flex justify-center items-center'>
+              <div className='gap-10 mt-16 flex justify-center items-center'>
               <Link to="/profile/survey">
               <div className={classes.backarrow}>Back</div>
               </Link>

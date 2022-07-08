@@ -1,6 +1,7 @@
 import Sidebar from '../components/Sidebar'
 import SurveyInfo from '../components/SurveyInfo';
 import classes from "./survey/nav.module.css";
+import {Link} from "react-router-dom";
 
 function SurveyPage() {
   return (  
@@ -28,6 +29,13 @@ function SurveyPage() {
               </ul>
             
               <SurveyInfo />
+
+              <div className='gap-10 mt-6 flex justify-center items-center'>
+              <Link to="/profile/survey/preview">
+              <div className={classes.nextarrow}>Next</div>
+              </Link>
+              </div>
+
           </div>
         </div>
     </div>

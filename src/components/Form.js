@@ -102,7 +102,7 @@ function Form() {
     return (
         // <form  className={classes.root}>
         <div className="px-20">
-            <Grid container direction="column" gap={5} >
+            <Grid container direction="column" gap={3} >
                 <Grid item gap={6}>
                     {/* Survey Name */}
                     <TextField variant="outlined" label="Survey Name" name="surveyName" color="secondary" sx={{ width: 250 }} focused />
