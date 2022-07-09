@@ -62,7 +62,7 @@ function DeployPage() {
                 <a className='tracking-tight md:text-white text-rose-400 md:font-bold font-semibold px-2'>{generateLink()}</a>
                 }
 
-                <div className='gap-10 mt-48 flex justify-center items-center'>
+                <div className='gap-10 mt-48 mb-10 flex justify-center items-center'>
                   <Link to="/profile/survey/preview">
                     <div className={classes.backarrow}>
                       <div className="rotate-180 ">Back</div>

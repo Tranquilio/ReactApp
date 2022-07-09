@@ -3,8 +3,6 @@ import "@quillforms/renderer-core/build-style/style.css";
 import { useNavigate } from "react-router-dom";
 import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
 import "./styles.css";
-import "./custom-block";
-import "./custom-block2";
 import { useEffect, useState } from "react";
 
 registerCoreBlocks();
