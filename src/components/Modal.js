@@ -11,7 +11,6 @@ const Modal = ({ setModalOn, setChoice }) => {
 
     return (
         <div className="bg-rose-200 opacity-100 fixed inset-0 z-50">
-
             <div className="flex h-screen justify-center items-center">
                 <div className="flex-col justify-center bg-white py-12 px-24 border-4 border-rose-300 rounded-xl">
                     <div className="flex text-2xl font-semibold text-rose-600 mb-10">Are you sure ?</div>

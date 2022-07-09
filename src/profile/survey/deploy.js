@@ -1,5 +1,4 @@
 import Sidebar from '../..//components/Sidebar'
-import {useEffect} from "react";
 import { useState } from "react";
 import {Link} from 'react-router-dom';
 import Modal from '../..//components/Modal'
@@ -24,13 +23,14 @@ function DeployPage() {
     }
 
     return (  
-    <div className='bg-gradient-to-r from-transparent to-pink-50'>
-    
-    <div className='h-screen'>      
-        <div className='flex'>
-        <div className='flex z-10'>
-         <Sidebar />
-        </div>
+      <div className='bg-gradient-to-r from-transparent to-pink-50'>
+        <div className='h-screen'>      
+          <div className='flex'>
+
+            <div className='flex z-10'>
+            <Sidebar />
+            </div>
+
             <div>
               <ul className='p-48 flex -mt-10 gap-60'>
                 <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
@@ -46,8 +46,8 @@ function DeployPage() {
                   <Link to="/profile/survey/deploy">Deploy</Link>
                 </li>
               </ul>
-            
-                <div className='text-center'>
+          
+              <div className='text-center'>
                 <div className='text-2xl font-bold'>
                     Ready to deploy survey?
                 </div>
@@ -57,26 +57,26 @@ function DeployPage() {
                         <a className='tracking-tight md:text-white text-rose-400 px-2'>{code}</a>
                     </button>
                 </Link>
-            
+              
                 {choice &&
                 <a className='tracking-tight md:text-white text-rose-400 md:font-bold font-semibold px-2'>{generateLink()}</a>
                 }
 
-              <div className='gap-10 mt-48 flex justify-center items-center'>
-              <Link to="/profile/survey/preview">
-              <div className={classes.backarrow}>
-                <div className="rotate-180 ">Back</div>
+                <div className='gap-10 mt-48 flex justify-center items-center'>
+                  <Link to="/profile/survey/preview">
+                    <div className={classes.backarrow}>
+                      <div className="rotate-180 ">Back</div>
+                    </div>
+                  </Link>
+                </div>
               </div>
-              </Link>
-              </div>
+
+              {modalOn && < Modal setModalOn={setModalOn} setChoice={setChoice} />}
+
             </div>
-
-            {modalOn && < Modal setModalOn={setModalOn} setChoice={setChoice} />}
-
           </div>
         </div>
-    </div>
-    </div>
+      </div>
     );
 }
 
