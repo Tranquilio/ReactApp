@@ -1,6 +1,6 @@
 import { Form } from "@quillforms/renderer-core";
 import "@quillforms/renderer-core/build-style/style.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
 import "./styles.css";
 import { useEffect, useState } from "react";
@@ -8,7 +8,8 @@ import { useEffect, useState } from "react";
 registerCoreBlocks();
 var blocks = [];
 
-const Survey = () => {
+const Survey = (props) => {
+    const location = useLocation()
     const navigate = useNavigate();
 
     async function getQuestions() {
@@ -16,7 +17,7 @@ const Survey = () => {
         method : 'GET',
         });
         var data =  await result.json();
-        console.log(data);
+        //console.log(data);
         getBlocks(data["list"])
         setLoad(true);
     }
@@ -24,6 +25,7 @@ const Survey = () => {
     const [loaded,setLoad] = useState(false);
 
     useEffect(() => {
+        console.log(location)
         getQuestions();
     }, [])
 
@@ -161,8 +163,8 @@ const Survey = () => {
             }
             blocks.splice(blocks.length-3, 0, item);
         }
-        console.log(standard);
-        console.log(blocks);
+        //console.log(standard);
+        //console.log(blocks);
     }
 
     return (

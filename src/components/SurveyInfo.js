@@ -10,7 +10,11 @@ var code = "Deploy survey"
 
 const EXTENSIONS = ['xlsx','xls','csv']
 
-function SurveyInfo() {
+function SurveyInfo(props) {
+
+    function sendToParent(data) {
+        props.updateState(data)
+    }
 
     const [colDefs, setColDefs] = useState()
     const [data, setData] = useState()
@@ -58,6 +62,7 @@ function SurveyInfo() {
 
             //removing header
             fileData.splice(0,1)
+            sendToParent(fileData)
 
             setData(convertToJson(headers,fileData))
         }

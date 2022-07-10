@@ -2,8 +2,38 @@ import Sidebar from '../components/Sidebar'
 import SurveyInfo from '../components/SurveyInfo';
 import classes from "./survey/nav.module.css";
 import {Link} from "react-router-dom";
+import { useEffect, useState } from 'react';
+import emailjs from '@emailjs/browser'
 
 function SurveyPage() {
+
+  const [emails, setEmails] = useState(null)  
+
+  function sendEmails() {
+    console.log(emails)
+    var templateParams = {}
+    for(var email of emails) {
+
+      templateParams = {
+        to_email : email[1],
+        to_name : email[0],
+        message : "Email stuff works"
+      };
+
+      emailjs.send('service_9qvnw1f', 'template_cbesht4', templateParams, "maCgHWvsClEv8nkvk")
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+      }, function(error) {
+        console.log('FAILED...', error);
+      });
+    }
+  }
+
+  function updateEmails(data) {
+    console.log(data)
+    setEmails(data)
+  }
+
   return (  
     <div className='bg-gradient-to-r from-transparent to-pink-50'>    
       <div className='flex'>
@@ -27,9 +57,10 @@ function SurveyPage() {
           </ul>
             
           {/* Component for Insertion File and Excel Table  */}
-          <SurveyInfo />
+          <SurveyInfo updateState={updateEmails}/>
 
           <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
+            <button onClick={sendEmails} disabled={emails == null}>Test emails</button>
             <Link to="/profile/survey/create">
               <div className={classes.nextarrow}>Next</div>
             </Link>
