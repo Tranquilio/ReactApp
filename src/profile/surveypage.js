@@ -1,7 +1,7 @@
 import Sidebar from '../components/Sidebar'
 import SurveyInfo from '../components/SurveyInfo';
 import classes from "./survey/nav.module.css";
-import {Link} from "react-router-dom";
+import {Link} from "react-router-dom"
 
 function SurveyPage() {
   return (  

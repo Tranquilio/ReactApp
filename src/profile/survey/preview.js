@@ -1,6 +1,7 @@
 import Sidebar from '../..//components/Sidebar'
 import {Link} from 'react-router-dom';
 import classes from "./nav.module.css";
+import Survey from "../../survey";
 
 function PreviewPage () {
 
@@ -30,13 +31,16 @@ function PreviewPage () {
                 
             <div className='text-center'>
 
-              <div className='font-bold text-2xl'>Message to your Employees</div>
+              <div className='font-bold -mt-36 text-2xl'>Take a look at our drafted mail!</div>
               {/* Edited text by the HR */}
               <div>{Text}</div>
               
-              <Link to="/survey">
+              {/* <Link to="/survey">
                   <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
-              </Link> 
+              </Link>  */}
+              <div className='ml-16 p-20 overflow-auto'>
+                <Survey />
+              </div>
                 
               <div className='gap-10 mt-48 mb-10 flex justify-center items-center'>
                 <Link to="/profile/survey/create">
