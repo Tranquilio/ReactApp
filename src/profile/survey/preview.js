@@ -5,6 +5,10 @@ import Survey from "../../survey";
 
 function PreviewPage () {
 
+    const sendData = { 
+      data: "something"
+    };
+
     return ( 
         <div className='bg-gradient-to-r from-transparent to-pink-50'>     
           <div className='flex'>
@@ -35,9 +39,10 @@ function PreviewPage () {
               {/* Edited text by the HR */}
               <div>{Text}</div>
               
-              {/* <Link to="/survey">
+              <Link to="/survey" state={sendData}>
                   <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
-              </Link>  */}
+              </Link> 
+              
               <div className='ml-16 p-20 overflow-auto'>
                 <Survey />
               </div>
