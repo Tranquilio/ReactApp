@@ -1,12 +1,20 @@
 import Sidebar from '../..//components/Sidebar'
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import classes from "./nav.module.css";
+import { useEffect, useState } from 'react';
 
 function PreviewPage () {
 
-    const sendData = { 
-      data: "something"
-    };
+    const [text, setText] = useState("Dear Employees, We are proud to announce that ...")
+    const location = useLocation()
+    useEffect(() => {
+      console.log(location.state)
+      if(location.state != null) {
+        if(location.state.data != null) {
+          setText(location.state.data)
+        }
+      }
+    }, [])
 
     return ( 
         <div className='bg-gradient-to-r from-transparent to-pink-50'>     
@@ -31,30 +39,30 @@ function PreviewPage () {
                   <Link to="/profile/survey/deploy">Deploy</Link>
                 </li>
               </ul>
-                
-            <div className='text-center'>
+ 
+              <div className='text-center'>
 
-              <div className='font-bold text-2xl'>Message to your Employees</div>
-              {/* Edited text by the HR */}
-              <div>{Text}</div>
-              
-              <Link to="/survey" state={sendData}>
-                  <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
-              </Link> 
+                <div className='font-bold text-2xl'>Message to your Employees</div>
+                {/* Edited text by the HR */}
+                <div>{text}</div>
                 
-              <div className='gap-10 mt-48 mb-10 flex justify-center items-center'>
-                <Link to="/profile/survey/create">
-                  <div className={classes.backarrow}>
-                    <div className="rotate-180 ">Back</div>
-                  </div>
-                </Link>
+                <Link to="/survey">
+                    <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
+                </Link> 
+                  
+                <div className='gap-10 mt-48 mb-10 flex justify-center items-center'>
+                  <Link to="/profile/survey/create">
+                    <div className={classes.backarrow}>
+                      <div className="rotate-180 ">Back</div>
+                    </div>
+                  </Link>
 
-                <Link to="/profile/survey/deploy">
-                  <div className={classes.nextarrow}>Next</div>
-                </Link>
+                  <Link to="/profile/survey/deploy">
+                    <div className={classes.nextarrow}>Next</div>
+                  </Link>
+                </div>
+      
               </div>
-    
-            </div>
 
             </div>
           </div>

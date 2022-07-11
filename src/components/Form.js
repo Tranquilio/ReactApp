@@ -4,6 +4,9 @@ import MenuItem from '@mui/material/MenuItem';
 import { CKEditor, editor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
+
+var text = ""
+
 const departments = [
     {
         label: "Information Technology",
@@ -63,7 +66,11 @@ const departments = [
       }
   ];
 
-function Form() {
+function Form(props) {
+
+  function updateState(data) {
+    props.updateParent(data)
+  }
 
     const [dep, setDep] = useState('');
 
@@ -155,6 +162,8 @@ function Form() {
             } }
             onChange={ ( event, editor ) => {
                 const data = editor.getData();
+                text = data
+                updateState(text)
                 console.log( { event, editor, data } );
             } }
             onBlur={ ( event, editor ) => {
