@@ -73,10 +73,10 @@ function SurveyInfo(props) {
         <div className="-mt-40 ml-11 text-center">
             <div className="mr-20 text-xl font-semibold tracking-tight">Insert your excel sheet below</div>
             <input type="file" onChange={importExcel} accept=".xls,.xlsx,.csv" className="py-10"/>
-            {/* <MaterialTable title="Company Data" data={data} columns={colDefs} /> */}
-        
+            <MaterialTable title="Company Data" data={data} columns={colDefs} />
+            {/* <TableHeaderColumn isKey dataField='id'>Product ID</TableHeaderColumn>
             <BootstrapTable data={data} >
-            </ BootstrapTable>
+            </ BootstrapTable> */}
         </div>
     );
 
