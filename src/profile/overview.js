@@ -1,10 +1,6 @@
 import Sidebar from '..//components/Sidebar'
-import {useEffect} from "react";
 
-var average;
-var sum = 0;
 var avg;
-var topScores = [];
 
 function OverviewPage() {
 
@@ -61,22 +57,22 @@ function OverviewPage() {
             </div>
 
             <div>
-              { (avg == 6) ? 
+              { (avg === 6) ? 
               <div>
                 <div className='text-5xl text-center font-bold text-green-400 py-5'>100</div>
                 <div className='text-center mt-12 text-lg'>Awesome! Your organisation is averaging an extremely healthy well-being score.</div>
               </div> :
-                (avg == 5) ? 
+                (avg === 5) ? 
               <div>
                 <div className='text-5xl text-center font-bold text-green-200 py-5'>80</div>
                 <div className='text-center mt-12 text-lg'>Great! Your organisation is averaging a very healthy well-being score.</div>
               </div> :
-                (avg == 3 || avg == 4) ? 
+                (avg === 3 || avg === 4) ? 
               <div>
                 <div className='text-5xl text-center font-bold text-yellow-400 py-5'>50</div>
                 <div className='text-center mt-12 text-lg'>Good job! Your organisation is averaging a healthy well-being score.</div>
               </div> :
-                (avg == 1 || avg == 2) ? 
+                (avg === 1 || avg === 2) ? 
               <div>
                 <div className='text-5xl text-center font-bold text-red-200 py-5'>20</div>
                 <div className='text-center mt-12 text-lg'>Something's going on. Your organisation is averaging a poor well-being score.</div>

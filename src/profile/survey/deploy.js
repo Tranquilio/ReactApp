@@ -7,7 +7,7 @@ import classes from "./nav.module.css";
 var code = "Deploy survey";
 
 function DeployPage() {
-    const [deployState, setDeploy] = useState(false);
+    // const [deployState, setDeploy] = useState(false);
     const [modalOn, setModalOn] = useState(false);
     const [choice, setChoice] = useState(false);
 
@@ -33,16 +33,16 @@ function DeployPage() {
 
             <div>
               <ul className='p-48 flex -mt-10 gap-60'>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <Link to="/profile/survey">Onboard</Link>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <Link to="/profile/survey/create">Create</Link>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <Link to="/profile/survey/preview">Preview</Link>
                 </li>
-                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                   <Link to="/profile/survey/deploy">Deploy</Link>
                 </li>
               </ul>
@@ -52,7 +52,7 @@ function DeployPage() {
                     Ready to deploy survey?
                 </div>
                 
-                <Link to="">
+                <Link to="/">
                     <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500' onClick={clicked} >
                         <a className='tracking-tight md:text-white text-rose-400 px-2'>{code}</a>
                     </button>

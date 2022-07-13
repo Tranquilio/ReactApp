@@ -1,7 +1,7 @@
 import { Grid, TextField } from "@mui/material";
 import React, { useState } from "react";
 import MenuItem from '@mui/material/MenuItem';
-import { CKEditor, editor } from '@ckeditor/ckeditor5-react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 

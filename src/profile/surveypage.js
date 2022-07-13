@@ -2,7 +2,7 @@ import Sidebar from '../components/Sidebar'
 import SurveyInfo from '../components/SurveyInfo';
 import classes from "./survey/nav.module.css";
 import {Link} from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import emailjs from '@emailjs/browser'
 
 function SurveyPage() {
@@ -62,16 +62,16 @@ function SurveyPage() {
         </div>
         <div>
           <ul className='p-48 flex -mt-10 gap-60'>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey">Onboard</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey/create">Create</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey/preview">Preview</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey/deploy">Deploy</Link>
             </li>
           </ul>

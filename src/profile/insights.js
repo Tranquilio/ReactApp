@@ -1,8 +1,6 @@
 import Sidebar from '..//components/Sidebar'
-import {useEffect} from "react";
 import { Fade } from 'react-reveal';
 import SBChart from '..//components/Chart';
-import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
@@ -10,7 +8,7 @@ import Container from '@mui/material/Container';
 
 function InsightsPage() {
 
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
   // useEffect(() => {
 

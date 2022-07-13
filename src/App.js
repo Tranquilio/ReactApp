@@ -6,8 +6,6 @@ import PreviewPage from "./profile/survey/preview";
 import DeployPage from "./profile/survey/deploy";
 import OverviewPage from "./profile/overview";
 import InsightsPage from "./profile/insights";
-import RecommendationPage from "./profile/recommendation";
-import Data from "./api/database";
 import Assessment from "./lastSurveyPage";
 import './App.css';
 

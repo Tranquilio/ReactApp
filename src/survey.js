@@ -34,8 +34,6 @@ const Survey = (props) => {
     }
 
 
-    
-
     var standard = [
         {
             name: "welcome-screen",
@@ -192,7 +190,6 @@ const Survey = (props) => {
                     questionsColor: "#fff",
                     answersColor: "#0aa7c2",
                     buttonsFontColor: "#9b51e0",
-                    buttonsBgColor: "#fff",
                     buttonsBorderRadius: 10,
                     errorsFontColor: "#fff",
                     errorsBgColor: "#f00",
