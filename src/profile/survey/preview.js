@@ -51,9 +51,9 @@ function PreviewPage () {
                   <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
               </Link> 
               
-              <div className='ml-16 p-20 overflow-auto'>
+              {/* <div className='ml-16 p-20 overflow-auto'>
                 <Survey />
-              </div>
+              </div> */}
                 
                 <Link to="/survey">
                     <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
