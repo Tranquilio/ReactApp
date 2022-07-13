@@ -4,15 +4,15 @@ import { Fade } from "react-reveal";
 import { useEffect } from "react";
 import classes from "./surveyinfo.module.css";
 import MaterialTable from "material-table";
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+// import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
 var XLSX = require("xlsx");
 
 function SurveyInfo(props) {
 
-    function sendToParent(data) {
-        props.updateState(data)
+    function sendToParent(emails, headers) {
+        props.updateState(emails, headers)
     }
 
     const [colDefs, setColDefs] = useState()
@@ -56,7 +56,7 @@ function SurveyInfo(props) {
 
             //removing header
             fileData.splice(0,1)
-            sendToParent(fileData)
+            sendToParent(fileData, headers)
 
             setData(convertToJson(headers,fileData))
         }
@@ -73,10 +73,10 @@ function SurveyInfo(props) {
         <div className="-mt-40 ml-11 text-center">
             <div className="mr-20 text-xl font-semibold tracking-tight">Insert your excel sheet below</div>
             <input type="file" onChange={importExcel} accept=".xls,.xlsx,.csv" className="py-10"/>
-            {/* <MaterialTable title="Company Data" data={data} columns={colDefs} /> */}
+            <MaterialTable title="Company Data" data={data} columns={colDefs} />
         
-            <BootstrapTable data={data} >
-            </ BootstrapTable>
+            {/* <BootstrapTable data={data} >
+            </ BootstrapTable> */}
         </div>
     );
 

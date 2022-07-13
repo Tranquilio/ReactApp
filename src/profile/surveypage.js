@@ -8,15 +8,34 @@ import emailjs from '@emailjs/browser'
 function SurveyPage() {
 
   const [emails, setEmails] = useState(null)  
+  const [headers, setHeaders] = useState(null)
 
   function sendEmails() {
     console.log(emails)
     var templateParams = {}
-    for(var email of emails) {
+    var nameIndex = -1
+    var emailIndex  = -1
+    for(var index in headers) {
+      //Regex better
+      if(headers[index] === "name" || headers[index] === "Name") {
+        nameIndex = index
+      } else if (headers[index] === "email" || headers[index] === "Email") {
+        emailIndex = index
+      }
+    }
+    // console.log(nameIndex)
+    // console.log(emailIndex)
 
+    //If insufficient parameters in csv
+    if(nameIndex < 0 || emailIndex < 0) {
+      alert("csv file must contain a name column, email column")
+      return
+    }
+
+    for(var email of emails) {
       templateParams = {
-        to_email : email[1],
-        to_name : email[0],
+        to_email : email[emailIndex],
+        to_name : email[nameIndex],
         message : "Email stuff works"
       };
 
@@ -29,9 +48,10 @@ function SurveyPage() {
     }
   }
 
-  function updateEmails(data) {
-    console.log(data)
-    setEmails(data)
+  function updateEmails(emails, headers) {
+    console.log(emails)
+    setEmails(emails)
+    setHeaders(headers)
   }
 
   return (  
