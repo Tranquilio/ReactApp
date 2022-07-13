@@ -1,11 +1,19 @@
 import Sidebar from '../..//components/Sidebar'
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import classes from "./nav.module.css";
 import Form from '../..//components/Form'
 import { Paper } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 function CreatePage() {
+
+
+    const [currtext, updateText] = useState(null)
+    useEffect(() => console.log(currtext), [currtext])
+
+    const sendData = { 
+      data: currtext
+    };
 
     return (
     <div className='bg-gradient-to-r from-transparent to-pink-50'>   
@@ -24,7 +32,7 @@ function CreatePage() {
               <Link to="/profile/survey/create">Create</Link>
             </li>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey/preview">Preview</Link>
+              <Link to="/profile/survey/preview" state={sendData}>Preview</Link>
             </li>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname == "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey/deploy">Deploy</Link>
@@ -35,7 +43,7 @@ function CreatePage() {
           
             <Paper elevation={3}>
               <div className='p-5'>
-                <Form />
+                <Form updateParent = {updateText} />
               </div>
             </Paper>
 
@@ -48,7 +56,7 @@ function CreatePage() {
 
               
               {/* <Link to='/profile/survey/preview' params={test}> */}
-              <Link to={{ pathname: `/profile/survey/preview`, state: { foo: 'bar'} }}>
+              <Link to="/profile/survey/preview" state={sendData}>
                 <div className={classes.nextarrow}>Next</div>
               </Link>
             </div>
