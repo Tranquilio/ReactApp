@@ -8,32 +8,32 @@ var topScores = [];
 
 function OverviewPage() {
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    async function getScore() {
-      const result = await fetch('../api/topScores', {
-          method : 'GET',
-      }); 
+  //   async function getScore() {
+  //     const result = await fetch('../api/topScores', {
+  //         method : 'GET',
+  //     }); 
   
-      topScores =  await result.json(); 
-      console.log(topScores);
-      calcAvg(topScores);
-    }   
+  //     topScores =  await result.json(); 
+  //     console.log(topScores);
+  //     calcAvg(topScores);
+  //   }   
     
-    getScore();
+  //   getScore();
 
-    function calcAvg(scores) {
-      for (var num in scores) {
-        sum += scores[num];
-      }
-      // console.log(sum)
-      average = Math.ceil(sum) / 3;
-      // console.log(average)
-      avg = Math.ceil(average)
-       console.log(avg)
-    }
+  //   function calcAvg(scores) {
+  //     for (var num in scores) {
+  //       sum += scores[num];
+  //     }
+  //     // console.log(sum)
+  //     average = Math.ceil(sum) / 3;
+  //     // console.log(average)
+  //     avg = Math.ceil(average)
+  //      console.log(avg)
+  //   }
 
-  },[]);
+  // },[]);
   
   // const { data: session, status } = useSession();
 

@@ -17,14 +17,13 @@ function App() {
       <Routes>
         <Route path="/profile/overview" element={<OverviewPage />} />
         <Route path="/profile/insights" element={<InsightsPage />} />
-        <Route path="/profile/recommendation" element={<RecommendationPage />} /> 
+        <Route path="/profile/recommendation" element={null} /> 
         <Route path="/profile/survey" element={<SurveyPage />} />
         
         <Route path="/profile/survey/create" element={<CreatePage />} />
         <Route path="/profile/survey/preview" element={<PreviewPage />} />
         <Route path="/profile/survey/deploy" element={<DeployPage />} />
     
-        <Route path="/api/database" element={<Data />} /> 
         <Route path="/assessment" element={<Assessment />} /> 
         <Route path="/survey" element={<Survey />} />
 

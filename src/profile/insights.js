@@ -12,23 +12,23 @@ function InsightsPage() {
 
   const [data, setData] = useState(null);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    async function getData() {
-      const result = await fetch('../api/csv2', {
-          method : 'GET',
-      }); 
+  //   async function getData() {
+  //     const result = await fetch('../api/csv2', {
+  //         method : 'GET',
+  //     }); 
   
-      const body =  await result.json(); 
-      console.log(body);
+  //     const body =  await result.json(); 
+  //     console.log(body);
       
-      var data = body;
-      return data.csvInfo;
-    }  
+  //     var data = body;
+  //     return data.csvInfo;
+  //   }  
   
-    getData().then((value) => setData(value)); 
+  //   getData().then((value) => setData(value)); 
 
-  },[]);
+  // },[]);
   
   // const { data: session, status } = useSession();
 
