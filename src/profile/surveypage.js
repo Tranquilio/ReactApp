@@ -79,12 +79,14 @@ function SurveyPage() {
           {/* Component for Insertion File and Excel Table  */}
           <SurveyInfo updateState={updateEmails}/>
 
+          {/* Navigation */}
           <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
             <button onClick={sendEmails} disabled={emails == null}>Test emails</button>
             <Link to="/profile/survey/create">
               <div className={classes.nextarrow}>Next</div>
             </Link>
           </div>
+
         </div>
       </div>
     </div>

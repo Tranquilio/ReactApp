@@ -33,7 +33,7 @@
   border-bottom: 20px solid transparent;
 }
 
-.backarrow:before:hover {
+.backarrow:hover:before {
     content: "";
     position: absolute;
     right: -20px;
@@ -79,7 +79,7 @@
   border-bottom: 20px solid transparent;
 }
 
-.nextarrow:before:hover {
+.nextarrow:hover:before {
     content: "";
     position: absolute;
     right: -20px;

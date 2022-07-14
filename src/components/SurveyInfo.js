@@ -80,14 +80,14 @@ function SurveyInfo(props) {
                 editable={{
                     onRowAdd:(newRow)=>new Promise((resolve,reject)=>{})
                 }}
-                actions={[
-                    {
-                      icon: AddBox,
-                      tooltip: 'Add Employee',
-                      isFreeAction: true,
-                      onClick: (event) => alert("You want to add a new row")
-                    }
-                  ]}
+                // actions={[
+                //     {
+                //       icon: AddBox,
+                //       tooltip: 'Add Employee',
+                //       isFreeAction: true,
+                //       onClick: (event) => alert("You want to add a new row")
+                //     }
+                //   ]}
                 options={{
                     headerStyle: {
                       backgroundColor: '#01579b',

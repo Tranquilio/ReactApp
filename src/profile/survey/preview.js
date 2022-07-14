@@ -1,20 +1,10 @@
 import Sidebar from '../..//components/Sidebar'
-import {Link, useLocation} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import classes from "./nav.module.css";
-import { useEffect, useState } from 'react';
+import { Paper } from '@material-ui/core'
+import Preview from '../..//components/Preview';
 
 function PreviewPage () {
-
-    const [text, setText] = useState("Dear Employees, We are proud to announce that ...")
-    const location = useLocation()
-    useEffect(() => {
-      console.log(location.state)
-      if(location.state != null) {
-        if(location.state.data != null) {
-          setText(location.state.data)
-        }
-      }
-    }, [])
 
     return ( 
         <div className='bg-gradient-to-r from-transparent to-pink-50'>     
@@ -42,33 +32,24 @@ function PreviewPage () {
  
               <div className='text-center'>
 
-              <div className='font-bold text-2xl'>Message to your Employees</div>
-              {/* Edited text by the HR */}
-              <div>{text}</div>
-
-              <Link to="/survey">
-                  <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
-              </Link> 
-              
-              {/* <div className='ml-16 p-20 overflow-auto'>
-                <Survey />
-              </div> */}
-                
-                <Link to="/survey">
-                    <button className='shadow-xl py-5 px-5 mt-10 rounded-lg text-white bg-pink-400 hover:bg-pink-500'>Preview survey here</button>
-                </Link> 
-                  
-                <div className='gap-10 mt-48 mb-10 flex justify-center items-center'>
-                  <Link to="/profile/survey/create">
-                    <div className={classes.backarrow}>
-                      <div className="rotate-180 ">Back</div>
-                    </div>
-                  </Link>
-
-                  <Link to="/profile/survey/deploy">
-                    <div className={classes.nextarrow}>Next</div>
-                  </Link>
+              <Paper elevation={3} className="ml-5">
+                <div className='p-5 -mt-32'>
+                  <Preview />
                 </div>
+              </Paper>
+    
+              {/* Navigation */}
+              <div className='gap-10 mt-10 mb-10 flex justify-center items-center'>
+                <Link to="/profile/survey/create">
+                  <div className={classes.backarrow}>
+                    <div className="rotate-180 ">Back</div>
+                  </div>
+                </Link>
+
+                <Link to="/profile/survey/deploy">
+                  <div className={classes.nextarrow}>Next</div>
+                </Link>
+              </div>
       
               </div>
 

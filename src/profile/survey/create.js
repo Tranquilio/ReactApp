@@ -47,6 +47,7 @@ function CreatePage() {
               </div>
             </Paper>
 
+            {/* Navigation */}
             <div className='gap-10 mt-16 mb-10 flex justify-center items-center'>
               <Link to="/profile/survey">
                 <div className={classes.backarrow}>
@@ -54,7 +55,6 @@ function CreatePage() {
                 </div>
               </Link>
 
-              
               {/* <Link to='/profile/survey/preview' params={test}> */}
               <Link to="/profile/survey/preview" state={sendData}>
                 <div className={classes.nextarrow}>Next</div>

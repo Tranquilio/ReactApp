@@ -70,7 +70,7 @@ render(){
                             </span>
                         </Link>
                     </li>
-                    <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname === ("/profile/survey" || "/profile/survey/create" || "/profile/survey/preview" || "/profile/survey/deploy") ? "bg-pink-100 text-pink-400 px-8" : ""}`}>
+                    <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/survey" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/create" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/preview" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/deploy" ? "bg-pink-100 text-pink-400 px-8" : "" }`}>
                         <Link to= "/profile/survey">
                             <span>
                                 <div className="flex items-center h-10 mt-auto hover:text-rose-400">
