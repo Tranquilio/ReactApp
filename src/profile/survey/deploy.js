@@ -1,8 +1,9 @@
 import Sidebar from '../..//components/Sidebar'
-import {Link} from 'react-router-dom';
-import classes from "./nav.module.css";
-import Deploy from '../../components/Deploy';
+import {Link} from 'react-router-dom'
+import classes from "./nav.module.css"
+import Deploy from '../../components/Deploy'
 import { Paper } from '@material-ui/core'
+import { Fade } from 'react-reveal'
 
 function DeployPage() {
   
@@ -31,24 +32,26 @@ function DeployPage() {
               </li>
             </ul>
         
-            <div className='text-center -mt-32'>
+            <Fade cascade>
+              <div className='text-center -mt-32'>
 
-              <Paper elevation={3} className="ml-5">
-                <div className='p-5 -ml-4'>
-                  <Deploy />
-                </div>
-              </Paper>
-
-              {/* Navigation */}
-              <div className='gap-10 mt-10 mb-10 flex justify-center items-center'>
-                <Link to="/profile/survey/preview">
-                  <div className={classes.backarrow}>
-                    <div className="rotate-180 ">Back</div>
+                <Paper elevation={3} className="ml-5">
+                  <div className='p-5 -ml-4'>
+                    <Deploy />
                   </div>
-                </Link>
+                </Paper>
+
+                {/* Navigation */}
+                <div className='gap-10 mt-10 mb-10 flex justify-center items-center'>
+                  <Link to="/profile/survey/preview">
+                    <div className={classes.backarrow}>
+                      <div className="rotate-180 ">Back</div>
+                    </div>
+                  </Link>
+                </div>
+                
               </div>
-              
-            </div>
+            </Fade>
 
           </div>
 

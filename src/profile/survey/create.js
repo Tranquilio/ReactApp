@@ -1,18 +1,22 @@
 import Sidebar from '../..//components/Sidebar'
-import {useEffect, useState} from "react";
-import classes from "./nav.module.css";
+import {useEffect, useState} from "react"
+import classes from "./nav.module.css"
 import Form from '../..//components/Form'
 import { Paper } from '@material-ui/core'
 import { Link } from 'react-router-dom'
+import Fade from 'react-reveal'
 
 function CreatePage() {
 
-
     const [currtext, updateText] = useState(null)
+    const [startDate, setStartDate] = useState(null)
+    const [endDate, setEndDate] = useState(null)
     useEffect(() => console.log(currtext), [currtext])
 
     const sendData = { 
-      data: currtext
+      data: currtext,
+      start: startDate,
+      end: endDate
     };
 
     return (
@@ -22,7 +26,7 @@ function CreatePage() {
         <div className='flex z-10'>
         <Sidebar />
         </div>
-
+ 
         <div>
           <ul className='p-48 flex -mt-10 gap-60'>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
@@ -39,31 +43,34 @@ function CreatePage() {
             </li>
           </ul>
         
-          <div className='-mt-32 ml-11'>
-          
-            <Paper elevation={3}>
-              <div className='p-5'>
-                <Form updateParent = {updateText} />
-              </div>
-            </Paper>
-
-            {/* Navigation */}
-            <div className='gap-10 mt-16 mb-10 flex justify-center items-center'>
-              <Link to="/profile/survey">
-                <div className={classes.backarrow}>
-                  <div className="rotate-180 ">Back</div>
+          <Fade cascade>
+            <div className='-mt-32 ml-11'>
+            
+              <Paper elevation={3}>
+                <div className='p-5'>
+                  <Form updateParent = {updateText} />
                 </div>
-              </Link>
+              </Paper>
 
-              {/* <Link to='/profile/survey/preview' params={test}> */}
-              <Link to="/profile/survey/preview" state={sendData}>
-                <div className={classes.nextarrow}>Next</div>
-              </Link>
+              {/* Navigation */}
+              <div className='gap-10 mt-16 mb-10 flex justify-center items-center'>
+                <Link to="/profile/survey">
+                  <div className={classes.backarrow}>
+                    <div className="rotate-180 ">Back</div>
+                  </div>
+                </Link>
+
+                {/* <Link to='/profile/survey/preview' params={test}> */}
+                <Link to="/profile/survey/preview" state={sendData}>
+                  <div className={classes.nextarrow}>Next</div>
+                </Link>
+              </div>
+          
             </div>
-        
-          </div>
+          </Fade>
               
         </div>
+        
       </div>
     </div>
   );

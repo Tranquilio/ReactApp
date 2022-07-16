@@ -1,9 +1,10 @@
 import Sidebar from '../components/Sidebar'
-import SurveyInfo from '../components/SurveyInfo';
-import classes from "./survey/nav.module.css";
-import {Link} from "react-router-dom";
-import { useState } from 'react';
+import SurveyInfo from '../components/SurveyInfo'
+import classes from "./survey/nav.module.css"
+import {Link} from "react-router-dom"
+import { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { Fade } from 'react-reveal'
 
 function SurveyPage() {
 
@@ -76,16 +77,18 @@ function SurveyPage() {
             </li>
           </ul>
             
-          {/* Component for Insertion File and Excel Table  */}
-          <SurveyInfo updateState={updateEmails}/>
+          <Fade cascade>  
+            {/* Component for Insertion File and Excel Table  */}
+            <SurveyInfo updateState={updateEmails}/>
 
-          {/* Navigation */}
-          <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
-            <button onClick={sendEmails} disabled={emails == null}>Test emails</button>
-            <Link to="/profile/survey/create">
-              <div className={classes.nextarrow}>Next</div>
-            </Link>
-          </div>
+            {/* Navigation */}
+            <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
+              <button onClick={sendEmails} disabled={emails == null}>Test emails</button>
+              <Link to="/profile/survey/create">
+                <div className={classes.nextarrow}>Next</div>
+              </Link>
+            </div>
+          </Fade>
 
         </div>
       </div>

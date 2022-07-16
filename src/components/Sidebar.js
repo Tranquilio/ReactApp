@@ -30,7 +30,7 @@ render(){
        
         {/* Side bar */}
         <aside className='sticky top-0 h-screen'>
-            <div className='shadow-xl text-white flex md:grid-rows-4 h-screen w-36 bg-gradient-to-t from-transparent to-pink-400 p-3'>
+            <div className='shadow-xl text-white flex md:grid-rows-4 h-screen w-36 bg-gradient-to-t from-transparent to-pink-400 p-3 drop-shadow-xl'>
                 <ul className='text-center'>
                     <li className={`mt-28 cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname === "/profile/overview" ? "bg-pink-100 text-pink-400 px-6" : ""}`}>
                         <Link to="../profile/overview" element={<OverviewPage/>}>
@@ -70,7 +70,7 @@ render(){
                             </span>
                         </Link>
                     </li>
-                    <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname == "/profile/survey" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/create" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/preview" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/deploy" ? "bg-pink-100 text-pink-400 px-8" : "" }`}>
+                    <li className={`cursor-pointer p-1 rounded-r-lg py-3 ${window.location.pathname === "/profile/survey" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/create" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/preview" ? "bg-pink-100 text-pink-400 px-8" : "/profile/survey/deploy" ? "bg-pink-100 text-pink-400 px-8" : "" }`}>
                         <Link to= "/profile/survey">
                             <span>
                                 <div className="flex items-center h-10 mt-auto hover:text-rose-400">

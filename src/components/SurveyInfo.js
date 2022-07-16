@@ -1,9 +1,10 @@
-import React from "react";
-import MaterialTable from "material-table";
-import AddBox from "@material-ui/icons/AddBox";
-import tableIcons from "./MaterialTableIcons";
-// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-// import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+import React from "react"
+import MaterialTable from "material-table"
+import AddBox from "@material-ui/icons/AddBox"
+import tableIcons from "./MaterialTableIcons"
+import { Fade } from "react-reveal"
+// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table'
+// import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
 var XLSX = require("xlsx");
 
@@ -70,6 +71,7 @@ function SurveyInfo(props) {
 
     return (
         <div className="-mt-40 ml-11 text-center">
+            <Fade>
             <div className="mr-20 text-xl font-semibold tracking-tight">Insert your excel sheet below</div>
             <input type="file" onChange={importExcel} accept=".xls,.xlsx,.csv" className="py-10"/>
             <MaterialTable title="Company Data" 
@@ -101,7 +103,9 @@ function SurveyInfo(props) {
         
             {/* <BootstrapTable data={data} >
             </ BootstrapTable> */}
+            </Fade>
         </div>
+        
     );
 
 }

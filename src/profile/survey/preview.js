@@ -1,8 +1,9 @@
 import Sidebar from '../..//components/Sidebar'
-import {Link} from 'react-router-dom';
-import classes from "./nav.module.css";
+import {Link} from 'react-router-dom'
+import classes from "./nav.module.css"
 import { Paper } from '@material-ui/core'
-import Preview from '../..//components/Preview';
+import Preview from '../..//components/Preview'
+import { Fade } from 'react-reveal'
 
 function PreviewPage () {
 
@@ -30,28 +31,28 @@ function PreviewPage () {
                 </li>
               </ul>
  
-              <div className='text-center'>
-
-              <Paper elevation={3} className="ml-5">
-                <div className='p-5 -mt-32'>
-                  <Preview />
-                </div>
-              </Paper>
-    
-              {/* Navigation */}
-              <div className='gap-10 mt-10 mb-10 flex justify-center items-center'>
-                <Link to="/profile/survey/create">
-                  <div className={classes.backarrow}>
-                    <div className="rotate-180 ">Back</div>
+              <Fade cascade>
+                <Paper elevation={3} className="ml-5">
+                  <div className='p-5 -mt-32'>
+                    <Preview />
                   </div>
-                </Link>
-
-                <Link to="/profile/survey/deploy">
-                  <div className={classes.nextarrow}>Next</div>
-                </Link>
-              </div>
+                </Paper>
       
-              </div>
+                <div className='text-center'>
+                  {/* Navigation */}
+                  <div className='gap-10 mt-10 mb-10 flex justify-center items-center'>
+                    <Link to="/profile/survey/create">
+                      <div className={classes.backarrow}>
+                        <div className="rotate-180 ">Back</div>
+                      </div>
+                    </Link>
+
+                    <Link to="/profile/survey/deploy">
+                      <div className={classes.nextarrow}>Next</div>
+                    </Link>
+                  </div>
+                </div>
+              </Fade>
 
             </div>
           </div>

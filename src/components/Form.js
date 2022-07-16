@@ -1,9 +1,8 @@
-import { Grid, TextField } from "@mui/material";
-import React, { useState } from "react";
-import MenuItem from '@mui/material/MenuItem';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+import { Grid, TextField } from "@mui/material"
+import React, { useState } from "react"
+import MenuItem from '@mui/material/MenuItem'
+import { CKEditor } from '@ckeditor/ckeditor5-react'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 var text = ""
 
@@ -73,10 +72,8 @@ function Form(props) {
   }
 
     const [dep, setDep] = useState('');
-
-    const handleChange = (event) => {
-        setDep(event.target.value);
-    };
+    const [start, setStart] = useState("");
+    const [end, setEnd] = useState("");
 
     return (
       
@@ -99,7 +96,7 @@ function Form(props) {
           <Grid item>
             {/* Survey Start Date */}
             <TextField
-                id="datetime-local"
+                id="startDate"
                 label="Survey Start Date"
                 type="datetime-local"
                 sx={{ width: 250 }}
@@ -108,13 +105,17 @@ function Form(props) {
                 }}
                 color="secondary" 
                 focused
+                value={start}
+                onChange={(e) => {
+                  setStart(e.target.value);
+                }}
                 />
           </Grid>
 
           <Grid item>
             {/* Survey End Date */}
             <TextField
-                id="datetime-local"
+                id="endDate"
                 label="Survey End Date"
                 type="datetime-local"
                 sx={{ width: 250 }}
@@ -123,6 +124,10 @@ function Form(props) {
                 }}
                 color="secondary" 
                 focused
+                value={end}
+                onChange={(e) => {
+                  setEnd(e.target.value);
+                }}
                 />
           </Grid>
           
@@ -133,7 +138,9 @@ function Form(props) {
                 select
                 label="Select Department"
                 value={dep}
-                onChange={handleChange}
+                onChange={(e) => {
+                  setDep(e.target.value);
+                }}
                 color="secondary"
                 focused
                 sx={{ width: 250 }}
