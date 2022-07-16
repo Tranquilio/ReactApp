@@ -1,6 +1,5 @@
 import React from "react"
 import MaterialTable from "material-table"
-import AddBox from "@material-ui/icons/AddBox"
 import tableIcons from "./MaterialTableIcons"
 import { Fade } from "react-reveal"
 import { alpha } from '@material-ui/core/styles'
@@ -81,16 +80,14 @@ function SurveyInfo(props) {
                 icons={tableIcons}
                 onRowClick={((event, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
                 editable={{
-                    onRowAdd:(newRow)=>new Promise((resolve,reject)=>{})
+                    onRowAdd: newData => new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            setData([...data, newData]); 
+                            resolve();
+                        }, 1000);
+                    }),
                 }}
-                // actions={[
-                //     {
-                //       icon: AddBox,
-                //       tooltip: 'Add Employee',
-                //       isFreeAction: true,
-                //       onClick: (event) => alert("You want to add a new row")
-                //     }
-                //   ]}
+                
                 options={{
                     headerStyle: {
                       backgroundColor: '#01579b',
@@ -112,3 +109,4 @@ function SurveyInfo(props) {
 }
 
 export default SurveyInfo;
+
