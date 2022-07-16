@@ -74,6 +74,10 @@ function Form(props) {
     const [dep, setDep] = useState('');
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
+    const [name, setName] = useState("");
+
+    console.log(name)
+    console.log(start)
 
     return (
       
@@ -90,6 +94,10 @@ function Form(props) {
                 color="secondary" 
                 sx={{ width: 250 }} 
                 focused 
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
                 />
           </Grid>
 
@@ -98,10 +106,10 @@ function Form(props) {
             <TextField
                 id="startDate"
                 label="Survey Start Date"
-                type="datetime-local"
+                type="date"
                 sx={{ width: 250 }}
                 InputLabelProps={{
-                shrink: true,
+                  shrink: true,
                 }}
                 color="secondary" 
                 focused
@@ -109,7 +117,7 @@ function Form(props) {
                 onChange={(e) => {
                   setStart(e.target.value);
                 }}
-                />
+            />
           </Grid>
 
           <Grid item>
@@ -117,7 +125,7 @@ function Form(props) {
             <TextField
                 id="endDate"
                 label="Survey End Date"
-                type="datetime-local"
+                type="date"
                 sx={{ width: 250 }}
                 InputLabelProps={{
                 shrink: true,

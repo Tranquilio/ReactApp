@@ -11,13 +11,17 @@ function CreatePage() {
     const [currtext, updateText] = useState(null)
     const [startDate, setStartDate] = useState(null)
     const [endDate, setEndDate] = useState(null)
+    const [surveyName, setSurveyName] = useState(null)
     useEffect(() => console.log(currtext), [currtext])
 
     const sendData = { 
       data: currtext,
       start: startDate,
-      end: endDate
+      end: endDate,
+      survey: surveyName
     };
+
+    console.log(sendData)
 
     return (
     <div className='bg-gradient-to-r from-transparent to-pink-50'>   

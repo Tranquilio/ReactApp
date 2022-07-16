@@ -8,6 +8,7 @@ const Preview = () => {
     const [text, setText] = useState("Dear Employees, We are proud to announce that ...")
     const [startDate, setStartDate] = useState("{Start Date}")
     const [endDate, setEndDate] = useState("{End Date}")
+    const [surveyName, setSurvey] = useState("")
 
     const location = useLocation()
     
@@ -22,6 +23,9 @@ const Preview = () => {
         }
         if(location.state.end != null) {
           setEndDate(location.state.end)
+        }
+        if(location.state.survey != null) {
+          setSurvey(location.state.survey)
         }
       }
     }, [])
@@ -48,7 +52,7 @@ const Preview = () => {
         </div>
 
         {/* Personalized Message from create page */}
-        <div className='mt-10'>{text}</div>
+        <div className='mt-10'>{surveyName}</div>
         {/* <div>
             <Survey className="overflow-auto"/>
         </div> */}

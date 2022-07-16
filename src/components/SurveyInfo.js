@@ -3,6 +3,7 @@ import MaterialTable from "material-table"
 import AddBox from "@material-ui/icons/AddBox"
 import tableIcons from "./MaterialTableIcons"
 import { Fade } from "react-reveal"
+import { alpha } from '@material-ui/core/styles'
 // import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table'
 // import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
