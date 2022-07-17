@@ -8,20 +8,14 @@ import Fade from 'react-reveal'
 
 function CreatePage() {
 
-    const [currtext, updateText] = useState(null)
-    const [startDate, setStartDate] = useState(null)
-    const [endDate, setEndDate] = useState(null)
-    const [surveyName, setSurveyName] = useState(null)
-    useEffect(() => console.log(currtext), [currtext])
+    const [currData, updateData] = useState(null)
 
-    const sendData = { 
-      data: currtext,
-      start: startDate,
-      end: endDate,
-      survey: surveyName
-    };
-
-    console.log(sendData)
+    function getUpdates(data) {
+      //console.log("Updating")
+      //console.log(data)
+      updateData(data)
+      //console.log(currData)
+    }
 
     return (
     <div className='bg-gradient-to-r from-transparent to-pink-50'>   
@@ -40,7 +34,7 @@ function CreatePage() {
               <Link to="/profile/survey/create">Create</Link>
             </li>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey/preview" state={sendData}>Preview</Link>
+              <Link to="/profile/survey/preview" state={currData}>Preview</Link>
             </li>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey/deploy">Deploy</Link>
@@ -52,7 +46,7 @@ function CreatePage() {
             
               <Paper elevation={3}>
                 <div className='p-5'>
-                  <Form updateParent = {updateText} />
+                  <Form updateParent = {getUpdates} />
                 </div>
               </Paper>
 
@@ -65,7 +59,7 @@ function CreatePage() {
                 </Link>
 
                 {/* <Link to='/profile/survey/preview' params={test}> */}
-                <Link to="/profile/survey/preview" state={sendData}>
+                <Link to="/profile/survey/preview" state={currData}>
                   <div className={classes.nextarrow}>Next</div>
                 </Link>
               </div>

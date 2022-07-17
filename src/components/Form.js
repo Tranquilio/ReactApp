@@ -67,17 +67,17 @@ const departments = [
 
 function Form(props) {
 
-  function updateState(data) {
-    props.updateParent(data)
-  }
+    const [currState, setParams] = useState({
+      data: "",
+      start: "",
+      end: "",
+      survey: ""
+    }) 
 
     const [dep, setDep] = useState('');
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
     const [name, setName] = useState("");
-
-    console.log(name)
-    console.log(start)
 
     return (
       
@@ -97,6 +97,14 @@ function Form(props) {
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
+                  setParams({
+                    data: currState.data,
+                    start: currState.start,
+                    end: currState.end,
+                    survey: e.target.value
+                  })
+                  //console.log(currState)
+                  props.updateParent(currState)
                 }}
                 />
           </Grid>
@@ -116,6 +124,13 @@ function Form(props) {
                 value={start}
                 onChange={(e) => {
                   setStart(e.target.value);
+                  setParams({
+                    data: currState.data,
+                    start: e.target.value,
+                    end: currState.end,
+                    survey: currState.survey
+                  })
+                  props.updateParent(currState)
                 }}
             />
           </Grid>
@@ -135,6 +150,13 @@ function Form(props) {
                 value={end}
                 onChange={(e) => {
                   setEnd(e.target.value);
+                  setParams({
+                    data: currState.data,
+                    start: currState.start,
+                    end: e.target.value,
+                    survey: currState.survey
+                  })
+                  props.updateParent(currState)
                 }}
                 />
           </Grid>
@@ -178,8 +200,14 @@ function Form(props) {
             onChange={ ( event, editor ) => {
                 const data = editor.getData();
                 text = data
-                updateState(text)
-                console.log( { event, editor, data } );
+                setParams({
+                  data: text,
+                  start: currState.data,
+                  end: currState.end,
+                  survey: currState.survey
+                })
+                props.updateParent(currState)
+                //console.log( { event, editor, data } );
             } }
             onBlur={ ( event, editor ) => {
                 console.log( 'Blur.', editor );
