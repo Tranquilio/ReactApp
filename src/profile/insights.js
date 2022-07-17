@@ -1,10 +1,7 @@
 import Sidebar from '..//components/Sidebar'
-import { Fade } from 'react-reveal';
-import SBChart from '..//components/Chart';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
-// import FilterButton from '../../components/FilterButton';
+import { Fade } from 'react-reveal'
+import SBChart from '..//components/Chart'
+import Paper from '@mui/material/Paper'
 
 function InsightsPage() {
 
@@ -46,84 +43,87 @@ function InsightsPage() {
           <Sidebar />
         </div>
       
-        <Container sx={{ mt: 20, mb: 4 }} className='relative'>
+        <div className='mt-32 ml-10 mb-4'>
           <Fade bottom cascade>
-            <div className='text-2xl font-semibold text-center mb-10'>Our measurement of your organisational well-being based on 
-            <div className='text-rose-300 font-bold text-3xl'>six psychologically valid construct</div>
-            </div>
-          <Grid container spacing={53}>
 
-            {/* Box 1 */}
-            <Grid item xs={12} md={4} lg={3}>
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                height: 150,
-                width: 300,
-                background: 'linear-gradient(to right bottom, pink, white)'
-              }}
-            >
+            <div className='grid grid-cols-3'>
+             
+              <div>
+                {/* Wellbeing */}
+                <Paper
+                  sx={{
+                    p: 3,
+                    height: 250,
+                    width: 400,
+                  }}
+                >
 
-            <div className='text-xl font-bold text-center text-rose-400'>What is it?</div>
-            <div className='mt-10 px-16'></div>
-            
-            </Paper>
-            </Grid> 
-                    
-            {/* Box 2 */}
-            <Grid item xs={12} md={4} lg={3}>
-            <Paper
-              sx={{
-                p: 2,
-                display: 'flex',
-                flexDirection: 'column',
-                height: 150,
-                width: 300,
-                background: 'linear-gradient(to right bottom, pink, white)'
-              }}
-            >
-              <div className='text-xl font-bold text-center text-rose-400'>Previous Score</div>
-              <div className='mt-10 px-16'></div>
-            </Paper>
-            </Grid>
+                <div className='text-xl font-bold text-center text-pink-400'>WELLBEING</div>
+                <div className='text-right mt-1'>Average wellbeing scores compared to previous months</div>
+                
+                </Paper>
 
-            {/* Box 3 */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper
-                sx={{
-                  p: 2,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  height: 150,
-                  width: 300,
-                  background: 'linear-gradient(to right bottom, pink, white)'
-                }}
-              >
-              <div className='text-xl font-bold text-center text-rose-400'>What do we imply?</div>
-              <div className='mt-10 px-16'></div>
-              </Paper>
-            </Grid>
-          </Grid>
+                {/* Highlights */}
+                <div className='mt-10'>
+                  <div className='text-xl font-bold text-pink-400'>HIGHLIGHTS</div>
+                  <div>You reached the highest wellbeing score this month</div>
+                </div>
+              </div>
 
-          {/* Chart */}
-          <div className='text-rose-400 mt-10 text-xl font-bold tracking-tight text-center mb-10'>Stress Breakdown</div>
-          <div className='grid md:grid-cols-2'>             
-            <div className='ml-1 cursor-pointer rounded-lg'>
-              <SBChart /> 
-            </div>
-          {/*<div className='text-center mt-52'> 
-            <FilterButton/>   
-            </div>  */}
-          </div>
+              <div>
+                <Paper sx={{
+                    p: 3,
+                    height: 440,
+                    width: 820,
+                  }}
+                >
+                  {/* Stress Breakdown and Chart */}
+                  <div className='text-pink-400 text-xl font-bold'>STRESS BREAKDOWN</div>
+                  <div className='mt-1'>The stressor breakdown of your organisation. Your score increased by 20 points compared to previous month</div>            
+                  <div className='ml-1 cursor-pointer rounded-lg mt-10'>
+                    <SBChart /> 
+                  </div>
+                </Paper>
+                
+                <div className='grid grid-cols-2'>
+                  {/* Teams */}
+                  <div>
+                    <Paper
+                      sx={{
+                        p: 3,
+                        height: 200,
+                        width: 410,
+                      }}
+                    >
+                      <div className='text-xl font-bold text-pink-400'>TEAMS</div>
+                      <div className='mt-1'>Wellbeing breakdown by team</div>
+                    </Paper>
+                  </div>
 
+                  {/* Seniority */}
+                  <div className='ml-48'>
+                    <Paper
+                      sx={{
+                        p: 3,
+                        height: 200,
+                        width: 410,
+                      }}
+                      className='ml-1'
+                    >
+                      <div className='text-xl font-bold text-pink-400'>SENIORITY</div>
+                      <div className='mt-1'>Wellbeing breakdown by seniority</div>
+                    </Paper>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+      
           </Fade>
-        </Container>
+        </div>
         
       </div>
     </div>
-
   );  
 }
 
