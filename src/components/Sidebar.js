@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
 import logo from '../Logo.png'
+import downArrow from '../down-arrow.png'
+
 import OverviewPage from '../profile/overview';
 import InsightsPage from "../profile/insights";
 
@@ -14,16 +16,17 @@ render(){
         <div className='shadow-md z-10 absolute w-full'>
             <div className='md:flex justify-between bg-white py-0 md:px-6 px-9'>
                 <div className='font-bold text-3xl cursor-pointer flex items-center mr-3'>
-                    <img src={logo} width={180} alt="Logo" /> 
+                    <img src={logo} width={100} alt="Logo" /> 
                 </div>
                 <div className='md:flex md:items-center mr-12 md:pb-0 pb-12 md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all-duration-500 ease-in'>
                     {/* <div className='px-10 text-pink-400 text-l'>{session["user"]["email"]}</div> */}
-                    <div className='mr-10 font-semibold text-xl text-pink-400'>Welcome John!</div>
-                    <Link to="/login">
+                    <div className=' mr-10 font-semibold text-l text-slate-600'>Amazon</div>
+                    <img src={downArrow} width={15} alt="downarrow" /> 
+                    {/* <Link to="/login">
                         <button className={`md:bg-pink-400 text-xl-center py-4 px-6 md:rounded-lg md:hover:bg-pink-500 md:text-right`}>
                             <div className='md:text-white text-pink-400 md:font-bold font-semibold'>Sign Out → </div>
                         </button>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </div>
