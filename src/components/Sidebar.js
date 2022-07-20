@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
-import logo from '../Logo.png'
+// import logo from '../Logo.png'
+import logo from '../logotext.png'
 import downArrow from '../down-arrow.png'
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -91,7 +92,7 @@ function Sidebar({
           <div>
             <h3 className="text-xs uppercase text-slate-500 font-semibold pl-3">
               <span className="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">•••</span>
-              <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">Pages</span>
+              {/* <span className="lg:hidden lg:sidebar-expanded:block 2xl:block">Pages</span> */}
             </h3>
             <ul className="mt-3">
 
