@@ -80,7 +80,6 @@ function Form(props) {
     const [name, setName] = useState("");
 
     return (
-      
       <div className="flex px-10">
      
         <Grid container direction="column" gap={4} >

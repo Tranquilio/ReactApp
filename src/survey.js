@@ -1,9 +1,10 @@
-import { Form } from "@quillforms/renderer-core";
-import "@quillforms/renderer-core/build-style/style.css";
-import { useNavigate, useLocation } from "react-router-dom";
-import { registerCoreBlocks } from "@quillforms/react-renderer-utils";
-import "./styles.css";
-import { useEffect, useState } from "react";
+import { Form } from "@quillforms/renderer-core"
+import "@quillforms/renderer-core/build-style/style.css"
+import { useNavigate, useLocation } from "react-router-dom"
+import { registerCoreBlocks } from "@quillforms/react-renderer-utils"
+import "./styles.css"
+import { useEffect, useState } from "react"
+import "./custom-block"
 
 registerCoreBlocks();
 var blocks = [];
@@ -189,7 +190,7 @@ const Survey = (props) => {
                     backgroundColor: "",
                     questionsColor: "#fff",
                     answersColor: "#0aa7c2",
-                    buttonsFontColor: "#9b51e0",
+                    buttonsFontColor: "#fff",
                     buttonsBorderRadius: 10,
                     errorsFontColor: "#fff",
                     errorsBgColor: "#f00",

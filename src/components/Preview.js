@@ -52,7 +52,7 @@ const Preview = () => {
         </div>
 
         {/* Personalized Message from create page */}
-        <div className='mt-10'>{surveyName}</div>
+        <div className='mt-10'>{text}</div>
         {/* <div>
             <Survey className="overflow-auto"/>
         </div> */}

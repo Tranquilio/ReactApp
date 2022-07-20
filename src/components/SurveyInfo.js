@@ -70,7 +70,7 @@ function SurveyInfo(props) {
     }           
 
     return (
-        <div className="-mt-40 ml-11 text-center">
+        <div className="-mt-40 px-10 text-center">
             <Fade>
             <div className="mr-20 text-xl font-semibold tracking-tight">Insert your excel sheet below</div>
             <input type="file" onChange={importExcel} accept=".xls,.xlsx,.csv" className="py-10"/>

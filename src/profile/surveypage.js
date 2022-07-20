@@ -10,6 +10,7 @@ function SurveyPage() {
 
   const [emails, setEmails] = useState(null)  
   const [headers, setHeaders] = useState(null)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   function sendEmails() {
     console.log(emails)
@@ -56,12 +57,15 @@ function SurveyPage() {
   }
 
   return (  
-    <div className='bg-gradient-to-r from-transparent to-pink-50'>    
-      <div className='flex'>
-        <div className='flex z-10'>
-          <Sidebar />
-        </div>
-        <div>
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-pink-50'>  
+ 
+      {/* Sidebar */}
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+     
+      {/* Content */}
+      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+      
+        <div className='-mt-20'>
           <ul className='p-48 flex -mt-10 gap-60'>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey">Onboard</Link>
@@ -89,9 +93,10 @@ function SurveyPage() {
               </Link>
             </div>
           </Fade>
-
         </div>
+
       </div>
+
     </div>
   );  
 }

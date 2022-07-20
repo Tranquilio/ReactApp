@@ -4,19 +4,22 @@ import classes from "./nav.module.css"
 import Deploy from '../../components/Deploy'
 import { Paper } from '@material-ui/core'
 import { Fade } from 'react-reveal'
+import { useState } from 'react'
 
 function DeployPage() {
   
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
     return (  
-
-      <div className='bg-gradient-to-r from-transparent to-pink-50'>     
-        <div className='flex'>
-
-          <div className='flex z-10'>
-          <Sidebar />
-          </div>
-
-          <div>
+      <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-pink-50'>  
+ 
+        {/* Sidebar */}
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      
+        {/* Content */}
+        <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+          
+          <div className='-mt-20'>
             <ul className='p-48 flex -mt-10 gap-60'>
               <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                 <Link to="/profile/survey">Onboard</Link>
@@ -33,9 +36,9 @@ function DeployPage() {
             </ul>
         
             <Fade cascade>
-              <div className='text-center -mt-32'>
+              <div className='text-center -mt-32 px-10'>
 
-                <Paper elevation={3} className="ml-5">
+                <Paper elevation={3}>
                   <div className='p-5 -ml-4'>
                     <Deploy />
                   </div>
@@ -52,10 +55,10 @@ function DeployPage() {
                 
               </div>
             </Fade>
-
           </div>
 
         </div>
+
       </div>
     );
 }
