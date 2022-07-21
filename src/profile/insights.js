@@ -1,9 +1,13 @@
 import Sidebar from '..//components/Sidebar'
 import { Fade } from 'react-reveal'
-import SBChart from '..//components/Chart'
+import SBChart from '../components/dashboard/Chart'
 import Paper from '@mui/material/Paper'
 import React, { useState } from 'react'
-import DashboardCard01 from '../components/DashboardCard01'
+import DashboardCard01 from '../components/dashboard/WellbeingCard'
+import DashboardCard02 from '../components/dashboard/TeamCard'
+import DashboardCard03 from '../components/dashboard/SeniorityCard'
+import SBCard from '../components/dashboard/SBCard'
+import Banner from '../components/dashboard/Banner'
 
 function InsightsPage() {
 
@@ -49,8 +53,12 @@ function InsightsPage() {
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
         
         <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
+          <Banner />
           <div className="grid grid-cols-12 gap-6">
             <DashboardCard01 />
+            <DashboardCard02 />
+            <DashboardCard03 />
+            <SBCard />
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 import { blue } from '@mui/material/colors';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LineChart01 from './LineChart01';
+import LineChart from './LineChart';
 
 function DashboardCard01() {
 
@@ -63,7 +63,7 @@ function DashboardCard01() {
           <img width="32" height="32" alt="Icon" />
         </header>
         <h1 className="text-lg font-semibold text-slate-800 mb-2">WELLBEING</h1>
-        <div className="text-xs font-semibold text-slate-400 uppercase mb-1">Score compared to last week</div>
+        <div className="text-xs font-semibold text-slate-400 mb-1">Average wellbeing score compared to previous months</div>
         <div className="flex items-start">
           <div className="text-3xl font-bold text-slate-800 mr-2">80</div>
           <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+5</div>
@@ -72,7 +72,7 @@ function DashboardCard01() {
       {/* Chart built with Chart.js 3 */}
       <div className="grow">
         {/* Change the height attribute to adjust the chart height */}
-        <LineChart01 data={chartData} width={389} height={128} />
+        <LineChart data={chartData} width={389} height={128} />
       </div>
     </div>
   );
