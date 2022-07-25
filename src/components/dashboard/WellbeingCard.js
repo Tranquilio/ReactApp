@@ -27,7 +27,7 @@ function DashboardCard01() {
           252, 423, 622, 470, 532,
         ],
         fill: true,
-        backgroundColor: "pink",
+        backgroundColor: "indigo",
         borderColor: "purple",
         borderWidth: 2,
         tension: 0,
@@ -60,7 +60,9 @@ function DashboardCard01() {
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           {/* Icon */}
-          <img width="32" height="32" alt="Icon" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+          </svg>
         </header>
         <h1 className="text-lg font-semibold text-slate-800 mb-2">WELLBEING</h1>
         <div className="text-xs font-semibold text-slate-400 mb-1">Average wellbeing score compared to previous months</div>
