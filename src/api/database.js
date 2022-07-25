@@ -30,7 +30,7 @@
 // //     if(req.method == "POST") {
 // //         const data = req.body;
 
-// //         // New account db
+//         New account db
 // //         const client = await MongoClient.connect('mongodb+srv://aayush:aayush@tranquilio.xq7yx.mongodb.net/tranquilio?retryWrites=true&w=majority');
 // //         //const client = await MongoClient.connect('mongodb+srv://user1:YBqHeN3NPYFq3rgJ@cluster0.hrcwq.mongodb.net/tranquilio?retryWrites=true&w=majority');
 // //         const db = client.db();

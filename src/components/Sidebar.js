@@ -22,7 +22,7 @@ function Sidebar() {
       <div
         id="sidebar"
         ref={sidebar}    
-        className={`flex flex-col relative z-40 left-0 top-0 transform h-screen no-scrollbar w-52 bg-slate-800 p-4 transition-all duration-200 ease-in-out`}
+        className={`flex flex-col relative z-40 left-0 top-0 transform h-screen no-scrollbar w-52 p-4 bg-[#01402B] transition-all duration-200 ease-in-out`}
       >
 
         {/* Sidebar header */}

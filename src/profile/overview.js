@@ -2,7 +2,7 @@ import Sidebar from '..//components/Sidebar';
 import { Fade } from 'react-reveal';
 import { useState } from 'react';
 
-var avg;
+var avg = 5;
 
 function OverviewPage() {
 
@@ -67,7 +67,7 @@ function OverviewPage() {
             </div> :
               (avg === 5) ? 
             <div>
-              <div className='text-5xl text-center font-bold text-green-200 py-5'>80</div>
+              <div className='text-5xl text-center font-bold text-green-300 py-5'>80</div>
               <div className='text-center mt-12 text-lg'>Great! Your organisation is averaging a very healthy well-being score.</div>
             </div> :
               (avg === 3 || avg === 4) ? 
