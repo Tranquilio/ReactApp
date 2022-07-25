@@ -6,7 +6,6 @@ var avg = 5;
 
 function OverviewPage() {
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   // useEffect(() => {
 
   //   async function getScore() {
@@ -48,7 +47,7 @@ function OverviewPage() {
     <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-pink-50'>  
      
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <Sidebar />
 
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-64">

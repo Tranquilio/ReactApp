@@ -7,6 +7,9 @@ import DeployPage from "./profile/survey/deploy";
 import OverviewPage from "./profile/overview";
 import InsightsPage from "./profile/insights";
 import Assessment from "./lastSurveyPage";
+import RecommendationPage from "./profile/recommendation";
+import SettingsPage from "./profile/settings";
+import ErrorPage from "./ErrorPage";
 import './App.css';
 
 function App() {
@@ -15,8 +18,9 @@ function App() {
       <Routes>
         <Route path="/profile/overview" element={<OverviewPage />} />
         <Route path="/profile/insights" element={<InsightsPage />} />
-        <Route path="/profile/recommendation" element={null} /> 
+        <Route path="/profile/recommendation" element={<RecommendationPage />} /> 
         <Route path="/profile/survey" element={<SurveyPage />} />
+        <Route path="/profile/settings" element={<SettingsPage />} />
         
         <Route path="/profile/survey/create" element={<CreatePage />} />
         <Route path="/profile/survey/preview" element={<PreviewPage />} />
@@ -25,6 +29,7 @@ function App() {
         <Route path="/assessment" element={<Assessment />} /> 
         <Route path="/survey" element={<Survey />} />
 
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );

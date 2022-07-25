@@ -1,7 +1,7 @@
 import Sidebar from '..//components/Sidebar'
 import { Fade } from 'react-reveal';
 
-function RecommendationPage() {
+function SettingsPage() {
   
     // const { data: session, status } = useSession();
 
@@ -27,9 +27,9 @@ function RecommendationPage() {
                 </div>
             </Fade>
         </div>
-
+        
     </div>
 )
 }
 
-export default RecommendationPage;
+export default SettingsPage;

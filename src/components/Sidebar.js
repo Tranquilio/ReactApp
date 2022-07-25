@@ -94,7 +94,7 @@ function Sidebar() {
 
             {/* Settings */}
             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-slate-900 ${pathname.includes('settings') && 'bg-slate-900'}`}>
-              <NavLink end to="/" className={`block text-slate-200 hover:text-white truncate transition duration-150 ${pathname.includes('settings') && 'hover:text-slate-200'}`}>
+              <NavLink end to="/profile/settings" className={`block text-slate-200 hover:text-white truncate transition duration-150 ${pathname.includes('settings') && 'hover:text-slate-200'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                     <path className={`fill-current text-slate-600 ${pathname.includes('settings') && 'text-indigo-500'}`} d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />

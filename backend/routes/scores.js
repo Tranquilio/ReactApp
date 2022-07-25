@@ -68,12 +68,12 @@ function topScores(scores) {
 
 
 apiRoutes.route("/api/scores").get(function (req, res) {
- let db_connect = dbo.getDb();
- cursor = db_connect.collection("answers").find({});
- cursor.toArray(function (err, result) {
-    if (err) throw err;
-    res.json(calcInfo(result[result.length -1]));
- });
+    let db_connect = dbo.getDb();
+    cursor = db_connect.collection("answers").find({});
+    cursor.toArray(function (err, result) {
+        if (err) throw err;
+        res.json(calcInfo(result[result.length -1]));
+    });
 });
 
 apiRoutes.route("/api/topscores").get(function (req, res) {

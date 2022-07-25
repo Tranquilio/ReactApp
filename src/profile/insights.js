@@ -1,7 +1,4 @@
 import Sidebar from '..//components/Sidebar'
-import { Fade } from 'react-reveal'
-import SBChart from '../components/dashboard/Chart'
-import Paper from '@mui/material/Paper'
 import React, { useState } from 'react'
 import DashboardCard01 from '../components/dashboard/WellbeingCard'
 import DashboardCard02 from '../components/dashboard/TeamCard'
@@ -10,8 +7,6 @@ import SBCard from '../components/dashboard/SBCard'
 import Banner from '../components/dashboard/Banner'
 
 function InsightsPage() {
-
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // const [data, setData] = useState(null);
 
@@ -47,7 +42,7 @@ function InsightsPage() {
     <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-pink-50'>  
  
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <Sidebar />
      
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
@@ -61,7 +56,6 @@ function InsightsPage() {
             <SBCard />
           </div>
         </div>
-
       </div>
     </div>
   );  

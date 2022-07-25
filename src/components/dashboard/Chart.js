@@ -55,11 +55,15 @@ function Chart() {
 
     const options = {
         maintainAspectRatio: false,
-        ticks: {
-            suggestedMin: 0,
-            suggestedMax: 6,
-            beginAtZero: true 
+        scale: {
+            ticks: {
+                display: false,
+                min: 0,
+                max: 6,
+                beginAtZero: true
+            }
         }
+      
     };
 
     return (
@@ -79,7 +83,7 @@ function Chart() {
                                 'rgba(153, 102, 255, 0.5)',
                                 'rgba(255, 159, 64, 0.5)',
                             ],
-                            borderWidth:1,
+                            borderWidth:0,
                         },
                     ],
                 }}
