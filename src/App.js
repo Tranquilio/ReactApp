@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Survey from "./survey";
 import SurveyPage from "./profile/surveypage";
 import CreatePage from "./profile/survey/create";
@@ -28,6 +28,7 @@ function App() {
     
         <Route path="/assessment" element={<Assessment />} /> 
         <Route path="/survey" element={<Survey />} />
+        <Route path="*" element={<Navigate to="/profile/overview" replace />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
