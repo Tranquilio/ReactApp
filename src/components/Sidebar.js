@@ -1,8 +1,6 @@
 import {Link} from 'react-router-dom'
-// import logo from '../Logo.png'
 import logo from '../logotext.png'
-import downArrow from '../down-arrow.png'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { RiLogoutBoxLine } from 'react-icons/ri'
 
@@ -11,7 +9,6 @@ function Sidebar() {
   const location = useLocation();
   const { pathname } = location;
 
-  const trigger = useRef(null);
   const sidebar = useRef(null);
       
   return (

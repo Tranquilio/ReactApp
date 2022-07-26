@@ -50,7 +50,7 @@ function Banner() {
       <div className="relative">
         <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-10">Hello, Tranquilio 👋</h1>
         <p className='text-sx font-semibold text-slate-800 mb-2'>YOUR HIGHLIGHTS:</p>
-        <p>You reached your highest seniority score!</p>
+        <p>You reached your highest wellbeing score!</p>
       </div>
 
     </div>

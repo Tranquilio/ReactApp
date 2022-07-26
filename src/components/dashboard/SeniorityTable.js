@@ -3,11 +3,11 @@ import React from "react"
 function SeniorityTable () {
 
     return (
-        <div class="flex flex-col p-5">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="overflow-hidden">
-                        <table class="min-w-full text-center">
+        <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-indigo-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
+            <div class="sm:-mx-6 lg:-mx-8">
+                <div class="py-2 inline-block sm:px-6 lg:px-8">
+                    <div class="">
+                        <table class="text-center">
                             <thead class="border-b">
                                 <tr>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">
@@ -29,7 +29,7 @@ function SeniorityTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         0 to 1 year
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class="text-sm text-gray-900 bg-yellow-200 font-light px-6 py-4 whitespace-nowrap">
                                         76
                                     </td>
                                     <td class="text-sm text-gray-900 bg-green-100 font-light px-6 py-4 whitespace-nowrap">
@@ -77,7 +77,7 @@ function SeniorityTable () {
                                     <td class="text-sm text-gray-900 bg-yellow-100 font-light px-6 py-4 whitespace-nowrap">
                                         75
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-green-200 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class="text-sm text-gray-900 bg-green-100 font-light px-6 py-4 whitespace-nowrap">
                                         82
                                     </td>
                                 </tr>

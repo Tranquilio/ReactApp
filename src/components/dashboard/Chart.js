@@ -2,14 +2,23 @@ import { useEffect, useState } from "react";
 import {
     Chart as ChartJS,
     RadialLinearScale,
-    ArcElement,
+    PointElement,
+    LineElement,
+    Filler,
     Tooltip,
     Legend,
   } from 'chart.js';
-import { PolarArea } from 'react-chartjs-2';
+import { Radar } from 'react-chartjs-2';
 import axios from "axios";
 
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+ChartJS.register(
+    RadialLinearScale,
+    PointElement,
+    LineElement,
+    Filler,
+    Tooltip,
+    Legend
+);
   
 var data;
  
@@ -55,35 +64,32 @@ function Chart() {
 
     const options = {
         maintainAspectRatio: false,
-        scale: {
-            ticks: {
-                display: false,
-                min: 0,
-                max: 6,
-                beginAtZero: true
+        scales: {
+            r: {
+                angleLines: {
+                    display: false
+                },
+                grid: {
+                    display: false
+                },
+                suggestedMin: 0,
+                suggestedMax: 6
             }
         }
-      
-    };
+    }
 
     return (
         <div>
-            <PolarArea 
+            <Radar
                 data={{
-                    labels: categories,
+                    labels: ['Job Recognition', 'Job Satisfaction' ,'Job Demand', 'Organizational Culture', 'Job Control', 'Social Support'],
                     datasets: [
                         {
-                            label: '# of Votes',
-                            data: displayChart(),
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.5)',
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(255, 206, 86, 0.5)',
-                                'rgba(75, 192, 192, 0.5)',
-                                'rgba(153, 102, 255, 0.5)',
-                                'rgba(255, 159, 64, 0.5)',
-                            ],
-                            borderWidth:0,
+                            label: 'Average Scores',
+                            data: ['4','4','4','4','4','4'],
+                            backgroundColor: '#E5E2EE',
+                            borderColor: '#C3B7E6',
+                            borderWidth: 2
                         },
                     ],
                 }}

@@ -1,10 +1,12 @@
 import Sidebar from '..//components/Sidebar'
-import React, { useState } from 'react'
-import DashboardCard01 from '../components/dashboard/WellbeingCard'
-import DashboardCard02 from '../components/dashboard/TeamCard'
-import DashboardCard03 from '../components/dashboard/SeniorityCard'
+import React from 'react'
+import WellbeingCard from '../components/dashboard/WellbeingCard'
+import TeamCard from '../components/dashboard/TeamCard'
+import SeniorityCard from '../components/dashboard/SeniorityCard'
 import SBCard from '../components/dashboard/SBCard'
 import Banner from '../components/dashboard/Banner'
+import ARCard from '../components/dashboard/ARCard'
+import TRCard from '../components/dashboard/TRCard'
 
 function InsightsPage() {
 
@@ -50,10 +52,18 @@ function InsightsPage() {
         <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
           <Banner />
           <div className="grid grid-cols-12 gap-6">
-            <DashboardCard01 />
-            <DashboardCard02 />
-            <DashboardCard03 />
+            <TeamCard />
+            <WellbeingCard />
+            <SeniorityCard />
+
+            {/*  This div cluster is temporary until then the new features come */}
+            <div></div>
+            <div></div> 
+            <div></div>
+
             <SBCard />
+            <ARCard />
+            <TRCard />
           </div>
         </div>
       </div>

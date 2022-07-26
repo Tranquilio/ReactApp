@@ -1,7 +1,7 @@
 import React from 'react';
-import SeniorityTable from '../SeniorityTable';
+import SeniorityTable from './SeniorityTable';
 
-function DashboardCard03() {
+function SeniorityCard() {
 
   return (
     <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
@@ -16,12 +16,12 @@ function DashboardCard03() {
         <div className="text-xs font-semibold text-slate-400 mb-1">Wellbeing breakdown by seniority</div>
       </div>
       {/* Chart built with Chart.js 3 */}
-      <div className="grow">
+      <div>
         {/* Change the height attribute to adjust the chart height */}
-        <SeniorityTable width={595} height={248} />
+        <SeniorityTable />
       </div>
     </div>
   );
 }
 
-export default DashboardCard03;
+export default SeniorityCard;

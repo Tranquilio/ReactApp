@@ -1,7 +1,7 @@
-import TeamTable from '../TeamTable';
+import TeamTable from './TeamTable';
 import React from 'react';
 
-function DashboardCard02() {
+function TeamCard() {
 
   return (
     <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
@@ -16,7 +16,7 @@ function DashboardCard02() {
         <div className="text-xs font-semibold text-slate-400 mb-1">Wellbeing breakdown by team</div>
       </div>
       {/* Chart built with Chart.js 3 */}
-      <div className="grow">
+      <div>
         {/* Change the height attribute to adjust the chart height */}
         <TeamTable width={595} height={248} />
       </div>
@@ -24,4 +24,4 @@ function DashboardCard02() {
   );
 }
 
-export default DashboardCard02;
+export default TeamCard;

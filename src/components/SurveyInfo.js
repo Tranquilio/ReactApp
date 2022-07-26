@@ -2,9 +2,6 @@ import React from "react"
 import MaterialTable from "material-table"
 import tableIcons from "./MaterialTableIcons"
 import { Fade } from "react-reveal"
-import { alpha } from '@material-ui/core/styles'
-// import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table'
-// import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 
 var XLSX = require("xlsx");
 
@@ -72,35 +69,35 @@ function SurveyInfo(props) {
     return (
         <div className="-mt-40 px-10 text-center">
             <Fade>
-            <div className="mr-20 text-xl font-semibold tracking-tight">Insert your excel sheet below</div>
-            <input type="file" onChange={importExcel} accept=".xls,.xlsx,.csv" className="py-10"/>
-            <MaterialTable title="Company Data" 
-                data={data} 
-                columns={colDefs}
-                icons={tableIcons}
-                onRowClick={((event, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
-                editable={{
-                    onRowAdd: newData => new Promise((resolve, reject) => {
-                        setTimeout(() => {
-                            setData([...data, newData]); 
-                            resolve();
-                        }, 1000);
-                    }),
-                }}
-                
-                options={{
-                    headerStyle: {
-                      backgroundColor: '#01579b',
-                      color: '#FFF'
-                    },
-                    rowStyle: rowData => ({
-                        backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF'
-                    })
-                }}
-             />
-        
-            {/* <BootstrapTable data={data} >
-            </ BootstrapTable> */}
+                <div className="mr-20 text-xl font-semibold tracking-tight">Insert your excel sheet below</div>
+                <input type="file" onChange={importExcel} accept=".xls,.xlsx,.csv" className="py-10"/>
+                <MaterialTable title="Company Data" 
+                    data={data} 
+                    columns={colDefs}
+                    icons={tableIcons}
+                    onRowClick={((event, selectedRow) => setSelectedRow(selectedRow.tableData.id))}
+                    editable={{
+                        onRowAdd: newData => new Promise((resolve, reject) => {
+                            setTimeout(() => {
+                                setData([...data, newData]); 
+                                resolve();
+                            }, 1000);
+                        }),
+                    }}
+                    
+                    options={{
+                        headerStyle: {
+                        backgroundColor: '#01579b',
+                        color: '#FFF'
+                        },
+                        rowStyle: rowData => ({
+                            backgroundColor: (selectedRow === rowData.tableData.id) ? '#EEE' : '#FFF'
+                        })
+                    }}
+                />
+            
+                {/* <BootstrapTable data={data} >
+                </ BootstrapTable> */}
             </Fade>
         </div>
         

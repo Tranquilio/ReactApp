@@ -1,29 +1,26 @@
 import React from 'react';
 import LineChart from './LineChart';
 
-function DashboardCard01() {
+function WellbeingCard() {
 
-  
   const chartData = {
     labels: [
-      '01-01-2022', '03-01-2022', '04-01-2022', 
+      '01-01-2022', '02-01-2022', '03-01-2022', '04-01-2022',
       '05-01-2022', '06-01-2022', '07-01-2022', '08-01-2022',
       '09-01-2022', '10-01-2022', '11-01-2022', '12-01-2022',
     ],
     datasets: [
-      // Indigo line
       {
-        data: [
-          0, 82, 86,
-        ],
+        data: [ 0, 82, 86 ],
         fill: true,
-        backgroundColor: "#90EE90",
-        borderColor: "green",
+        backgroundColor: "#E5E2EE",
+        borderColor: "#C3B7E6",
         borderWidth: 1,
         tension: 0,
         pointRadius: 0,
         pointHoverRadius: 3,
-        pointBackgroundColor: "blue",
+        pointBackgroundColor: "#C3B7E6",
+        pointBorderColor: "#C3B7E6",
       },
     ],
   };
@@ -45,12 +42,12 @@ function DashboardCard01() {
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}
-      <div className="grow">
+      <div className="mt-1">
         {/* Change the height attribute to adjust the chart height */}
-        <LineChart data={chartData} width={389} height={128} />
+        <LineChart data={chartData} width={389} height={200} />
       </div>
     </div>
   );
 }
 
-export default DashboardCard01;
+export default WellbeingCard;

@@ -29,20 +29,20 @@ function LineChart01({
           backgroundColor: "#fff",
         },
         layout: {
-          padding: 30,
+          padding: 24,
         },
         scales: {
           y: {
+            grid: { display: false },
             beginAtZero: true,
             title: "Score"
           },
           x: {
-            type: 'time',
+            grid: { display: false },
+            type: "time",
             time: {
-              parser: 'MM-DD-YYYY',
-              unit: 'month',
-            },
-  
+              unit: 'month'
+          }
           },
         },
         plugins: {
@@ -60,7 +60,7 @@ function LineChart01({
           mode: 'nearest',
         },
         maintainAspectRatio: false,
-        resizeDelay: 200,
+        // resizeDelay: 200,
       },
     });
     return () => chart.destroy();
