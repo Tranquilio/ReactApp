@@ -28,7 +28,7 @@ function App() {
     
         <Route path="/assessment" element={<Assessment />} /> 
         <Route path="/survey" element={<Survey />} />
-        <Route path="*" element={<Navigate to="/profile/overview" replace />} />
+        <Route path="/" element={<Navigate to="/profile/overview" replace />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
