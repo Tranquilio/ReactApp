@@ -29,12 +29,12 @@ function LineChart01({
           backgroundColor: "#fff",
         },
         layout: {
-          padding: 20,
+          padding: 30,
         },
         scales: {
           y: {
-            display: false,
             beginAtZero: true,
+            title: "Score"
           },
           x: {
             type: 'time',
@@ -42,7 +42,7 @@ function LineChart01({
               parser: 'MM-DD-YYYY',
               unit: 'month',
             },
-            display: false,
+  
           },
         },
         plugins: {
