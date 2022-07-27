@@ -1,5 +1,5 @@
-import React from 'react';
-import LineChart from './LineChart';
+import React from 'react'
+import LineChart from './LineChart'
 
 function WellbeingCard() {
 

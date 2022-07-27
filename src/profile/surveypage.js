@@ -1,5 +1,5 @@
 import Sidebar from '../components/Sidebar'
-import SurveyInfo from '../components/SurveyInfo'
+import SurveyInfo from '../components/SurveyTable'
 import classes from "./survey/nav.module.css"
 import {Link} from "react-router-dom"
 import { useState } from 'react'

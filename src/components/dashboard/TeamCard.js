@@ -1,8 +1,7 @@
-import TeamTable from './TeamTable';
-import React from 'react';
+import TeamTable from './TeamTable'
+import React from 'react'
 
 function TeamCard() {
-
   return (
     <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
       <div className="px-5 pt-5">

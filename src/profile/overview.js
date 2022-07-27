@@ -1,5 +1,5 @@
-import Sidebar from '..//components/Sidebar';
-import { Fade } from 'react-reveal';
+import Sidebar from '..//components/Sidebar'
+import { Fade } from 'react-reveal'
 
 var avg = 5;
 
@@ -87,8 +87,8 @@ function OverviewPage() {
         </Fade>
 
       </div>
+
   </div>
-    
   );  
 }
 

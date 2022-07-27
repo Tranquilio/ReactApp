@@ -1,7 +1,6 @@
 import React from "react"
 
 function SeniorityTable () {
-
     return (
         <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-indigo-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
             <div class="sm:-mx-6 lg:-mx-8">
@@ -88,6 +87,6 @@ function SeniorityTable () {
             </div>
         </div>
     )
-  }
+}
 
   export default SeniorityTable

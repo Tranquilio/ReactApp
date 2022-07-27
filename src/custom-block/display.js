@@ -1,19 +1,19 @@
 /**
  * QuillForms Depndencies
  */
- import { useTheme, useMessages } from "@quillforms/renderer-core";
+ import { useTheme, useMessages } from "@quillforms/renderer-core"
 
  /**
   * React Dependencies
   */
- import { useEffect } from "react";
+ import { useEffect } from "react"
  
  /**
   * External Dependencies
   */
- import tinyColor from "tinycolor2";
- import { css } from "emotion";
- import classnames from "classnames";
+ import tinyColor from "tinycolor2"
+ import { css } from "emotion"
+ import classnames from "classnames"
  
  let timer;
  const MyCustomBlockDisplay = (props) => {

@@ -1,5 +1,5 @@
 import Sidebar from '..//components/Sidebar'
-import { Fade } from 'react-reveal';
+import { Fade } from 'react-reveal'
 
 function RecommendationPage() {
   
