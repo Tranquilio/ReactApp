@@ -1,36 +1,30 @@
 import Sidebar from '..//components/Sidebar'
 import { Fade } from 'react-reveal'
+import { useState, useEffect } from 'react'
 
-var avg = 5;
+var overall;
+var score;
 
 function OverviewPage() {
 
-  // useEffect(() => {
+  const [loaded,setLoad] = useState(false);
 
-  //   async function getScore() {
-  //     const result = await fetch('../api/topScores', {
-  //         method : 'GET',
-  //     }); 
+  useEffect(() => {
+
+    async function getScore() {
+      const result = await fetch('http://localhost:5000/api/employees/scores/all', {
+          method : 'GET',
+      }); 
   
-  //     topScores =  await result.json(); 
-  //     console.log(topScores);
-  //     calcAvg(topScores);
-  //   }   
-    
-  //   getScore();
+      overall =  await result.json(); 
+      score = parseInt(overall['Average Score']);
+      setLoad(score);
+      console.log(overall)
+      console.log(score)
+    }      
+    getScore();
 
-  //   function calcAvg(scores) {
-  //     for (var num in scores) {
-  //       sum += scores[num];
-  //     }
-  //     // console.log(sum)
-  //     average = Math.ceil(sum) / 3;
-  //     // console.log(average)
-  //     avg = Math.ceil(average)
-  //      console.log(avg)
-  //   }
-
-  // },[]);
+  },[]);
   
   // const { data: session, status } = useSession();
 
@@ -58,28 +52,28 @@ function OverviewPage() {
           </div>
 
           <div>
-            { (avg === 6) ? 
+            { (score > 90) ? 
             <div>
-              <div className='text-7xl text-center font-bold text-green-400 py-5'>100</div>
+              <div className='text-7xl text-center font-bold text-green-400 py-5'>{score}</div>
               <div className='text-center mt-12 text-xl'>Awesome! Your organisation is averaging an extremely healthy well-being score.</div>
             </div> :
-              (avg === 5) ? 
+              (score > 80) ? 
             <div>
-              <div className='text-7xl text-center font-bold text-green-300 py-5'>80</div>
+              <div className='text-7xl text-center font-bold text-green-300 py-5'>{score}</div>
               <div className='text-center mt-12 text-xl'>Great! Your organisation is averaging a very healthy well-being score.</div>
             </div> :
-              (avg === 3 || avg === 4) ? 
+              (score > 60) ? 
             <div>
-              <div className='text-7xl text-center font-bold text-yellow-400 py-5'>50</div>
+              <div className='text-7xl text-center font-bold text-yellow-400 py-5'>{score}</div>
               <div className='text-center mt-12 text-xl'>Good job! Your organisation is averaging a healthy well-being score.</div>
             </div> :
-              (avg === 1 || avg === 2) ? 
+              (score > 50) ? 
             <div>
-              <div className='text-7xl text-center font-bold text-red-200 py-5'>20</div>
+              <div className='text-7xl text-center font-bold text-red-200 py-5'>{score}</div>
               <div className='text-center mt-12 text-xl'>Something's going on. Your organisation is averaging a poor well-being score.</div>
             </div> :
             <div>
-              <div className='text-7xl text-center font-bold text-red-400 py-5'>0</div>
+              <div className='text-7xl text-center font-bold text-red-400 py-5'>{score}</div>
               <div className='text-center mt-12 text-xl'>Time to reflect and review! Your organisation is averaging an extremely poor well-being score.</div>
             </div>
             }

@@ -1,6 +1,37 @@
-import React from "react"
+import { useState, useEffect } from 'react'
+
+var dept;
+var sales;
+var marketing;
+var core;
+var productDev;
+var customer;
 
 function TeamTable () {
+
+    const [loaded,setLoad] = useState(false);
+
+    useEffect(() => {
+
+    async function getScore() {
+      const result = await fetch('http://localhost:5000/api/employees/dept/all', {
+          method : 'GET',
+      }); 
+  
+      dept =  await result.json(); 
+      
+      core = parseInt(dept['sales']*(100/6)) // Need to change "sales" to "core" in MongoDB
+      marketing = parseInt(dept['Marketing']*(100/6))
+      productDev = parseInt(dept['Product Dev']*(100/6))
+      sales = parseInt(dept['Sales']*(100/6))
+      customer = parseInt(dept['Customer Success']*(100/6))
+      
+      setLoad(dept);
+    }      
+    getScore();
+
+    },[]);
+
     return (
         <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-indigo-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
             <div class="sm:-mx-6 lg:-mx-8">
@@ -28,42 +59,70 @@ function TeamTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Core
                                     </td>
+                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                        -
+                                    </td>
+                                    <td class="text-sm text-gray-900 bg-red-300 font-light px-6 py-4 whitespace-nowrap">
+                                        {core}
+                                    </td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        
+                                    </td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                        Marketing
+                                    </td>
+                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                        -
+                                    </td>
                                     <td class="text-sm text-gray-900 bg-yellow-200 font-light px-6 py-4 whitespace-nowrap">
-                                        76
+                                        {marketing}
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-green-100 font-light px-6 py-4 whitespace-nowrap">
-                                        82
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-green-200 font-light px-6 py-4 whitespace-nowrap">
-                                        86
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                                        Product Dev
+                                    </td>
+                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                        -
+                                    </td>
+                                    <td class="text-sm text-gray-900 bg-red-300 font-light px-6 py-4 whitespace-nowrap">
+                                        {productDev}
+                                    </td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        
                                     </td>
                                 </tr>
                                 <tr class="border-b">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Sales
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-green-300 font-light px-6 py-4 whitespace-nowrap">
-                                        91
-                                    </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-100 font-light px-6 py-4 whitespace-nowrap">
-                                        72
+                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                        -
                                     </td>
                                     <td class="text-sm text-gray-900 bg-green-200 font-light px-6 py-4 whitespace-nowrap">
-                                        86
+                                        {sales}
+                                    </td>
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        
                                     </td>
                                 </tr>
                                 <tr class="border-b">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
-                                        Engineering
+                                        Customer
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-100 font-light px-6 py-4 whitespace-nowrap">
-                                        72
+                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                        -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-200 font-light px-6 py-4 whitespace-nowrap">
-                                        78
+                                    <td class="text-sm text-gray-900 bg-red-200 font-light px-6 py-4 whitespace-nowrap">
+                                        {customer}
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-green-100 font-light px-6 py-4 whitespace-nowrap">
-                                        83
+                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        
                                     </td>
                                 </tr>
                             </tbody>

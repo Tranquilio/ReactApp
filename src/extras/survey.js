@@ -15,7 +15,7 @@ const Survey = (props) => {
 
   async function getQuestions() {
       const result = await fetch('http://localhost:5000/api/questions', {
-      method : 'GET',
+        method : 'GET',
       });
       var data =  await result.json();
       //console.log(data);
