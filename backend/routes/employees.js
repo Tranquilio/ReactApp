@@ -10,7 +10,7 @@ const dbo = require("../conn");
 
 //Helper functions
 function getAvg(object) {
-    //Ignore first two elements
+    //Ignore first two elements of employeeInfo and calc average of scores per individual
     avg = 0
     for(i=2; i<object.employeeInfo.length; i++) {
         avg = avg + object.employeeInfo[i]
@@ -25,11 +25,12 @@ function getAvgScore(array) {
     for(element of array) {
         avg = avg + getAvg(element)
     }
-    avg = avg / (array.length)
+    //Overall Wellbeing Score
+    avg = (avg*100) / (array.length*6)
     return {"Average Score": avg}
 }
  
-// This section will help you get a list of all the questions.
+// This section will help you get a list of all the employee data.
 employeeRoutes.route("/api/employees/all").get(function (req, res) {
     let db_connect = dbo.getDb();
     cursor = db_connect.collection("typeform-response").find({});
@@ -64,12 +65,13 @@ employeeRoutes.route("/api/employees/:id").get(function (req, res) {
 //     });
 // });
 
+// Used for overall wellbeing score
 employeeRoutes.route("/api/employees/scores/all").get(function (req, res) {
     let db_connect = dbo.getDb();
     cursor = db_connect.collection("typeform-response").find({});
     cursor.toArray(function (err, result) {
         if (err) throw err;
-        res.json(getAvgScore(result));
+        res.json(getAvgScore(result));     
     });
 });
 

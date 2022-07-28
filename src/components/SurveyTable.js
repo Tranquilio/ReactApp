@@ -5,7 +5,7 @@ import { Fade } from "react-reveal"
 
 var XLSX = require("xlsx");
 
-function SurveyInfo(props) {
+function SurveyTable(props) {
 
     const { useState } = React;
     const [selectedRow, setSelectedRow] = useState(null);
@@ -70,7 +70,7 @@ function SurveyInfo(props) {
         <div className="-mt-40 px-10 text-center">
             <Fade>
                 <div className="mr-20 text-xl font-semibold tracking-tight">Insert your excel sheet below</div>
-                <input type="file" onChange={importExcel} accept=".xls,.xlsx,.csv" className="py-10"/>
+                <input type="file" onChange={importExcel} accept=".xls,.xlsx,.csv" className="py-10" />
                 <MaterialTable title="Company Data" 
                     data={data} 
                     columns={colDefs}
@@ -100,10 +100,8 @@ function SurveyInfo(props) {
                 </ BootstrapTable> */}
             </Fade>
         </div>
-        
     );
-
 }
 
-export default SurveyInfo;
+export default SurveyTable;
 

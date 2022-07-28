@@ -1,24 +1,6 @@
-import { useEffect, useState } from "react";
-import {
-    Chart as ChartJS,
-    RadialLinearScale,
-    PointElement,
-    LineElement,
-    Filler,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-import { Radar } from 'react-chartjs-2';
-import axios from "axios";
-
-ChartJS.register(
-    RadialLinearScale,
-    PointElement,
-    LineElement,
-    Filler,
-    Tooltip,
-    Legend
-);
+import { useEffect, useState } from "react"
+import axios from "axios"
+import RadarChart from "react-svg-radar-chart"
   
 var data;
  
@@ -63,40 +45,38 @@ function Chart() {
     }
 
     const options = {
-        maintainAspectRatio: false,
-        scales: {
-            r: {
-                angleLines: {
-                    display: false
-                },
-                grid: {
-                    display: false
-                },
-                suggestedMin: 0,
-                suggestedMax: 6
-            }
-        }
+        axes: false,
+        size: 300,
+        wrapCaptionAt: 20,
+        captionMargin: 22,
+        zoomDistance: 1.1,
     }
 
     return (
-        <div>
-            <Radar
-                data={{
-                    labels: ['Job Recognition', 'Job Satisfaction' ,'Job Demand', 'Organizational Culture', 'Job Control', 'Social Support'],
-                    datasets: [
-                        {
-                            label: 'Average Scores',
-                            data: ['4','4','4','4','4','4'],
-                            backgroundColor: '#E5E2EE',
-                            borderColor: '#C3B7E6',
-                            borderWidth: 2
-                        },
-                    ],
-                }}
-                width={300} 
-                height={300} 
-                options={options}
-            />
+        <div className="ml-24">
+            <RadarChart
+            captions={{
+              // columns
+              JR: 'Job Recognition',
+              JD: 'Job Demand',
+              JS: 'Job Satisfaction',
+              SS: 'Social Support',
+              OC: 'Organisation Culture'
+            }}
+            data={[
+                { data: {
+                    JR: 0.8,
+                    JD: 0.5,
+                    JS: 0.9,
+                    SS: 0.4,
+                    OC: 0.4
+                },
+                meta: { color: '#CBC3E3' }
+            },
+            ]}
+            options={options}
+            size={400}
+          />
         </div>
     )
 }

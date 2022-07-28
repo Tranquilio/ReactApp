@@ -1,5 +1,5 @@
-import { registerBlockType } from "@quillforms/blocks";
-import display from "./display";
+import { registerBlockType } from "@quillforms/blocks"
+import display from "./display"
 
 registerBlockType("my-custom-block-unique-name", {
   supports: {

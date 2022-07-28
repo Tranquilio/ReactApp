@@ -1,16 +1,16 @@
-import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import Survey from "./survey";
-import SurveyPage from "./profile/surveypage";
-import CreatePage from "./profile/survey/create";
-import PreviewPage from "./profile/survey/preview";
-import DeployPage from "./profile/survey/deploy";
-import OverviewPage from "./profile/overview";
-import InsightsPage from "./profile/insights";
-import Assessment from "./lastSurveyPage";
-import RecommendationPage from "./profile/recommendation";
-import SettingsPage from "./profile/settings";
-import ErrorPage from "./ErrorPage";
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
+import Survey from "./extras/survey"
+import SurveyPage from "./profile/surveypage"
+import CreatePage from "./profile/survey/create"
+import PreviewPage from "./profile/survey/preview"
+import DeployPage from "./profile/survey/deploy"
+import OverviewPage from "./profile/overview"
+import InsightsPage from "./profile/insights"
+import Assessment from "./extras/lastSurveyPage"
+import RecommendationPage from "./profile/recommendation"
+import SettingsPage from "./profile/settings"
+import ErrorPage from "./extras/ErrorPage"
+import './App.css'
 
 function App() {
   return (

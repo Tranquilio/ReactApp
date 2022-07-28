@@ -1,7 +1,7 @@
-import React from 'react';
-import { Grid, TextField } from "@mui/material";
-import {Link} from 'react-router-dom';
-import { useState } from 'react';
+import React from 'react'
+import { Grid, TextField } from "@mui/material"
+import {Link} from 'react-router-dom'
+import { useState } from 'react'
 import Modal from './Modal'
 
 var code = "Deploy survey";
@@ -23,7 +23,6 @@ const Deploy = () => {
     }
 
   return (
-
     <div className="flex px-10">
      
         <Grid container direction="column" gap={4} >
@@ -92,8 +91,6 @@ const Deploy = () => {
         {modalOn && < Modal setModalOn={setModalOn} setChoice={setChoice} />}
 
     </div>
-
-    
   )
 }
 
