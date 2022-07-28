@@ -89,9 +89,11 @@ const TopStressors = () => {
                 <div>Insert mini description</div>
             </li>
         </ul>
-        <Link to = "https://www.tranquilio.co/resources">
-            <button className='mt-10 border-2 bg-purple-300 font-semibold text-white hover:bg-purple-400 p-3'>Click me to find more!</button>
-        </Link>
+      
+            <button className='mt-10 border-2 bg-purple-300 font-semibold text-white hover:bg-purple-400 p-3'>
+                <a href="https://www.tranquilio.co/resources">Click me to find more!</a>
+            </button>
+
     </div>
   )
 }
