@@ -9,26 +9,6 @@ import ARCard from '../components/dashboard/ARCard'
 import TRCard from '../components/dashboard/TRCard'
 
 function InsightsPage() {
-
-  // const [data, setData] = useState(null);
-
-  // useEffect(() => {
-
-  //   async function getData() {
-  //     const result = await fetch('../api/csv2', {
-  //         method : 'GET',
-  //     }); 
-  
-  //     const body =  await result.json(); 
-  //     console.log(body);
-      
-  //     var data = body;
-  //     return data.csvInfo;
-  //   }  
-  
-  //   getData().then((value) => setData(value)); 
-
-  // },[]);
   
   // const { data: session, status } = useSession();
 
@@ -57,11 +37,10 @@ function InsightsPage() {
             <SeniorityCard />
 
             {/*  This div cluster is temporary until then the new features come */}
-            <div></div>
-            <div></div> 
-            <div></div>
-
-            <SBCard />
+            <div className='col-span-12'>
+              <SBCard />
+            </div>
+            
             <ARCard />
             <TRCard />
           </div>

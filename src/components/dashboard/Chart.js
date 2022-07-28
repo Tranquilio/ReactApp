@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
 import RadarChart from "react-svg-radar-chart"
   
 var data;
@@ -12,10 +11,13 @@ function Chart() {
 
     async function getChartData() {
         //Call api get answers
-        const result = await axios.get('http://localhost:5000/api/scores')
-        data =  await result.data;
-        console.log(data);
-        calcInfo(data);
+        const result = await fetch('http://localhost:5000/api/scores', {
+          method : 'GET',
+        }); 
+  
+        data =  await result.json(); 
+        calcInfo(data)
+        console.log(data)
     }
 
     //Calculate information for one person
@@ -54,6 +56,9 @@ function Chart() {
 
     return (
         <div className="ml-24">
+            <div className="text-center">
+                How are your stressors distributed?
+            </div>
             <RadarChart
             captions={{
               // columns

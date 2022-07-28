@@ -1,7 +1,30 @@
 import React from 'react'
 import LineChart from './LineChart'
+import { useState, useEffect } from 'react'
+
+var overall;
+var score;
 
 function WellbeingCard() {
+
+  const [loaded,setLoad] = useState(false);
+
+  useEffect(() => {
+
+    async function getScore() {
+      const result = await fetch('http://localhost:5000/api/employees/scores/all', {
+          method : 'GET',
+      }); 
+  
+      overall =  await result.json(); 
+      score = parseInt(overall['Average Score']);
+      setLoad(score);
+      console.log(overall)
+      console.log(score)
+    }      
+    getScore();
+
+  },[]);
 
   const chartData = {
     labels: [
@@ -11,7 +34,7 @@ function WellbeingCard() {
     ],
     datasets: [
       {
-        data: [ 0, 82, 86 ],
+        data: [ 0, 0, 0, 0, 0, 0, 65 ],
         fill: true,
         backgroundColor: "#E5E2EE",
         borderColor: "#C3B7E6",
@@ -37,12 +60,13 @@ function WellbeingCard() {
         <h1 className="text-lg font-semibold text-slate-800 mb-2">WELLBEING</h1>
         <div className="text-xs font-semibold text-slate-400 mb-1">Average wellbeing score compared to previous months</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-slate-800 mr-2">86</div>
-          <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+4</div>
+          <div className="text-3xl font-bold text-slate-800 mr-2">{score}</div>
+          {/* Need to subtract current score to previous month score in the future */}
+          <div className="text-sm font-semibold text-white px-1.5 bg-green-500 rounded-full">+{score}</div>
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}
-      <div className="mt-1">
+      <div className="mt-5">
         {/* Change the height attribute to adjust the chart height */}
         <LineChart data={chartData} width={389} height={200} />
       </div>
