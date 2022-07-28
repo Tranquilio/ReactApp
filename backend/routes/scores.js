@@ -8,81 +8,90 @@ const apiRoutes = express.Router();
 // This will help us connect to the database
 const dbo = require("../conn");
 
-function calcInfo(output) {
-    var answers = output["answers"];
-    var categories = [];
-    var scores = [];
-    var intermediate = {};
-    //console.log(answers);
-    for(var index in answers) {
-        var current = answers[index];
-        var cat = current["category"];
-        //Instead can simply sum here
-        if(intermediate[cat] == undefined) {
-            intermediate[cat] = [];
-        }
-        intermediate[cat].push(current["answer"]);
-    }
+const categories = {
+    "Job Demand": [2,3],
+    "Job Satisfaction": [4,5],
+    "Job Recognition": [6,7,8],
+    "Job Control": [9,10],
+    "Social Support": [11,12,13],
+    "Organizational Culture": [14,15,16]
+}
 
-    for (var key in intermediate) {
-        categories.push(key);
-        var value = intermediate[key];
-        // console.log(value);
-        var total = 0;
-        for(var index in value) {
-            total += parseInt(value[index]);
-        }
-        // console.log(total);
-        intermediate[key] = total / value.length;
-        scores.push(total / value.length);
+function getCategory(index) {
+    for (category in categories) {
+        if(categories[category].includes(index))
+            return category
     }
-    //console.log(intermediate);
-    return intermediate;
+    return "Invalid"
+}
+
+function calcInfo(input) {
+    const stressors = {
+        "Job Demand": 0,
+        "Job Satisfaction": 0,
+        "Job Recognition": 0,
+        "Job Control": 0,
+        "Social Support": 0,
+        "Organizational Culture": 0
+    }
+    for (element of input) {
+        for(i=0; i<element.employeeInfo.length; i++) {
+            var cat = getCategory(i)
+            if(cat != "Invalid") {
+                stressors[cat] = stressors[cat] + element.employeeInfo[i]
+            }
+        }
+    }
+    for (cat in stressors) {
+        stressors[cat] = stressors[cat] / categories[cat].length
+        stressors[cat] = stressors[cat] / input.length
+    }
+    return stressors
 }
 
 
 // Get top 3 stressors scores and store into indices array 
-function topScores(scores) {
-    // console.log(scores);
+// function topScores(scores) {
+//     // console.log(scores);
 
-    var toSort = [];
-    for (var key in scores) {
-        toSort.push([key, scores[key]]);
-    }
+//     var toSort = [];
+//     for (var key in scores) {
+//         toSort.push([key, scores[key]]);
+//     }
 
-    // console.log(toSort);
+//     // console.log(toSort);
 
-    toSort.sort(function(a, b) {
-        return (a[1] < b[1]) ? 1 : -1;
-    });
+//     toSort.sort(function(a, b) {
+//         return (a[1] < b[1]) ? 1 : -1;
+//     });
 
-    // console.log(toSort);
+//     // console.log(toSort);
 
-    var topIndex = [];
-    for(let i = 0; i < 3; i++) {
-        var category = toSort[i][0];
-        topIndex.push(category);
-    }
-    return topIndex;
-}
+//     var topIndex = [];
+//     for(let i = 0; i < 3; i++) {
+//         var category = toSort[i][0];
+//         topIndex.push(category);
+//     }
+//     return topIndex;
+// }
 
 
 apiRoutes.route("/api/scores").get(function (req, res) {
     let db_connect = dbo.getDb();
-    cursor = db_connect.collection("answers").find({});
+    cursor = db_connect.collection("typeform-response").find({});
     cursor.toArray(function (err, result) {
         if (err) throw err;
-        res.json(calcInfo(result[result.length -1]));
+        res.json(calcInfo(result));
     });
 });
 
-apiRoutes.route("/api/topscores").get(function (req, res) {
-    let db_connect = dbo.getDb();
-    cursor = db_connect.collection("answers").find({});
-    cursor.toArray(function (err, result) {
-        if (err) throw err;
-        res.json(topScores(calcInfo(result[result.length -1])));
-    });
-});
+// apiRoutes.route("/api/topscores").get(function (req, res) {
+//     let db_connect = dbo.getDb();
+//     cursor = db_connect.collection("answers").find({});
+//     cursor.toArray(function (err, result) {
+//         if (err) throw err;
+//         res.json(topScores(calcInfo(result[result.length -1])));
+//     });
+// });
  
 module.exports = apiRoutes;
