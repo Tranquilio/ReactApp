@@ -37,8 +37,8 @@ function Sidebar() {
             <ul className="mt-3">
 
             {/* Overview */}
-            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-slate-900 ${pathname.includes('overview') && 'bg-slate-900'}`}>
-              <NavLink end to="/profile/overview" className={`block text-slate-400 hover:text-white truncate transition duration-150 ${pathname.includes('overview') && 'hover:text-slate-200'}`}>
+            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-orange-100 ${pathname.includes('overview') && 'bg-orange-100'}`}>
+              <NavLink end to="/profile/overview" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('overview') && 'hover:text-slate-200'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                     <path className={`fill-current text-slate-600 ${pathname.includes('overview') && 'text-indigo-500'}`} d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
@@ -50,8 +50,8 @@ function Sidebar() {
             </li> 
 
             {/* Insights */}
-            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-slate-900 ${pathname.includes('insights') && 'bg-slate-900'}`}>
-              <NavLink end to="/profile/insights" className={`block text-slate-400 hover:text-white truncate transition duration-150 ${pathname.includes('insights') && 'hover:text-slate-200'}`}>
+            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-orange-100 ${pathname.includes('insights') && 'bg-orange-100'}`}>
+              <NavLink end to="/profile/insights" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('insights') && 'hover:text-slate-200'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                       <path className={`fill-current text-slate-600 ${pathname.includes('insights') && 'text-indigo-500'}`} d="M0 20h24v2H0z" />
@@ -63,8 +63,8 @@ function Sidebar() {
             </li>
 
             {/* Recommendations */}
-            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-slate-900 ${pathname.includes('recommendation') && 'bg-slate-900'}`}>
-              <NavLink end to="/profile/recommendation" className={`block text-slate-400 hover:text-white truncate transition duration-150 ${pathname.includes('recommendation') && 'hover:text-slate-200'}`}>
+            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-orange-100 ${pathname.includes('recommendation') && 'bg-orange-100'}`}>
+              <NavLink end to="/profile/recommendation" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('recommendation') && 'hover:text-slate-200'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                       <path className={`fill-current text-slate-600 ${pathname.includes('recommendation') && 'text-indigo-500'}`} d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
@@ -76,8 +76,8 @@ function Sidebar() {
             </li>
 
             {/* Survey */}
-            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-slate-900 ${pathname.includes('survey') && 'bg-slate-900'}`}>
-              <NavLink end to="/profile/survey" className={`block text-slate-400 hover:text-white truncate transition duration-150 ${pathname.includes('survey') && 'hover:text-slate-200'}`}>
+            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-orange-100 ${pathname.includes('survey') && 'bg-orange-100'}`}>
+              <NavLink end to="/profile/survey" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('survey') && 'hover:text-slate-200'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                       <path className={`fill-current text-slate-600 ${pathname.includes('survey') && 'text-indigo-500'}`} d="M16 13v4H8v-4H0l3-9h18l3 9h-8Z" />
@@ -89,8 +89,8 @@ function Sidebar() {
             </li>     
 
             {/* Settings */}
-            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-slate-900 ${pathname.includes('settings') && 'bg-slate-900'}`}>
-              <NavLink end to="/profile/settings" className={`block text-slate-400 hover:text-white truncate transition duration-150 ${pathname.includes('settings') && 'hover:text-slate-200'}`}>
+            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-orange-100 ${pathname.includes('settings') && 'bg-orange-100'}`}>
+              <NavLink end to="/profile/settings" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('settings') && 'hover:text-slate-200'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                     <path className={`fill-current text-slate-600 ${pathname.includes('settings') && 'text-indigo-500'}`} d="M19.714 14.7l-7.007 7.007-1.414-1.414 7.007-7.007c-.195-.4-.298-.84-.3-1.286a3 3 0 113 3 2.969 2.969 0 01-1.286-.3z" />
@@ -108,7 +108,7 @@ function Sidebar() {
         </div>
 
         {/* Expand / collapse button */}
-        <div className="mt-auto mb-4 text-slate-400 hover:text-white truncate transition duration-150 hover:bg-slate-900">
+        <div className="mt-auto mb-4 text-slate-400 hover:text-black truncate transition duration-150 hover:bg-orange-100">
           <div className="ml-14">
             <Link to="../">
               <RiLogoutBoxLine className='text-slate-400 w-7 h-7 shrink-0 ml-2' viewBox="0 0 24 24"/>

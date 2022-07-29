@@ -1,5 +1,5 @@
 import React from 'react'
-import SBChart from "./Chart"
+import SBChart from "./BarChart"
 import TopStressors from './TopStressors'
 
 function SBCard() {
@@ -11,7 +11,7 @@ function SBCard() {
       </header>
       {/* Chart built with Chart.js 3 */}
       {/* Change the height attribute to adjust the chart height */}
-      <div className='flex flex-row gap-64 mt-10'>
+      <div className='flex flex-row gap-64 mt-6 mb-10'>
       <SBChart /> 
       <TopStressors />
       </div>
