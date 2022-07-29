@@ -1,10 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from "react"
-import {Link} from 'react-router-dom'
   
 var data;
  
-var output = {};
 var categories = [];
 var scores = [];
 var topIndex = [];

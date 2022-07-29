@@ -1,4 +1,3 @@
-import { green, red, yellow } from '@material-ui/core/colors';
 import { useState, useEffect } from 'react'
 
 var seniority;
@@ -33,11 +32,29 @@ function SeniorityTable () {
 
     },[]);
 
+    function colorPicker(value) {
+        if (value >= 90) {
+            return 'bg-green-200'
+        } else if (value >= 80) {
+            return 'bg-green-100'
+        } else if (value >= 70) {
+            return 'bg-yellow-100'
+        } else if (value >= 60) {
+            return 'bg-yellow-200'
+        } else if (value >= 50) {
+            return 'bg-red-100'
+        } else if (value < 50) {
+            return 'bg-red-200'
+        } else if (value === "-") {
+            return 'bg-gray-100'
+        }
+    }
+
  // There are 2 0-0.5 year
  //   {"0-0.5":3.5,"0.5-1 Year":4.1875,"1-2 Years":3.84375,"2-3 Years":4.125,"0-0.5 Year":3.46875,"3+ Years":4.5}
 
     return (
-        <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-indigo-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
+        <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-white-200 scrollbar-track-white-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
             <div class="sm:-mx-6 lg:-mx-8">
                 <div class="py-2 inline-block sm:px-6 lg:px-8">
                     <div class="">
@@ -63,13 +80,13 @@ function SeniorityTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         0 to 0.5 year
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-red-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(zeroToHalf)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {zeroToHalf}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                         
                                     </td>
                                 </tr>
@@ -77,13 +94,13 @@ function SeniorityTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         0.5 to 1 year
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-200 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(halfToOne)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {halfToOne}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                       
                                     </td>
                                 </tr>
@@ -91,13 +108,13 @@ function SeniorityTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         1 to 2 years
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-200 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(oneToTwo)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {oneToTwo}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                        
                                     </td>
                                 </tr>
@@ -105,13 +122,13 @@ function SeniorityTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         2 to 3 years
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-200 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(twoToThree)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {twoToThree}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                         
                                     </td>
                                 </tr>
@@ -119,13 +136,13 @@ function SeniorityTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         3+
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(threeOrMore)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {threeOrMore}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                         
                                     </td>
                                 </tr>
@@ -140,9 +157,3 @@ function SeniorityTable () {
 
   export default SeniorityTable
 
-//   dark red - below 50
-//   light red - 50 and above
-//   dark yellow - 60 and above
-//   light yellow - 70 and above
-//   light green - 80 and above
-//   dark green - 90 and above

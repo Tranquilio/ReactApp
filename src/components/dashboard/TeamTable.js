@@ -32,8 +32,26 @@ function TeamTable () {
 
     },[]);
 
+    function colorPicker(value) {
+        if (value >= 90) {
+            return 'bg-green-200'
+        } else if (value >= 80) {
+            return 'bg-green-100'
+        } else if (value >= 70) {
+            return 'bg-yellow-100'
+        } else if (value >= 60) {
+            return 'bg-yellow-200'
+        } else if (value >= 50) {
+            return 'bg-red-100'
+        } else if (value < 50) {
+            return 'bg-red-200'
+        } else if (value === "-") {
+            return 'bg-gray-100'
+        }
+    }
+
     return (
-        <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-indigo-200 scrollbar-track-indigo-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
+        <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-white-200 scrollbar-track-white-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
             <div class="sm:-mx-6 lg:-mx-8">
                 <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="">
@@ -59,13 +77,13 @@ function TeamTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Core
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-red-300 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(core)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {core}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                         
                                     </td>
                                 </tr>
@@ -73,13 +91,13 @@ function TeamTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Marketing
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-yellow-200 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(marketing)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {marketing}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                         
                                     </td>
                                 </tr>
@@ -87,13 +105,13 @@ function TeamTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Product Dev
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-red-300 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(productDev)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {productDev}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                         
                                     </td>
                                 </tr>
@@ -101,13 +119,13 @@ function TeamTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Sales
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-green-200 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(sales)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {sales}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                         
                                     </td>
                                 </tr>
@@ -115,13 +133,13 @@ function TeamTable () {
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Customer
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-gray-100 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class="text-sm text-gray-900 bg-red-200 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker(customer)} font-light px-6 py-4 whitespace-nowrap`}>
                                         {customer}
                                     </td>
-                                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>
                                         
                                     </td>
                                 </tr>
