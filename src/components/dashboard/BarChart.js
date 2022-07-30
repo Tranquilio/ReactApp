@@ -44,7 +44,7 @@ const Chart = () => {
       
       for (var key in data) {
           categories.push(key);
-          scores.push(data[key]);
+          scores.push(data[key]*100/6);
       }
 
       console.log(categories);
@@ -77,7 +77,7 @@ const Chart = () => {
     scales: {
       y: {
         min: 0,
-        max: 6,
+        max: 100,
         grid: {
           display: false
         },
