@@ -57,7 +57,7 @@ function SurveyPage() {
   }
 
   return (  
-    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-pink-50'>  
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-blue-50'>  
  
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />

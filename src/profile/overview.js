@@ -1,6 +1,8 @@
 import Sidebar from '..//components/Sidebar'
 import { Fade } from 'react-reveal'
 import { useState, useEffect } from 'react'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 var overall;
 var score;
@@ -37,18 +39,54 @@ function OverviewPage() {
   // })
 
   return (  
-    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-pink-50'>  
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-blue-50'>  
      
       {/* Sidebar */}
       <Sidebar />
 
       {/* Content area */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-64">
+      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-48">
         
         {/* Wellbeing score display */}
         <Fade bottom>
-          <div className='text-7xl text-center font-bold tracking-tight'>
-          Tranquilio wellbeing score is
+          <div className='text-5xl text-center font-bold tracking-tight'>
+          companyName wellbeing score is
+          </div>
+
+          <div style={{ marginLeft: 540, marginTop: 50, width: 200, height: 200 }}>
+          <CircularProgressbar
+            value={score}
+            text={score}
+            styles={{
+              // Customize the path, i.e. the "completed progress"
+              path: {
+                // Path color
+                stroke: 'green',
+                // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+                strokeLinecap: 'round',
+                // Customize transition animation
+                transition: 'stroke-dashoffset 0.5s ease 0s',
+              },
+              // Customize the circle behind the path, i.e. the "total progress"
+              trail: {
+                // Trail color
+                stroke: '#d6d6d6',
+                // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+                strokeLinecap: 'butt',
+              },
+              // Customize the text
+              text: {
+                // Text color
+                fill: 'blue',
+                // Text size
+                fontSize: '16px',
+              },
+              // Customize background - only used when the `background` prop is true
+              background: {
+                fill: 'green',
+              },
+            }}
+          />
           </div>
 
           <div>
