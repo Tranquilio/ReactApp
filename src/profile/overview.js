@@ -1,8 +1,7 @@
 import Sidebar from '..//components/Sidebar'
 import { Fade } from 'react-reveal'
 import { useState, useEffect } from 'react'
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import {CircleProgress} from 'react-gradient-progress'
 
 var overall;
 var score;
@@ -27,6 +26,21 @@ function OverviewPage() {
     getScore();
 
   },[]);
+
+  function colorPicker(value) {
+    if(value > 90) {
+      return 'rgb(34 197 94)'
+    } else if (value > 80) {
+      return 'rgb(134 239 172)'
+    } else if (value > 60) {
+      return 'rgb(250 204 21)'
+    } else if (value > 50) {
+      return 'rgb(254 202 202)'
+    } else {
+      return 'rgb(248 113 113)'
+    }
+
+  }
   
   // const { data: session, status } = useSession();
 
@@ -39,13 +53,13 @@ function OverviewPage() {
   // })
 
   return (  
-    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-blue-50'>  
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-green-50'>  
      
       {/* Sidebar */}
       <Sidebar />
 
       {/* Content area */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-48">
+      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-32">
         
         {/* Wellbeing score display */}
         <Fade bottom>
@@ -53,67 +67,29 @@ function OverviewPage() {
           companyName wellbeing score is
           </div>
 
-          <div style={{ marginLeft: 540, marginTop: 50, width: 200, height: 200 }}>
-          <CircularProgressbar
-            value={score}
-            text={score}
-            styles={{
-              // Customize the path, i.e. the "completed progress"
-              path: {
-                // Path color
-                stroke: 'green',
-                // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-                strokeLinecap: 'round',
-                // Customize transition animation
-                transition: 'stroke-dashoffset 0.5s ease 0s',
-              },
-              // Customize the circle behind the path, i.e. the "total progress"
-              trail: {
-                // Trail color
-                stroke: '#d6d6d6',
-                // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-                strokeLinecap: 'butt',
-              },
-              // Customize the text
-              text: {
-                // Text color
-                fill: 'blue',
-                // Text size
-                fontSize: '16px',
-              },
-              // Customize background - only used when the `background` prop is true
-              background: {
-                fill: 'green',
-              },
-            }}
-          />
+          <div style={{ marginLeft: 450, marginTop: 50}}>
+            <CircleProgress 
+              percentage={score} 
+              strokeWidth={20} 
+              width={400}
+              primaryColor={['#0D9488','#99F6E4']}
+              secondaryColor="#f0f0f0"
+              fontColor={colorPicker(score)}
+              fontSize="64px"
+            />
           </div>
 
           <div>
-            { (score > 90) ? 
-            <div>
-              <div className='text-7xl text-center font-bold text-green-400 py-5'>{score}</div>
-              <div className='text-center mt-12 text-xl'>Awesome! Your organisation is averaging an extremely healthy well-being score.</div>
-            </div> :
+            { 
+              (score > 90) ? 
+              <div className='text-center mt-12 text-xl'>Awesome! Your organisation is averaging an extremely healthy well-being score</div> :
               (score > 80) ? 
-            <div>
-              <div className='text-7xl text-center font-bold text-green-300 py-5'>{score}</div>
-              <div className='text-center mt-12 text-xl'>Great! Your organisation is averaging a very healthy well-being score.</div>
-            </div> :
+              <div className='text-center mt-12 text-xl'>Great! Your organisation is averaging a very healthy well-being score</div> :
               (score > 60) ? 
-            <div>
-              <div className='text-7xl text-center font-bold text-yellow-400 py-5'>{score}</div>
-              <div className='text-center mt-12 text-xl'>Good job! Your organisation is averaging a healthy well-being score.</div>
-            </div> :
+              <div className='text-center mt-12 text-xl'>Good job! Your organisation is averaging a healthy well-being score</div> :
               (score > 50) ? 
-            <div>
-              <div className='text-7xl text-center font-bold text-red-200 py-5'>{score}</div>
-              <div className='text-center mt-12 text-xl'>Something's going on. Your organisation is averaging a poor well-being score.</div>
-            </div> :
-            <div>
-              <div className='text-7xl text-center font-bold text-red-400 py-5'>{score}</div>
-              <div className='text-center mt-12 text-xl'>Time to reflect and review! Your organisation is averaging an extremely poor well-being score.</div>
-            </div>
+              <div className='text-center mt-12 text-xl'>Something's going on. Your organisation is averaging a poor well-being score</div> :
+              <div className='text-center mt-12 text-xl'>Time to reflect and review! Your organisation is averaging an extremely poor well-being score</div>
             }
           </div>
         </Fade>

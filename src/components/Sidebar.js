@@ -18,7 +18,7 @@ function Sidebar() {
       <div
         id="sidebar"
         ref={sidebar}    
-        className={`flex flex-col relative z-40 left-0 top-0 transform h-screen no-scrollbar w-52 p-4 bg-teal-50 transition-all duration-200 ease-in-out`}
+        className={`flex flex-col relative z-40 left-0 top-0 transform h-screen no-scrollbar w-52 p-4 bg-teal-50 transition-all duration-200 ease-in-out border-2`}
       >
 
         {/* Sidebar header */}
@@ -32,9 +32,9 @@ function Sidebar() {
           {/* Pages group */}
           <div>
             <h3 className="text-xs uppercase text-slate-500 font-semibold pl-3">
-              <span className="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">PAGES</span>
+              <span className="hidden lg:block text-center w-6" aria-hidden="true">PAGES</span>
             </h3>
-            <ul className="mt-3">
+            <ul className="mt-5">
 
             {/* Overview */}
             <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-teal-100 ${pathname.includes('overview') && 'bg-teal-100'}`}>
@@ -89,7 +89,7 @@ function Sidebar() {
             </li>     
 
             {/* Settings */}
-            <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-teal-100 ${pathname.includes('settings') && 'bg-teal-100'}`}>
+            {/* <li className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 hover:bg-teal-100 ${pathname.includes('settings') && 'bg-teal-100'}`}>
               <NavLink end to="/profile/settings" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('settings') && 'hover:text-black'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@ function Sidebar() {
                   <span className="text-sm font-medium ml-3 2xl:opacity-100 duration-200">Settings</span>
                 </div>
               </NavLink>
-            </li>  
+            </li>   */}
 
             </ul>
           </div>

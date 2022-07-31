@@ -48,13 +48,11 @@ function PreviewPage () {
                 {/* Navigation */}
                 <div className='gap-10 mt-10 mb-10 flex justify-center items-center'>
                   <Link to="/profile/survey/create">
-                    <div className={classes.backarrow}>
-                      <div className="rotate-180 ">Back</div>
-                    </div>
+                    <div className="p-4 rounded-full bg-pink-400 px-10 text-center text-white hover:bg-pink-500">{"<"} Back</div>
                   </Link>
 
                   <Link to="/profile/survey/deploy">
-                    <div className={classes.nextarrow}>Next</div>
+                    <div className="p-4 rounded-full bg-pink-400 px-10 text-center text-white hover:bg-pink-500">Next {">"}</div>
                   </Link>
                 </div>
               </div>

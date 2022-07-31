@@ -96,7 +96,7 @@ const Chart = () => {
     datasets: [
       {
         data: scores,
-        backgroundColor: "#E5E2EE",
+        backgroundColor: "rgb(204 251 241)",
       }
     ],
   };

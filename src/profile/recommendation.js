@@ -1,5 +1,6 @@
 import Sidebar from '..//components/Sidebar'
 import { Fade } from 'react-reveal'
+import { Paper } from '@material-ui/core'
 
 function RecommendationPage() {
   
@@ -14,7 +15,7 @@ function RecommendationPage() {
     // })
 
   return (   
-    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-blue-50'>  
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-green-50'>  
      
         {/* Sidebar */}
         <Sidebar />
@@ -22,9 +23,15 @@ function RecommendationPage() {
         {/* Content area */}
         <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-72">
             <Fade bottom>
-                <div className='text-4xl text-center font-bold mt-16'>
+                <Paper elevation={3} className='ml-64 mr-64 p-10'>
+                <div className='text-3xl font-bold'>
                 Stay tuned, Feature releasing soon!
                 </div>
+
+                {/* Description */}
+                <li className='mt-10 mb-2'>Schedule monthly calls with an expert to guide your strategies to improve overall wellbeing</li>
+                <li>Keep track of the effectiveness of initiatives and tasks your employees are taking</li>
+                </Paper>    
             </Fade>
         </div>
 

@@ -5,12 +5,12 @@ import {Link} from "react-router-dom"
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { Fade } from 'react-reveal'
+import { Paper } from '@material-ui/core'
 
 function SurveyPage() {
 
   const [emails, setEmails] = useState(null)  
   const [headers, setHeaders] = useState(null)
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   function sendEmails() {
     console.log(emails)
@@ -57,15 +57,26 @@ function SurveyPage() {
   }
 
   return (  
-    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-blue-50'>  
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-green-50'>  
  
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <Sidebar />
      
-      {/* Content */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-      
-        <div className='-mt-20'>
+      {/* Content area */}
+      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-72">
+        <Fade bottom>
+            <Paper elevation={3} className='ml-64 mr-64 p-10'>
+            <div className='text-3xl font-bold'>
+            Stay tuned, Feature releasing soon!
+            </div>
+
+            {/* Description */}
+            <li className='mt-10 mb-2'>Recieve monthly reports on your organization's wellbeing insights</li>
+            <li>Easily deploy, customize, and manage employee surveys in minutes</li>
+            </Paper>    
+        </Fade>
+      </div>
+        {/* <div className='-mt-20'>
           <ul className='p-48 flex -mt-10 gap-60'>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey">Onboard</Link>
@@ -82,20 +93,19 @@ function SurveyPage() {
           </ul>
             
           <Fade cascade>  
-            {/* Component for Insertion File and Excel Table  */}
+         
             <SurveyInfo updateState={updateEmails}/>
 
-            {/* Navigation */}
+          
             <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
               <button onClick={sendEmails} disabled={emails == null}>Test emails</button>
               <Link to="/profile/survey/create">
-                <div className={classes.nextarrow}>Next</div>
+                <div className="p-4 rounded-full bg-pink-400 px-10 text-center text-white hover:bg-pink-500">Next {">"}</div>
               </Link>
             </div>
           </Fade>
-        </div>
 
-      </div>
+        </div> */}
 
     </div>
   );  

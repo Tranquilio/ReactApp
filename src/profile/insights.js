@@ -21,7 +21,7 @@ function InsightsPage() {
   // })
 
   return (  
-    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-blue-50'>  
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-green-50'>  
  
       {/* Sidebar */}
       <Sidebar />

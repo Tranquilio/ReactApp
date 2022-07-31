@@ -22,7 +22,7 @@ function LineChart01({
       data: data,
       options: {
         chartArea: {
-          backgroundColor: "#fff",
+          backgroundColor: "rgb(94 234 212)",
         },
         layout: {
           padding: 24,

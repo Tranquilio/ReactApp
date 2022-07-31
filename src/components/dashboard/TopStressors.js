@@ -88,7 +88,7 @@ const TopStressors = () => {
             </li>
         </ul>
       
-        <button className='mt-10 border-2 bg-purple-200 font-semibold text-white hover:bg-purple-300 p-3'>
+        <button className='mt-10 border-2 bg-pink-300 font-semibold rounded-full text-white hover:bg-pink-400 p-3 px-5'>
             <a href="https://www.tranquilio.co/resources">Click me to find more!</a>
         </button>
 
