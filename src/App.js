@@ -10,6 +10,7 @@ import Assessment from "./extras/lastSurveyPage"
 import RecommendationPage from "./profile/recommendation"
 import SettingsPage from "./profile/settings"
 import ErrorPage from "./extras/ErrorPage"
+import LoginForm from "./login"
 import './App.css'
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/assessment" element={<Assessment />} /> 
         <Route path="/survey" element={<Survey />} />
         <Route path="/" element={<Navigate to="/profile/overview" replace />} />
+        <Route path="/login" element={<LoginForm /> } />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
