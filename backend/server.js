@@ -1,7 +1,8 @@
 const express = require("express");
+const bodyParser = require('body-parser');
+const loginRoutes = require('./routes/login');
 const app = express();
 const cors = require("cors");
-
 //Write config variables here
 require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5000;
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(require("./routes/questions"));
 app.use(require("./routes/scores"));
 app.use(require("./routes/employees"));
+app.use(loginRoutes)
 // get driver connection
 const dbo = require("./conn");
  

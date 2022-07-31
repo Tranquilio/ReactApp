@@ -1,0 +1,22 @@
+GET http://localhost:5000/
+
+###
+POST http://localhost:5000/generate-redirect-token
+Content-Type: application/json
+
+###
+POST http://localhost:5000/login-init
+Content-Type: application/json
+{
+    "email": "vishalsonic2000@gmail.com",
+    "otp": "564534"
+}
+
+###
+POST http://localhost:5000/verify-redirect-token
+Content-Type: application/json
+
+{
+    "redirectToken": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJyZWRpcmVjdFR5cGUiOiJsb2dpbiIsImlhdCI6MTY1OTI5NjI3Mn0.eoNwRDEtVkm_VzJVQBa_vpvIahHYk7KoGpi9T05LyFCJyHMdY1gib6RP9ZyfqE-hBBbjV9WfLARX6YD582fssAdNFI5UJAyt11FOO_-uzyx1LvCXWHmCeCmc319PF5UZRRBmuMdjDSJolOCuSoNkhHVTG2SkAJux3OjFgimZeP2hxPk5Z7P8dcxFewenF9FZBwaPjQlnuccOy8Yu47youCez-xpt0vEyDRX2iUmTO2Xg5e_O6Es5knHuLL1veNuxfLD2sAh1TRkyruVEoiFcN4BCS41BK0kIGT3zlE6RWzrysLQwOj8e3kupiUwedgkQw4QaM4ug-tcm6PG6H4o0sfjkL8cJlk1QylnquRGonqD8w4G0_o44PmgIdUOIo-T15AlO82Z5nSn_FA3gUTHislS2Ie2HP7HCfkFMUe7EzX5xCQ0H_y-lVfeRZzu9cyuCK7Yi_nXMK-jAlqmlYToNP3lpxb-BKbpZKAqB-yEZrRraFfwYbIwyQVCVCJxPvxyT2RLlbfq0QxK-OA-Gr9AyW5qgW3tu5T_KpAD-C1bASRjoR-xJfMarjyXAZIO0Cd2yEQ89eHE_erBQD0MRtCgYdAChQ516YpEPaKNVAdRw8w35Scu5qisyvKgY2ThsEIJmVVyAjcCMdZp3_wF7NOJUvyBxRrjmClsh4EZGjNwyECI"
+}
+

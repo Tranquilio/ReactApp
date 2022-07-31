@@ -10,13 +10,14 @@ import Assessment from "./extras/lastSurveyPage"
 import RecommendationPage from "./profile/recommendation"
 import SettingsPage from "./profile/settings"
 import ErrorPage from "./extras/ErrorPage"
-import LoginForm from "./login"
+import LoginForm from "./login/login"
 import './App.css'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/login" element={<LoginForm /> } />
         <Route path="/profile/overview" element={<OverviewPage />} />
         <Route path="/profile/insights" element={<InsightsPage />} />
         <Route path="/profile/recommendation" element={<RecommendationPage />} /> 
@@ -29,9 +30,7 @@ function App() {
     
         <Route path="/assessment" element={<Assessment />} /> 
         <Route path="/survey" element={<Survey />} />
-        <Route path="/" element={<Navigate to="/profile/overview" replace />} />
-        <Route path="/login" element={<LoginForm /> } />
-
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
