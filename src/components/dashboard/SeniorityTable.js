@@ -20,11 +20,12 @@ function SeniorityTable () {
   
       seniority =  await result.json(); 
       
-      zeroToHalf = parseInt(seniority['0-0.5 Year']*(100/6))
-      halfToOne = parseInt(seniority['0.5-1 Year']*(100/6))
-      oneToTwo = parseInt(seniority['1-2 Years']*(100/6))
-      twoToThree = parseInt(seniority['2-3 Years']*(100/6))
-      threeOrMore = parseInt(seniority['3+ Years']*(100/6))
+      //Modified to not have years
+      zeroToHalf = parseInt(seniority['0-0.5']*(100/6))
+      halfToOne = parseInt(seniority['0.5-1']*(100/6))
+      oneToTwo = parseInt(seniority['1-2']*(100/6))
+      twoToThree = parseInt(seniority['2-3']*(100/6))
+      threeOrMore = parseInt(seniority['3+']*(100/6))
       
       setLoad(seniority);
     }      
