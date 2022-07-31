@@ -79,18 +79,19 @@ employeeRoutes.route("/api/employees/scores/all").get(function (req, res) {
     ]);
     cursor.toArray(function (err, result) {
         if (err) throw err;
-        res.json({"Average Score" : result[0].average});     
+        res.json({"Average Score" : result[0].average * 100/6});     
     });
 });
 
 employeeRoutes.route("/api/employees/scores/:id").get(function (req, res) {
     let db_connect = dbo.getDb();
     cursor = db_connect.collection("typeform-response").aggregate([
+        { $match: { companyName: req.params.id } },
         { $group: {_id:null, average: { $avg: "$averageScore" } } },
     ]);
     cursor.toArray(function (err, result) {
         if (err) throw err;
-        res.json({"Average Score" : result[0].average});
+        res.json({"Average Score" : result[0].average * 100/6});
     });
 });
 
