@@ -20,7 +20,7 @@ function TeamTable () {
   
       dept =  await result.json(); 
       
-      core = parseInt(dept['sales']*(100/6)) // Need to change "sales" to "core" in MongoDB
+      core = parseInt(dept['Core']*(100/6)) // Need to change "sales" to "core" in MongoDB (Done)
       marketing = parseInt(dept['Marketing']*(100/6))
       productDev = parseInt(dept['Product Dev']*(100/6))
       sales = parseInt(dept['Sales']*(100/6))

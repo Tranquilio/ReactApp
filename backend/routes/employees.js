@@ -19,26 +19,45 @@ function getAvg(object) {
     return avg
 }
 
-function getAvgScore(array) {
-    //Ignore first two elements
-    avg = 0
-    for(element of array) {
-        avg = avg + getAvg(element)
-    }
-    //Overall Wellbeing Score
-    avg = (avg*100) / (array.length*6)
-    return {"Average Score": avg}
-}
- 
-// This section will help you get a list of all the employee data.
+// Copy over data to a new collection (For testing)
+// employeeRoutes.route("/api/employees/create").get(function (req, res) {
+//     let db_connect = dbo.getDb();
+//     cursor = db_connect.collection("typeform-response").find({});
+//     cursor.toArray(function (err, result) {
+//         if (err) throw err;
+//         for (element of result) {
+//             element["averageScore"] = getAvg(element);
+//             db_connect.collection("copy").insertOne(element);
+//         }
+//         res.json(result);
+//     });
+// });
+
+// Update data to have the averageScore property
+// employeeRoutes.route("/api/employees/update").get(function (req, res) {
+//     let db_connect = dbo.getDb();
+//     cursor = db_connect.collection("typeform-response").find({});
+//     cursor.toArray(function (err, result) {
+//         if (err) throw err;
+//         for (element of result) {
+//             myquery = { _id: element._id };
+//             element["averageScore"] = getAvg(element);
+//             db_connect.collection("typeform-response").replaceOne(myquery, element, function (err, res) {
+//                 if (err) throw err;
+//                 console.log("1 document updated");
+//             });
+//         }
+//         res.json(result);
+//     });
+// });
+
+
+// This section will help you get a list of all the employee data. (To have average score -> use update to update the database)
 employeeRoutes.route("/api/employees/all").get(function (req, res) {
     let db_connect = dbo.getDb();
     cursor = db_connect.collection("typeform-response").find({});
     cursor.toArray(function (err, result) {
         if (err) throw err;
-        for (element of result) {
-            element["averageScore"] = getAvg(element)
-        }
         res.json(result);
     });
 });
@@ -48,61 +67,45 @@ employeeRoutes.route("/api/employees/:id").get(function (req, res) {
     cursor = db_connect.collection("typeform-response").find({companyName: req.params.id});
     cursor.toArray(function (err, result) {
         if (err) throw err;
-        for (element of result) {
-            element["averageScore"] = getAvg(element)
-        }
         res.json(result);
     });
 });
 
-//Gets blocked by /employees/{id}
-// employeeRoutes.route("/api/employees/scores").get(function (req, res) {
-//     let db_connect = dbo.getDb();
-//     cursor = db_connect.collection("typeform-response").find({});
-//     cursor.toArray(function (err, result) {
-//         if (err) throw err;
-//         res.json(getAvgScore(result));
-//     });
-// });
-
 // Used for overall wellbeing score
 employeeRoutes.route("/api/employees/scores/all").get(function (req, res) {
     let db_connect = dbo.getDb();
-    cursor = db_connect.collection("typeform-response").find({});
+    cursor = db_connect.collection("typeform-response").aggregate([
+        { $group: {_id:null, average: { $avg: "$averageScore" } } },
+    ]);
     cursor.toArray(function (err, result) {
         if (err) throw err;
-        res.json(getAvgScore(result));     
+        res.json({"Average Score" : result[0].average * 100/6});     
     });
 });
 
 employeeRoutes.route("/api/employees/scores/:id").get(function (req, res) {
     let db_connect = dbo.getDb();
-    cursor = db_connect.collection("typeform-response").find({companyName: req.params.id});
+    cursor = db_connect.collection("typeform-response").aggregate([
+        { $match: { companyName: req.params.id } },
+        { $group: {_id:null, average: { $avg: "$averageScore" } } },
+    ]);
     cursor.toArray(function (err, result) {
         if (err) throw err;
-        res.json(getAvgScore(result));
+        res.json({"Average Score" : result[0].average * 100/6});
     });
 });
 
 //Json -> {deptname : score}
 employeeRoutes.route("/api/employees/dept/all").get(function (req, res) {
     let db_connect = dbo.getDb();
-    cursor = db_connect.collection("typeform-response").find({});
+    cursor = db_connect.collection("typeform-response").aggregate([
+        { $group: { _id: "$dept", average: { $avg: "$averageScore" } } },
+    ]);
     cursor.toArray(function (err, result) {
         if (err) throw err;
         out = {}
-        for (element of result) {
-            dept = element["employeeInfo"][0] //Is role but currently no dept 
-            out[dept] = {score: 0 , count: 0}
-        }
-        for (element of result) {
-            dept = element["employeeInfo"][0] 
-            element["averageScore"] = getAvg(element)
-            out[dept]["score"] = out[dept]["score"] + element["averageScore"]
-            out[dept]["count"] = out[dept]["count"] + 1
-        }
-        for (dept in out) {
-            out[dept] = out[dept]["score"] / out[dept]["count"]
+        for(element of result) {
+            out[element._id] = element.average
         }
         res.json(out);
     });
@@ -110,22 +113,15 @@ employeeRoutes.route("/api/employees/dept/all").get(function (req, res) {
 
 employeeRoutes.route("/api/employees/dept/:id").get(function (req, res) {
     let db_connect = dbo.getDb();
-    cursor = db_connect.collection("typeform-response").find({companyName: req.params.id});
+    cursor = db_connect.collection("typeform-response").aggregate([
+        { $match: { companyName: req.params.id } },
+        { $group: { _id: "$dept", average: { $avg: "$averageScore" } } },
+    ]);
     cursor.toArray(function (err, result) {
         if (err) throw err;
         out = {}
-        for (element of result) {
-            dept = element["employeeInfo"][0] //Is role but currently no dept 
-            out[dept] = {score: 0 , count: 0}
-        }
-        for (element of result) {
-            dept = element["employeeInfo"][0] 
-            element["averageScore"] = getAvg(element)
-            out[dept]["score"] = out[dept]["score"] + element["averageScore"]
-            out[dept]["count"] = out[dept]["count"] + 1
-        }
-        for (dept in out) {
-            out[dept] = out[dept]["score"] / out[dept]["count"]
+        for(element of result) {
+            out[element._id] = element.average
         }
         res.json(out);
     });
@@ -134,22 +130,14 @@ employeeRoutes.route("/api/employees/dept/:id").get(function (req, res) {
 //Json -> {seniority : score}
 employeeRoutes.route("/api/employees/seniority/all").get(function (req, res) {
     let db_connect = dbo.getDb();
-    cursor = db_connect.collection("typeform-response").find({});
+    cursor = db_connect.collection("typeform-response").aggregate([
+        { $group: { _id: "$seniority", average: { $avg: "$averageScore" } } },
+    ]);
     cursor.toArray(function (err, result) {
         if (err) throw err;
         out = {}
-        for (element of result) {
-            seniority = element["employeeInfo"][1] //Is years but currently no seniority 
-            out[seniority] = {score: 0 , count: 0}
-        }
-        for (element of result) {
-            seniority = element["employeeInfo"][1] 
-            element["averageScore"] = getAvg(element)
-            out[seniority]["score"] = out[seniority]["score"] + element["averageScore"]
-            out[seniority]["count"] = out[seniority]["count"] + 1
-        }
-        for (seniority in out) {
-            out[seniority] = out[seniority]["score"] / out[seniority]["count"]
+        for(element of result) {
+            out[element._id] = element.average
         }
         res.json(out);
     });
@@ -157,50 +145,18 @@ employeeRoutes.route("/api/employees/seniority/all").get(function (req, res) {
 
 employeeRoutes.route("/api/employees/seniority/:id").get(function (req, res) {
     let db_connect = dbo.getDb();
-    cursor = db_connect.collection("typeform-response").find({companyName: req.params.id});
+    cursor = db_connect.collection("typeform-response").aggregate([
+        { $match: { companyName: req.params.id } },
+        { $group: { _id: "$seniority", average: { $avg: "$averageScore" } } },
+    ]);
     cursor.toArray(function (err, result) {
         if (err) throw err;
         out = {}
-        for (element of result) {
-            seniority = element["employeeInfo"][1] //Is years but currently no seniority 
-            out[seniority] = {score: 0 , count: 0}
-        }
-        for (element of result) {
-            seniority = element["employeeInfo"][1] 
-            element["averageScore"] = getAvg(element)
-            out[seniority]["score"] = out[seniority]["score"] + element["averageScore"]
-            out[seniority]["count"] = out[seniority]["count"] + 1
-        }
-        for (seniority in out) {
-            out[seniority] = out[seniority]["score"] / out[seniority]["count"]
+        for(element of result) {
+            out[element._id] = element.average
         }
         res.json(out);
     });
 });
-
-// If need a complete json with scores -> Moved to default gets
-// employeeRoutes.route("/api/employees/all/scores").get(function (req, res) {
-//     let db_connect = dbo.getDb();
-//     cursor = db_connect.collection("typeform-response").find({});
-//     cursor.toArray(function (err, result) {
-//         if (err) throw err;
-//         for (element of result) {
-//             element["averageScore"] = getAvg(element)
-//         }
-//         res.json(result);
-//     });
-// });
-
-// employeeRoutes.route("/api/employees/:id/scores").get(function (req, res) {
-//     let db_connect = dbo.getDb();
-//     cursor = db_connect.collection("typeform-response").find({companyName: req.params.id});
-//     cursor.toArray(function (err, result) {
-//         if (err) throw err;
-//         for (element of result) {
-//             element["averageScore"] = getAvg(element)
-//         }
-//         res.json(result);
-//     });
-// });
 
 module.exports = employeeRoutes;
