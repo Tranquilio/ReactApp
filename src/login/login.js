@@ -1,10 +1,13 @@
-import logo from '../images/Logo.png'
+import logo from '../images/logotext.png'
 import classes from "../profile/survey/nav.module.css"
 import {Link} from "react-router-dom"
 import { useState, useEffect } from 'react'
 import Button from '@mui/material/Button'
 import { set } from 'mongoose'
 import { useNavigate, useLocation } from "react-router-dom"
+import { FaRegEnvelope } from "react-icons/fa"
+import { MdLockOutline } from "react-icons/md"
+import loginVid from '../loginVid.mp4'
 
 function LoginForm() {
 
@@ -83,59 +86,137 @@ function LoginForm() {
     }
 
   return (   
-    <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
-        <div className='hidden sm:block'>
-        <img className='w-fit h-fit object-contain mt-40' src={logo} alt=""/>
-        </div>
-        <div className='bg-slate-800 flex flex-col justify-center'>
-            <form className='max-w-[400px] w-full mx-auto bg-slate-600 p-8 px-8 rounded-lg'>
-                <div className='text-4l text-center font-bold mt-16 text-gray-400 '>
-                    Sign in to your account!
-                </div>
+    // <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
+    //     <div className='hidden sm:block'>
+    //     <img className='w-fit h-fit object-contain mt-40' src={logo} alt=""/>
+    //     </div>
+    //     <div className='bg-slate-800 flex flex-col justify-center'>
+    //         <form className='max-w-[400px] w-full mx-auto bg-slate-600 p-8 px-8 rounded-lg'>
+    //             <div className='text-4l text-center font-bold mt-16 text-gray-400 '>
+    //                 Sign in to your account!
+    //             </div>
             
-                <div></div>
-                { !displayOTPInput ? 
-                <div>
-                    <div className='flex flex-col text-gray-300 py-2'>
-                        <span className="text-sm font-medium 2xl:opacity-100 duration-200">Email</span>
-                        <div text-black>
-                            <input onChange={updateEmail} className="mt-3 " type="text" placeholder=' Enter your email!' />
+    //             <div></div>
+    //             { !displayOTPInput ? 
+    //             <div>
+    //                 <div className='flex flex-col text-gray-300 py-2'>
+    //                     <span className="text-sm font-medium 2xl:opacity-100 duration-200">Email</span>
+    //                     <div text-black>
+    //                         <input onChange={updateEmail} className="mt-3 " type="text" placeholder=' Enter your email!' />
+    //                     </div>
+    //                 </div>
+    //                 <div className='gap-10 mt-6 flex justify-center items-center'>
+    //                     <Button onClick={validateEmail}>
+    //                         <div className={classes.nextarrow}>Get OTP</div>
+    //                     </Button>
+    //                 </div>
+    //            </div> 
+    //            : 
+    //            <div className='flex flex-col text-gray-300 py-2'>
+    //             <span className="text-sm font-medium 2xl:opacity-100 duration-200">OTP</span>
+    //                 <div text-black>
+    //                     <input onChange={updateOTPInput} className="mt-3 " type="text" placeholder=' Enter your OTP!' />
+    //                 </div>
+    //                 <Button onClick={validateOTPInput}>
+    //                     <div className={classes.nextarrow}>Sign in</div>
+    //                 </Button>
+    //             </div>
+    //             }
+    //             { isEmailValid ? 
+    //             null : 
+    //             <div className='flex flex-col text-red-300 py-2'>
+    //             <span className="text-sm font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
+    //            </div>
+    //            }
+    //            { isOTPValid ? 
+    //             null : 
+    //             <div className='flex flex-col text-red-300 py-2'>
+    //             <span className="text-sm font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
+    //            </div>
+    //            }
+    //         </form>
+    //     </div>
+    // </div>
+
+    <div className="items-center justify-center h-screen">
+        <main className="w-full text-center">
+            <div className="bg-white shadow-2xl flex h-screen">
+                {/* Picture Section (Left Side)  */}
+                <div className="w-5/6">
+                    <div className='relative w-full h-screen'>
+                        <video className='w-full h-screen object-cover' src={loginVid} autoPlay loop muted boomerang />
+                        <div className='absolute text-white w-full h-full top-0 left-0'>
+                            <div className='text-7xl font-bold mt-64'>Make Work, <br /> Stress Free</div>
+                            <div className='mt-10 text-xl opacity-80'>Start by finding out your potential work stressors</div>
                         </div>
                     </div>
-                    <div className='gap-10 mt-6 flex justify-center items-center'>
-                        <Button onClick={validateEmail}>
-                            <div className={classes.nextarrow}>Get OTP</div>
-                        </Button>
-                    </div>
-               </div> 
-               : 
-               <div className='flex flex-col text-gray-300 py-2'>
-                <span className="text-sm font-medium 2xl:opacity-100 duration-200">OTP</span>
-                    <div text-black>
-                        <input onChange={updateOTPInput} className="mt-3 " type="text" placeholder=' Enter your OTP!' />
-                    </div>
-                    <Button onClick={validateOTPInput}>
-                        <div className={classes.nextarrow}>Sign in</div>
-                    </Button>
                 </div>
-                }
-                { isEmailValid ? 
-                null : 
-                <div className='flex flex-col text-red-300 py-2'>
-                <span className="text-sm font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
-               </div>
-               }
-               { isOTPValid ? 
-                null : 
-                <div className='flex flex-col text-red-300 py-2'>
-                <span className="text-sm font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
-               </div>
-               }
-            </form>
-        </div>
+                {/* Sign In Section (Right Side)  */}
+                <div className="w-2/6 p-5 bg-gradient-to-r from-pink-100 to-teal-50">
+                    <div className='py-10 mt-40'>
+                        <div className='ml-2'>
+                            <img src={logo} className="text-center ml-24 -mt-16" width={200} />
+                        </div>
+                        <div className='flex flex-col items-center'>
+                            { !displayOTPInput ? 
+                                <div>
+                                    <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5'>
+                                        <FaRegEnvelope className="text-gray-400 m-2" />
+                                        <input onChange={updateEmail} className="bg-white outline-none text-sm flex-1" type="text" placeholder='Email' />
+                                    </div>
+                                    <div className='mt-10'>
+                                        <div className="p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateEmail}>Get OTP</div>
+                                    </div>
+                                </div>
+                                :
+                                <div>
+                                    <div className='bg-white w-64 p-2 flex items-center mb-3'>
+                                        <FaRegEnvelope className="text-gray-400 m-2" />
+                                        <input onChange={updateOTPInput} className="bg-white outline-none text-sm flex-1" type="text" placeholder='Enter OTP' />
+                                    </div>
+                                    <div className='mt-10'>
+                                        <div className="mt-5 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateOTPInput}>Sign In</div>
+                                    </div> 
+                                </div>
+                            }
+                            { isEmailValid ? 
+                                null : 
+                                <div className='mt-5'>
+                                <span className="text-sm font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
+                            </div>
+                            }
+                            { isOTPValid ? 
+                                null : 
+                                <div className='mt-5'>
+                                <span className="text-sm font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-    
     )
 }
 
 export default LoginForm;
+
+// <div className="flex flex-col items-center justify-center min-h-screen py-2">
+// <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+// <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
+//  Sign In Section (Right Side) <div className="w-3/5 p-5">
+// </div>
+//  Picture Section (Left Side) <div className="w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
+//      <h2 className="text-2xl font-bold mb-2">Hello</h2>
+//      <div className="border-2 w-10 border-white inline-block mb-2"></div>
+// </div>
+//
+//
+//
+//
+//
+//
+//
+//
+//
