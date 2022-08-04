@@ -162,7 +162,7 @@ function LoginForm() {
                                 <div>
                                     <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
                                         <FaRegEnvelope className="text-gray-400 m-2" />
-                                        <input onChange={updateEmail} className="bg-white outline-none text-sm flex-1" type="text" placeholder='Email' />
+                                        <input onChange={updateEmail} className="bg-white text-sm flex-1" type="text" placeholder='Email' />
                                     </div>
                                     <div className='mt-10 px-12'>
                                         <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateEmail}>Get OTP</div>
@@ -172,24 +172,24 @@ function LoginForm() {
                                 <div>
                                     <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
                                         <FaRegEnvelope className="text-gray-400 m-2" />
-                                        <input onChange={updateOTPInput} className="bg-white outline-none text-sm flex-1" type="text" placeholder='Enter OTP' />
+                                        <input onChange={updateOTPInput} className="bg-white text-sm flex-1" type="text" placeholder='Enter OTP' />
                                     </div>
                                     <div className='mt-10 px-12'>
-                                        <div className="cursor-pointer mt-5 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateOTPInput}>Sign In</div>
+                                        <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateOTPInput}>Sign In</div>
                                     </div> 
                                 </div>
                             }
                             { isEmailValid ? 
                                 null : 
                                 <div className='mt-5'>
-                                <span className="text-sm font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
-                            </div>
+                                    <span className="text-sm text-red-300 font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
+                                </div>
                             }
                             { isOTPValid ? 
                                 null : 
                                 <div className='mt-5'>
-                                <span className="text-sm font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
-                            </div>
+                                    <span className="text-sm text-red-300 font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
+                                </div>
                             }
                         </div>
                     </div>
@@ -201,22 +201,3 @@ function LoginForm() {
 }
 
 export default LoginForm;
-
-// <div className="flex flex-col items-center justify-center min-h-screen py-2">
-// <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-// <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
-//  Sign In Section (Right Side) <div className="w-3/5 p-5">
-// </div>
-//  Picture Section (Left Side) <div className="w-2/5 bg-green-500 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
-//      <h2 className="text-2xl font-bold mb-2">Hello</h2>
-//      <div className="border-2 w-10 border-white inline-block mb-2"></div>
-// </div>
-//
-//
-//
-//
-//
-//
-//
-//
-//
