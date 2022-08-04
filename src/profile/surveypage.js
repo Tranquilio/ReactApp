@@ -6,6 +6,7 @@ import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { Fade } from 'react-reveal'
 import { Paper } from '@material-ui/core'
+const emoji = require("emoji-dictionary")
 
 function SurveyPage() {
 
@@ -66,9 +67,7 @@ function SurveyPage() {
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-72">
         <Fade bottom>
             <Paper elevation={3} className='ml-64 mr-64 p-10'>
-            <div className='text-3xl font-bold'>
-            Stay tuned, Feature releasing soon!
-            </div>
+            <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div>
 
             {/* Description */}
             <li className='mt-10 mb-2'>Recieve monthly reports on your organization's wellbeing insights</li>

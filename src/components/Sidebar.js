@@ -41,8 +41,8 @@ function Sidebar() {
               <NavLink end to="/profile/overview" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('overview') && 'hover:text-black'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                    <path className={`fill-current text-slate-600 ${pathname.includes('overview') && 'text-indigo-500'}`} d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
-                    <path className={`fill-current text-slate-400 ${pathname.includes('overview') && 'text-indigo-300'}`} d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
+                    <path className={`fill-current text-slate-600 ${pathname.includes('overview') && 'text-teal-500'}`} d="M18.974 8H22a2 2 0 012 2v6h-2v5a1 1 0 01-1 1h-2a1 1 0 01-1-1v-5h-2v-6a2 2 0 012-2h.974zM20 7a2 2 0 11-.001-3.999A2 2 0 0120 7zM2.974 8H6a2 2 0 012 2v6H6v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5H0v-6a2 2 0 012-2h.974zM4 7a2 2 0 11-.001-3.999A2 2 0 014 7z" />
+                    <path className={`fill-current text-slate-400 ${pathname.includes('overview') && 'text-teal-300'}`} d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z" />
                   </svg>
                   <span className="text-sm font-medium ml-3 2xl:opacity-100 duration-200">Overview</span>
                 </div>
@@ -54,8 +54,8 @@ function Sidebar() {
               <NavLink end to="/profile/insights" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('insights') && 'hover:text-black'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                      <path className={`fill-current text-slate-600 ${pathname.includes('insights') && 'text-indigo-500'}`} d="M0 20h24v2H0z" />
-                      <path className={`fill-current text-slate-400 ${pathname.includes('insights') && 'text-indigo-300'}`} d="M4 18h2a1 1 0 001-1V8a1 1 0 00-1-1H4a1 1 0 00-1 1v9a1 1 0 001 1zM11 18h2a1 1 0 001-1V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v14a1 1 0 001 1zM17 12v5a1 1 0 001 1h2a1 1 0 001-1v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1z" />
+                      <path className={`fill-current text-slate-600 ${pathname.includes('insights') && 'text-teal-500'}`} d="M0 20h24v2H0z" />
+                      <path className={`fill-current text-slate-400 ${pathname.includes('insights') && 'text-teal-300'}`} d="M4 18h2a1 1 0 001-1V8a1 1 0 00-1-1H4a1 1 0 00-1 1v9a1 1 0 001 1zM11 18h2a1 1 0 001-1V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v14a1 1 0 001 1zM17 12v5a1 1 0 001 1h2a1 1 0 001-1v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1z" />
                   </svg>
                   <span className="text-sm font-medium ml-3 2xl:opacity-100 duration-200">Insights</span>
                 </div>
@@ -67,8 +67,8 @@ function Sidebar() {
               <NavLink end to="/profile/recommendation" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('recommendation') && 'hover:text-black'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                      <path className={`fill-current text-slate-600 ${pathname.includes('recommendation') && 'text-indigo-500'}`} d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
-                      <path className={`fill-current text-slate-400 ${pathname.includes('recommendation') && 'text-indigo-300'}`} d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
+                      <path className={`fill-current text-slate-600 ${pathname.includes('recommendation') && 'text-teal-500'}`} d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z" />
+                      <path className={`fill-current text-slate-400 ${pathname.includes('recommendation') && 'text-teal-300'}`} d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z" />
                   </svg>
                   <span className="text-sm font-medium ml-3 2xl:opacity-100 duration-200">Recommendation</span>
                 </div>
@@ -80,8 +80,8 @@ function Sidebar() {
               <NavLink end to="/profile/survey" className={`block text-slate-400 hover:text-black truncate transition duration-150 ${pathname.includes('survey') && 'hover:text-black'}`}>
                 <div className="flex items-center">
                   <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                      <path className={`fill-current text-slate-600 ${pathname.includes('survey') && 'text-indigo-500'}`} d="M16 13v4H8v-4H0l3-9h18l3 9h-8Z" />
-                      <path className={`fill-current text-slate-400 ${pathname.includes('survey') && 'text-indigo-300'}`} d="m23.72 12 .229.686A.984.984 0 0 1 24 13v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1v-8c0-.107.017-.213.051-.314L.28 12H8v4h8v-4H23.72ZM13 0v7h3l-4 5-4-5h3V0h2Z" />
+                      <path className={`fill-current text-slate-600 ${pathname.includes('survey') && 'text-teal-500'}`} d="M16 13v4H8v-4H0l3-9h18l3 9h-8Z" />
+                      <path className={`fill-current text-slate-400 ${pathname.includes('survey') && 'text-teal-300'}`} d="m23.72 12 .229.686A.984.984 0 0 1 24 13v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1v-8c0-.107.017-.213.051-.314L.28 12H8v4h8v-4H23.72ZM13 0v7h3l-4 5-4-5h3V0h2Z" />
                   </svg>
                   <span className="text-sm font-medium ml-3 2xl:opacity-100 duration-200">Survey</span>
                 </div>

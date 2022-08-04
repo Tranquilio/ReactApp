@@ -1,4 +1,4 @@
-import logo from '../images/logotext.png'
+import logo from '../images/logotext1.png'
 import classes from "../profile/survey/nav.module.css"
 import {Link} from "react-router-dom"
 import { useState, useEffect } from 'react'
@@ -153,29 +153,29 @@ function LoginForm() {
                 </div>
                 {/* Sign In Section (Right Side)  */}
                 <div className="w-2/6 p-5 bg-gradient-to-r from-pink-100 to-teal-50">
-                    <div className='py-10 mt-40'>
-                        <div className='ml-2'>
-                            <img src={logo} className="text-center ml-24 -mt-16" width={200} />
+                    <div className='py-10 mt-52'>
+                        <div className='-ml-12'>
+                            <img src={logo} className="text-center ml-24 -mt-16" width={300} />
                         </div>
                         <div className='flex flex-col items-center'>
                             { !displayOTPInput ? 
                                 <div>
-                                    <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5'>
+                                    <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
                                         <FaRegEnvelope className="text-gray-400 m-2" />
                                         <input onChange={updateEmail} className="bg-white outline-none text-sm flex-1" type="text" placeholder='Email' />
                                     </div>
-                                    <div className='mt-10'>
-                                        <div className="p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateEmail}>Get OTP</div>
+                                    <div className='mt-10 px-12'>
+                                        <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateEmail}>Get OTP</div>
                                     </div>
                                 </div>
                                 :
                                 <div>
-                                    <div className='bg-white w-64 p-2 flex items-center mb-3'>
+                                    <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
                                         <FaRegEnvelope className="text-gray-400 m-2" />
                                         <input onChange={updateOTPInput} className="bg-white outline-none text-sm flex-1" type="text" placeholder='Enter OTP' />
                                     </div>
-                                    <div className='mt-10'>
-                                        <div className="mt-5 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateOTPInput}>Sign In</div>
+                                    <div className='mt-10 px-12'>
+                                        <div className="cursor-pointer mt-5 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateOTPInput}>Sign In</div>
                                     </div> 
                                 </div>
                             }
