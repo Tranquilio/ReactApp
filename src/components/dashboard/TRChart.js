@@ -9,7 +9,9 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Line, Scatter } from 'react-chartjs-2';
+import { arrayBuffer } from 'stream/consumers';
+import { multiply, sqrt } from 'react-native-reanimated';
 
 ChartJS.register(
     CategoryScale,
@@ -23,14 +25,65 @@ ChartJS.register(
 
 const TRChart = () => {
 
-    const labels = ['70', '75', '80', '90', '70', '75', '80', '90', '70', '75', '80', '90'];
+    function calcSum(arrayOne, arrayTwo, type) {
+      var sum = 0;
+
+      //(Σxy) - Sum of multiplication of x and y values
+      if(type == multi) {
+        for (i = 0; i < arrayOne.size(); i++) {
+          arrayOne[i] = arrayOne[i]*arrayTwo[i];
+          sum += arrayOne[i] + sum;
+        }
+      }
+
+      //(Σx) or (Σy) - Sum of x or y values
+      if(type == add) {
+        for (i = 0; i < arrayOne.size(); i++) {
+          sum += arrayOne[i] + sum;
+        }
+      }
+
+      //(Σx^2) or (Σy^2) - Sum of square of x or y values
+      if(type == square) {
+        for (i = 0; i < arrayOne.size(); i++) {
+          arrayOne[i] = arrayOne[i]*arrayOne[i];
+        }
+        for (j = 0; j < arrayOne.size(); j++) {
+          sum += arrayOne[j] + sum;
+        }
+      }
+
+      return sum;
+    }
+
+    function calcPValue(size, arrayOne, arrayTwo) {
+      // Array One - X axis
+      // Array Two - Y axis
+      // R = [n(Σxy) – (Σx) (Σy)] ÷ √{[nΣx2− (Σx)2] [nΣy2− (Σy)2]}
+      var value;
+      var a;
+      var b;
+      var c;
+
+      // Part A
+      a = [size*(calcSum(arrayOne, arrayTwo, multi)) - (calcSum(arrayOne, null, add))*(calcSum(null, arrayTwo, add))]
+      // Part B
+      b = [size*(calcSum(arrayOne, null, square)) - (calcSum(arrayOne, null, multi))*(calcSum(arrayOne, null, multi))]
+      // Part C
+      c = [size*(calcSum(null, arrayTwo, square)) - (calcSum(null, arrayTwo, multi))*(calcSum(null, arrayTwo, multi))]
+
+      // The R value that must be within -1 and 1
+      value = a/sqrt(b*c)
+
+      return value;
+    }
 
     const options = {
         animations: {
           tension: {
             duration: 1000,
             easing: 'linear',
-            from: 1,
+            from: 0.4,
             to: 0,
             loop: true
           }
@@ -45,8 +98,11 @@ const TRChart = () => {
           },
           tooltip: {
             callbacks: {
-              label: function(context) {
+              beforeLabel: function(context) {
                 return `${context.raw.month}`;
+              },
+              label: function(context) {
+                return `Wellbeing Score: ${context.raw.x} Turnover: ${context.raw.y}`;
               }
             }
           }
@@ -69,6 +125,8 @@ const TRChart = () => {
                 display: true,
                 text: 'Wellbeing Score',
               },
+            min: 50,
+            max: 100,
             grid: {
               display: false
             }
@@ -77,19 +135,33 @@ const TRChart = () => {
       };
 
     const data = {
-        labels,
         datasets: [
           {
-            data: [3, 3, 7, 4, 8, 9, 1, 2, 8, 9, 1, 2],
+            data: [
+              {x: 51 ,y: 9.5, month: 'January'},
+              {x: 72 ,y: 8, month: 'February'},
+              {x: 76 ,y: 4, month: 'March'},
+              {x: 89 ,y: 2, month: 'April'},
+              {x: 96 ,y: 1, month: 'May'},
+              {x: 61 ,y: 7, month: 'June'},
+              {x: 71 ,y: 7, month: 'July'},
+              {x: 72 ,y: 5, month: 'August'},
+              {x: 88 ,y: 3, month: 'September'},
+              {x: 90 ,y: 2, month: 'October'},
+              {x: 80 ,y: 3, month: 'Novermber'},
+              {x: 60 ,y: 9, month: 'December'},
+            ],
+            showLine: false,
             borderColor: 'rgb(204 251 241)',
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            pointRadius: 4
           },
         ],
       };
 
   return (
-    <div className='mt-5 p-10'>
-        <Line options={options} data={data} />
+    <div className='mt-5 p-10 mr-10'>
+        <Scatter options={options} data={data} />
         <div className='mt-2'>Summary</div>
     </div>
   )
