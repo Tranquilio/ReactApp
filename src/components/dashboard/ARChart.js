@@ -23,7 +23,7 @@ ChartJS.register(
 
 const ARChart = () => {
 
-  function calcSum(arrayOne, arrayTwo, type) {
+  /* function calcSum(arrayOne, arrayTwo, type) {
     var sum = 0;
 
     //(Σxy) - Sum of multiplication of x and y values
@@ -74,7 +74,7 @@ const ARChart = () => {
     value = a/sqrt(b*c)
 
     return value;
-  }
+  } */
 
   const options = {
       animations: {

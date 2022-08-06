@@ -10,8 +10,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Line, Scatter } from 'react-chartjs-2';
-import { arrayBuffer } from 'stream/consumers';
-import { multiply, sqrt } from 'react-native-reanimated';
 
 ChartJS.register(
     CategoryScale,
@@ -25,7 +23,7 @@ ChartJS.register(
 
 const TRChart = () => {
 
-    function calcSum(arrayOne, arrayTwo, type) {
+    /* function calcSum(arrayOne, arrayTwo, type) {
       var sum = 0;
 
       //(Σxy) - Sum of multiplication of x and y values
@@ -76,7 +74,7 @@ const TRChart = () => {
       value = a/sqrt(b*c)
 
       return value;
-    }
+    } */
 
     const options = {
       animations: {
