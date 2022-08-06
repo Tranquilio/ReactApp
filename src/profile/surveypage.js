@@ -42,13 +42,25 @@ function SurveyPage() {
         message : "Email stuff works"
       };
 
-      emailjs.send('service_9qvnw1f', 'template_cbesht4', templateParams, "maCgHWvsClEv8nkvk")
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-      }, function(error) {
-        console.log('FAILED...', error);
-      });
+      // emailjs.send('service_9qvnw1f', 'template_cbesht4', templateParams, "maCgHWvsClEv8nkvk")
+      // .then(function(response) {
+      //   console.log('SUCCESS!', response.status, response.text);
+      // }, function(error) {
+      //   console.log('FAILED...', error);
+      // });
     }
+  }
+
+  async function sendEmail() {
+    const result = await fetch('http://localhost:5000/login-mongo', {
+        method : 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: "test2@tranquilio.com"
+        })
+    }); 
   }
 
   function updateEmails(emails, headers) {
@@ -97,7 +109,7 @@ function SurveyPage() {
 
           
             <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
-              <button onClick={sendEmails} disabled={emails == null}>Test emails</button>
+              <button onClick={sendEmail} >Test emails</button>
               <Link to="/profile/survey/create">
                 <div className="p-4 rounded-full bg-pink-400 px-10 text-center text-white hover:bg-pink-500">Next {">"}</div>
               </Link>
