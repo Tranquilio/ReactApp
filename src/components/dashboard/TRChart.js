@@ -79,85 +79,85 @@ const TRChart = () => {
     }
 
     const options = {
-        animations: {
-          tension: {
-            duration: 1000,
-            easing: 'linear',
-            from: 0.4,
-            to: 0,
-            loop: true
-          }
+      animations: {
+        tension: {
+          duration: 1000,
+          easing: 'linear',
+          from: 0.4,
+          to: 0,
+          loop: true
+        }
+      },
+      responsive: true,
+      plugins: {
+        legend: {
+          display: false
         },
-        responsive: true,
-        plugins: {
-          legend: {
-            display: false
-          },
-          title: {
-            display: false,
-          },
-          tooltip: {
-            callbacks: {
-              beforeLabel: function(context) {
-                return `${context.raw.month}`;
-              },
-              label: function(context) {
-                return `Wellbeing Score: ${context.raw.x} Turnover: ${context.raw.y}`;
-              }
-            }
-          }
+        title: {
+          display: false,
         },
-        scales: {
-          y: {
-            title: {
-                display: true,
-                text: 'Turnover',
-              },
-            min: 0,
-            max: 10,
-            grid: {
-              display: false
+        tooltip: {
+          callbacks: {
+            beforeLabel: function(context) {
+              return `${context.raw.month}`;
             },
-            beginAtZero: true
-          },
-          x: {
-            title: {
-                display: true,
-                text: 'Wellbeing Score',
-              },
-            min: 50,
-            max: 100,
-            grid: {
-              display: false
+            label: function(context) {
+              return `Wellbeing Score: ${context.raw.x} Turnover: ${context.raw.y}`;
             }
           }
         }
-      };
+      },
+      scales: {
+        y: {
+          title: {
+              display: true,
+              text: 'Turnover',
+            },
+          min: 0,
+          max: 10,
+          grid: {
+            display: false
+          },
+          beginAtZero: true
+        },
+        x: {
+          title: {
+              display: true,
+              text: 'Wellbeing Score',
+            },
+          min: 50,
+          max: 100,
+          grid: {
+            display: false
+          }
+        }
+      }
+    };
 
     const data = {
-        datasets: [
-          {
-            data: [
-              {x: 51 ,y: 9.5, month: 'January'},
-              {x: 72 ,y: 8, month: 'February'},
-              {x: 76 ,y: 4, month: 'March'},
-              {x: 89 ,y: 2, month: 'April'},
-              {x: 96 ,y: 1, month: 'May'},
-              {x: 61 ,y: 7, month: 'June'},
-              {x: 71 ,y: 7, month: 'July'},
-              {x: 72 ,y: 5, month: 'August'},
-              {x: 88 ,y: 3, month: 'September'},
-              {x: 90 ,y: 2, month: 'October'},
-              {x: 80 ,y: 3, month: 'Novermber'},
-              {x: 60 ,y: 9, month: 'December'},
-            ],
-            showLine: false,
-            borderColor: 'rgb(204 251 241)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            pointRadius: 4
-          },
-        ],
-      };
+      datasets: [
+        {
+          data: [
+            {x: 51 ,y: 9.5, month: 'January'},
+            {x: 72 ,y: 8, month: 'February'},
+            {x: 76 ,y: 4, month: 'March'},
+            {x: 89 ,y: 2, month: 'April'},
+            {x: 96 ,y: 1, month: 'May'},
+            {x: 61 ,y: 7, month: 'June'},
+            {x: 71 ,y: 7, month: 'July'},
+            {x: 72 ,y: 5, month: 'August'},
+            {x: 88 ,y: 3, month: 'September'},
+            {x: 90 ,y: 2, month: 'October'},
+            {x: 80 ,y: 3, month: 'Novermber'},
+            {x: 60 ,y: 9, month: 'December'},
+          ],
+          showLine: false,
+          borderColor: 'rgb(204 251 241)',
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+          pointRadius: 4
+        },
+      ],
+    };
 
   return (
     <div className='mt-5 p-10 mr-10'>
