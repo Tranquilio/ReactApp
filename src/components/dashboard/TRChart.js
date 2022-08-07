@@ -158,9 +158,11 @@ const TRChart = () => {
     };
 
   return (
-    <div className='mt-5 p-10 mr-10'>
-        <Scatter options={options} data={data} />
-        <div className='mt-2'>Summary</div>
+    <div className='md:p-10 p-5'>
+      <div className='py-5 m-auto'>
+          <Scatter options={options} data={data} />
+      </div>
+      <div>Summary</div>
     </div>
   )
 }

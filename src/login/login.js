@@ -143,54 +143,56 @@ function LoginForm() {
             <div className="bg-white shadow-2xl flex h-screen">
                 {/* Picture Section (Left Side)  */}
                 <div className="w-5/6">
-                    <div className='relative w-full h-screen'>
+                    <div className='relative'>
                         <video className='w-full h-screen object-cover' src={loginVid} autoPlay loop muted boomerang />
-                        <div className='absolute text-white w-full h-full top-0 left-0'>
-                            <div className='text-7xl font-bold mt-64'>Make Work, <br /> Stress Free</div>
-                            <div className='mt-10 text-xl opacity-80'>Start by finding out your potential work stressors</div>
+                        <div className='absolute flex flex-col h-screen text-white w-full h-full top-0 left-0'>
+                            <div className='m-auto'>
+                            <div className='text-7xl font-bold '>Make Work, <br /> Stress Free</div>
+                            <div className='text-xl mt-5 opacity-80'>Start by finding out your potential work stressors</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {/* Sign In Section (Right Side)  */}
                 <div className="w-2/6 p-5 bg-gradient-to-r from-pink-100 to-teal-50">
-                    <div className='py-10 mt-52'>
-                        <div className='-ml-12'>
-                            <img src={logo} className="text-center ml-24 -mt-16" width={300} />
-                        </div>
-                        <div className='flex flex-col items-center'>
-                            { !displayOTPInput ? 
-                                <div>
-                                    <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
-                                        <FaRegEnvelope className="text-gray-400 m-2" />
-                                        <input onChange={updateEmail} className="bg-white text-sm flex-1" type="text" placeholder='Email' />
+                    <div className='flex flex-col h-screen -mt-10 items-center'>
+                        <div className='m-auto'>
+                            <img src={logo} className="text-center" width={300} />
+                            <div>
+                                { !displayOTPInput ? 
+                                    <div>
+                                        <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
+                                            <FaRegEnvelope className="text-gray-400 m-2" />
+                                            <input onChange={updateEmail} className="bg-white text-sm flex-1" type="text" placeholder='Email' />
+                                        </div>
+                                        <div className='mt-10 px-12'>
+                                            <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateEmail}>Get OTP</div>
+                                        </div>
                                     </div>
-                                    <div className='mt-10 px-12'>
-                                        <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateEmail}>Get OTP</div>
+                                    :
+                                    <div>
+                                        <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
+                                            <FaRegEnvelope className="text-gray-400 m-2" />
+                                            <input onChange={updateOTPInput} className="bg-white text-sm flex-1" type="text" placeholder='Enter OTP' />
+                                        </div>
+                                        <div className='mt-10 px-12'>
+                                            <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateOTPInput}>Sign In</div>
+                                        </div> 
                                     </div>
-                                </div>
-                                :
-                                <div>
-                                    <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
-                                        <FaRegEnvelope className="text-gray-400 m-2" />
-                                        <input onChange={updateOTPInput} className="bg-white text-sm flex-1" type="text" placeholder='Enter OTP' />
+                                }
+                                { isEmailValid ? 
+                                    null : 
+                                    <div className='mt-5'>
+                                        <span className="text-sm text-red-300 font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
                                     </div>
-                                    <div className='mt-10 px-12'>
-                                        <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateOTPInput}>Sign In</div>
-                                    </div> 
-                                </div>
-                            }
-                            { isEmailValid ? 
-                                null : 
-                                <div className='mt-5'>
-                                    <span className="text-sm text-red-300 font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
-                                </div>
-                            }
-                            { isOTPValid ? 
-                                null : 
-                                <div className='mt-5'>
-                                    <span className="text-sm text-red-300 font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
-                                </div>
-                            }
+                                }
+                                { isOTPValid ? 
+                                    null : 
+                                    <div className='mt-5'>
+                                        <span className="text-sm text-red-300 font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
+                                    </div>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

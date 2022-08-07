@@ -58,8 +58,8 @@ function SeniorityTable () {
         <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-white-200 scrollbar-track-white-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
             <div class="sm:-mx-6 lg:-mx-8">
                 <div class="py-2 inline-block sm:px-6 lg:px-8">
-                    <div class="">
-                        <table class="text-center">
+                    <div class="m-auto">
+                        <table class="text-center m-auto">
                             <thead class="border-b">
                                 <tr>
                                     <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4">

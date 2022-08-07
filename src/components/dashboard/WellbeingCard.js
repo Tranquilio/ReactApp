@@ -66,7 +66,7 @@ function WellbeingCard() {
         </div>
       </div>
       {/* Chart built with Chart.js 3 */}
-      <div className="">
+      <div>
         {/* Change the height attribute to adjust the chart height */}
         <LineChart data={chartData} width={389} height={200} />
       </div>

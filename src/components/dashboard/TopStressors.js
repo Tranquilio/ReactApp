@@ -71,7 +71,7 @@ const TopStressors = () => {
     },[]);
 
   return (
-    <div className='ml-12'>
+    <div>
         <div>What are your top stressors?</div>
         <ul className='mt-10 space-y-10'>
             <li>

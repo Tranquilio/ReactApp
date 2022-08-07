@@ -76,15 +76,17 @@ function SurveyPage() {
       <Sidebar />
      
       {/* Content area */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-72">
+      <div className="relative flex flex-col flex-1">
         <Fade bottom>
-            <Paper elevation={3} className='ml-64 mr-64 p-10'>
-            <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div>
+          <div className='m-auto'>
+              <Paper elevation={3} className='p-10'>
+              <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div>
 
-            {/* Description */}
-            <li className='mt-10 mb-2'>Recieve monthly reports on your organization's wellbeing insights</li>
-            <li>Easily deploy, customize, and manage employee surveys in minutes</li>
-            </Paper>    
+              {/* Description */}
+              <li className='mt-10 mb-2'>Recieve monthly reports on your organization's wellbeing insights</li>
+              <li>Easily deploy, customize, and manage employee surveys in minutes</li>
+              </Paper>  
+            </div>  
         </Fade>
       </div>
         {/* <div className='-mt-20'>
