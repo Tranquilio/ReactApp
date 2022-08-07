@@ -7,6 +7,7 @@ const redirectToken = require('../helpers/generateRedirectToken')
 const nodemailer = require("nodemailer");
 const Verifier = require("email-verifier");
 const router = express.Router();
+const dbo = require("../conn");
 
 const { PRIVATE_KEY, NODEMAILER_EMAIL, NODEMAILER_PASSWORD, EMAIL_VERIFIER_API_KEY } = process.env
 
@@ -48,5 +49,28 @@ router.post('/login-init', async (req, res, next) => {
     
       console.log("Message sent: %s", info.messageId);
 })
+
+router.post('/login-mongo', async (req, res, next) => {
+  const {email} = req.body
+  // splits = email.split("@")
+  domain = "tranquilio.co"
+  let db_connect = dbo.getDb();
+  result = await db_connect.collection("emails").findOne({domain: domain});
+  console.log(result)
+  if (result == null) {
+    db_connect.collection("emails").insertOne({domain: domain, emails: [email]})
+    console.log("New document added");
+  } else {
+    newDoc = result
+    newDoc["emails"].push(email)
+    db_connect.collection("emails").replaceOne({domain: domain}, newDoc, function (err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+    });
+  }
+  
+});
+
+
 
 module.exports = router;
