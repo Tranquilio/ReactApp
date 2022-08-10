@@ -10,7 +10,9 @@ function ARCard() {
         <div className='mt-5'>Stay tuned, to be released soon!</div>
       </header>
       {/* Chart built with Chart.js 3 */}
-      <ARChart width={595} height={248} /> 
+      <div className=''>
+        <ARChart width={595} height={248} /> 
+      </div>
     </div>
   );
 }

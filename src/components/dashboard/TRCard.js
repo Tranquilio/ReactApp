@@ -10,7 +10,9 @@ function TRCard() {
         <div className='mt-5'>Stay tuned, to be released soon!</div>
       </header>
       {/* Chart built with Chart.js 3 */}
-      <TRChart width={595} height={248} /> 
+      <div>
+        <TRChart width={595} height={248} /> 
+      </div>
     </div>
   );
 }

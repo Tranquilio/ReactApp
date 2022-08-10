@@ -102,7 +102,7 @@ const Chart = () => {
   };
 
   return (
-    <div className="ml-24">
+    <div className="md:px-10 mb-16 md:mb-0">
       <div className="text-center mb-10">
           How are your stressors distributed?
       </div>

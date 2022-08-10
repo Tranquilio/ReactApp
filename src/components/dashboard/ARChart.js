@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line, Scatter } from 'react-chartjs-2';
+import { Scatter } from 'react-chartjs-2';
 
 ChartJS.register(
     CategoryScale,
@@ -21,60 +21,58 @@ ChartJS.register(
     Legend
   );
 
+var arrayX = [56, 70, 78, 87, 93, 65, 75, 76, 85, 90, 80, 60]
+var arrayY = [6, 8, 4, 2, 1, 7, 7, 5, 3, 2, 3, 9]
+var value;
+var a, b, c;
+var add, square;
+var sum = 0;
+var arrayXY = [];
+var arr = [];
+
 const ARChart = () => {
 
-  /* function calcSum(arrayOne, arrayTwo, type) {
-    var sum = 0;
-
-    //(Σxy) - Sum of multiplication of x and y values
-    if(type == multi) {
-      for (i = 0; i < arrayOne.size(); i++) {
-        arrayOne[i] = arrayOne[i]*arrayTwo[i];
-        sum += arrayOne[i] + sum;
-      }
+  function calcPValue(size, arrayX, arrayY) {
+    // Array X  - X axis
+    // Array Y - Y axis
+    // R = [n(Σxy) – (Σx) (Σy)] ÷ √{[nΣx2− (Σx)2] [nΣy2− (Σy)2]}
+    for (var i = 0; i < arrayX.length; i++) {
+      arrayXY[i] = arrayX[i] * arrayY[i];
     }
+  
+    // Part A [n(Σxy) – (Σx) (Σy)]
+    a = [size*(calcSum(arrayXY, add)) - (calcSum(arrayX, add))*(calcSum(arrayY, add))]
+    // Part B [nΣx2− (Σx)2]
+    b = [size*(calcSum(arrayX, square)) - (calcSum(arrayX, add))*(calcSum(arrayX, add))]
+    // Part C [nΣy2− (Σy)2]
+    c = [size*(calcSum(arrayY, square)) - (calcSum(arrayY, add))*(calcSum(arrayY, add))]
+
+    // The R value that must be within -1 and 1
+    value = a/(Math.sqrt(b*c));
+
+    return value
+  }
+
+  function calcSum(array, type) {
 
     //(Σx) or (Σy) - Sum of x or y values
-    if(type == add) {
-      for (i = 0; i < arrayOne.size(); i++) {
-        sum += arrayOne[i] + sum;
+    if(type === add) {
+      for (var i = 0; i < array.length; i++) {
+        sum = array[i] + sum;
       }
+      return sum/2;
     }
 
     //(Σx^2) or (Σy^2) - Sum of square of x or y values
-    if(type == square) {
-      for (i = 0; i < arrayOne.size(); i++) {
-        arrayOne[i] = arrayOne[i]*arrayOne[i];
+    if(type === square) {
+      for (var i = 0; i < array.length; i++) {
+        arr[i] = array[i]*array[i];
+        sum = arr[i] + sum;
       }
-      for (j = 0; j < arrayOne.size(); j++) {
-        sum += arrayOne[j] + sum;
-      }
+      return sum/2;
     }
 
-    return sum;
   }
-
-  function calcPValue(size, arrayOne, arrayTwo) {
-    // Array One - X axis
-    // Array Two - Y axis
-    // R = [n(Σxy) – (Σx) (Σy)] ÷ √{[nΣx2− (Σx)2] [nΣy2− (Σy)2]}
-    var value;
-    var a;
-    var b;
-    var c;
-
-    // Part A
-    a = [size*(calcSum(arrayOne, arrayTwo, multi)) - (calcSum(arrayOne, null, add))*(calcSum(null, arrayTwo, add))]
-    // Part B
-    b = [size*(calcSum(arrayOne, null, square)) - (calcSum(arrayOne, null, multi))*(calcSum(arrayOne, null, multi))]
-    // Part C
-    c = [size*(calcSum(null, arrayTwo, square)) - (calcSum(null, arrayTwo, multi))*(calcSum(null, arrayTwo, multi))]
-
-    // The R value that must be within -1 and 1
-    value = a/sqrt(b*c)
-
-    return value;
-  } */
 
   const options = {
       animations: {
@@ -159,9 +157,12 @@ const ARChart = () => {
       };
 
   return (
-    <div className='mt-5 p-10 mr-10'>
-        <Scatter options={options} data={data} />
-        <div className='mt-2'>Summary</div>
+    <div className='md:p-10 p-5'>
+      <div className='py-5 m-auto'>
+          <Scatter options={options} data={data} />
+      </div>
+      <div>Summary</div>
+      <div>{calcPValue(12, arrayX, arrayY)}</div>
     </div>
   )
 }

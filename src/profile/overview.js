@@ -2,6 +2,7 @@ import Sidebar from '..//components/Sidebar'
 import { Fade } from 'react-reveal'
 import { useState, useEffect } from 'react'
 import {CircleProgress} from 'react-gradient-progress'
+import autoprefixer from 'autoprefixer';
 
 var overall;
 var score;
@@ -59,41 +60,43 @@ function OverviewPage() {
       <Sidebar />
 
       {/* Content area */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mt-32">
+      <div className="relative flex flex-col w-full overflow-y-auto overflow-x-hidden">
         
         {/* Wellbeing score display */}
         <Fade bottom>
-          <div className='text-5xl text-center font-bold tracking-tight'>
-          companyName wellbeing score is
-          </div>
+          <div className='m-auto'>
+            <div className='text-5xl text-center font-bold tracking-tight'>
+            companyName wellbeing score is
+            </div>
 
-          <div style={{ marginLeft: 450, marginTop: 50}}>
-            <CircleProgress 
-              percentage={score} 
-              strokeWidth={20} 
-              width={400}
-              primaryColor={['#0D9488','#99F6E4']}
-              secondaryColor="#f0f0f0"
-              fontColor={colorPicker(score)}
-              fontSize="64px"
-            />
-          </div>
+            <div className="text-center mt-10">
+              <CircleProgress 
+                percentage={score} 
+                strokeWidth={20} 
+                width={400}
+                primaryColor={['#0D9488','#99F6E4']}
+                secondaryColor="#f0f0f0"
+                fontColor={colorPicker(score)}
+                fontSize="64px"
+              />
+            </div>
 
-          <div>
-            { 
-              (score > 90) ? 
-              <div className='text-center mt-12 text-xl'>Awesome! Your organisation is averaging an extremely healthy well-being score</div> :
-              (score > 80) ? 
-              <div className='text-center mt-12 text-xl'>Great! Your organisation is averaging a very healthy well-being score</div> :
-              (score > 60) ? 
-              <div className='text-center mt-12 text-xl'>Good job! Your organisation is averaging a healthy well-being score</div> :
-              (score > 50) ? 
-              <div className='text-center mt-12 text-xl'>Something's going on. Your organisation is averaging a poor well-being score</div> :
-              <div className='text-center mt-12 text-xl'>Time to reflect and review! Your organisation is averaging an extremely poor well-being score</div>
-            }
+            <div>
+              { 
+                (score > 90) ? 
+                <div className='text-center mt-12 text-xl'>Awesome! Your organisation is averaging an extremely healthy well-being score</div> :
+                (score > 80) ? 
+                <div className='text-center mt-12 text-xl'>Great! Your organisation is averaging a very healthy well-being score</div> :
+                (score > 60) ? 
+                <div className='text-center mt-12 text-xl'>Good job! Your organisation is averaging a healthy well-being score</div> :
+                (score > 50) ? 
+                <div className='text-center mt-12 text-xl'>Something's going on. Your organisation is averaging a poor well-being score</div> :
+                <div className='text-center mt-12 text-xl'>Time to reflect and review! Your organisation is averaging an extremely poor well-being score</div>
+              }
+            </div>
           </div>
         </Fade>
-
+        
       </div>
 
   </div>

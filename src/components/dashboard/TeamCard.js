@@ -15,7 +15,7 @@ function TeamCard() {
         <div className="text-xs font-semibold text-slate-400 mb-1">Wellbeing breakdown by team</div>
       </div>
       {/* Chart built with Chart.js 3 */}
-      <div>
+      <div className='md:m-auto'>
         {/* Change the height attribute to adjust the chart height */}
         <TeamTable width={595} height={248} />
       </div>
