@@ -65,28 +65,18 @@ function SurveyPage() {
 
   //TODO: Click Button to CREATE Typeform Link
   async function createSurvey() {
-    const result = await fetch('http://localhost:5000/login-mongo', {
-        method : 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: "test2@tranquilio.com"
-        })
+    const result = await fetch('http://localhost:5000/api/employees/test', {
+        method : 'GET',
     }); 
+    result.json().then((response) => console.log(response))
   }
 
   //TODO: Retrieve Typeform Link for the company and send it to employees' email.
   async function sendEmail() {
-    const result = await fetch('http://localhost:5000/login-mongo', {
-        method : 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: "test2@tranquilio.com"
-        })
+    const result = await fetch('http://localhost:5000/api/employees/test', {
+        method : 'GET',
     }); 
+    result.json().then((response) => console.log(response))
   }
 
   function updateEmails(emails, headers) {
@@ -136,6 +126,7 @@ function SurveyPage() {
           
             <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
               <button onClick={sendEmail} >Test emails</button>
+              <button onClick={createSurvey} >Test on aws</button>
               <Link to="/profile/survey/create">
                 <div className="p-4 rounded-full bg-pink-400 px-10 text-center text-white hover:bg-pink-500">Next {">"}</div>
               </Link>
