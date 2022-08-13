@@ -51,6 +51,32 @@ function SurveyPage() {
     }
   }
 
+  // async function sendEmail() {
+  //   const result = await fetch('http://localhost:5000/login-mongo', {
+  //       method : 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify({
+  //         email: "test2@tranquilio.com"
+  //       })
+  //   }); 
+  // }
+
+  //TODO: Click Button to CREATE Typeform Link
+  async function createSurvey() {
+    const result = await fetch('http://localhost:5000/login-mongo', {
+        method : 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: "test2@tranquilio.com"
+        })
+    }); 
+  }
+
+  //TODO: Retrieve Typeform Link for the company and send it to employees' email.
   async function sendEmail() {
     const result = await fetch('http://localhost:5000/login-mongo', {
         method : 'POST',
@@ -77,19 +103,17 @@ function SurveyPage() {
      
       {/* Content area */}
       <div className="relative flex flex-col flex-1">
-        <Fade bottom>
-          <div className='m-auto'>
-              <Paper elevation={3} className='p-10'>
-              <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div>
+        {/* <div className='m-auto'> */}
+            {/* <Paper elevation={3} className='p-10'> */}
+            {/* <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div> */}
 
-              {/* Description */}
-              <li className='mt-10 mb-2'>Recieve monthly reports on your organization's wellbeing insights</li>
-              <li>Easily deploy, customize, and manage employee surveys in minutes</li>
-              </Paper>  
-            </div>  
-        </Fade>
+            {/* Description */}
+            {/* <li className='mt-10 mb-2'>Recieve monthly reports on your organization's wellbeing insights</li> */}
+            {/* <li>Easily deploy, customize, and manage employee surveys in minutes</li> */}
+            {/* </Paper>   */}
+          {/* </div>   */}
       </div>
-        {/* <div className='-mt-20'>
+        <div className='-mt-20'>
           <ul className='p-48 flex -mt-10 gap-60'>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey">Onboard</Link>
@@ -103,7 +127,7 @@ function SurveyPage() {
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
               <Link to="/profile/survey/deploy">Deploy</Link>
             </li>
-          </ul>
+          </ul> 
             
           <Fade cascade>  
          
@@ -118,7 +142,7 @@ function SurveyPage() {
             </div>
           </Fade>
 
-        </div> */}
+        </div> 
 
     </div>
   );  

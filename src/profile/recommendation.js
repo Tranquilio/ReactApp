@@ -22,17 +22,15 @@ function RecommendationPage() {
 
             {/* Content area */}
             <div className="relative flex flex-col flex-1">
-                <Fade bottom>
-                    <div className='m-auto'>
-                        <Paper elevation={3} className='p-10'>
-                            <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div>
+                <div className='m-auto'>
+                    <Paper elevation={3} className='p-10'>
+                        <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div>
 
-                            {/* Description */}
-                            <li className='mt-10 mb-2'>Schedule monthly calls with an expert to guide your strategies to improve overall wellbeing</li>
-                            <li>Keep track of the effectiveness of initiatives and tasks your employees are taking</li>
-                        </Paper>   
-                    </div> 
-                </Fade>
+                        {/* Description */}
+                        <li className='mt-10 mb-2'>Schedule monthly calls with an expert to guide your strategies to improve overall wellbeing</li>
+                        <li>Keep track of the effectiveness of initiatives and tasks your employees are taking</li>
+                    </Paper>   
+                </div> 
             </div>
 
         </div>
