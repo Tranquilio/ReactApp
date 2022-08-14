@@ -73,8 +73,12 @@ function SurveyPage() {
 
   //TODO: Retrieve Typeform Link for the company and send it to employees' email.
   async function sendEmail() {
-    const result = await fetch('http://localhost:5000/api/employees/test', {
+    const result = await fetch('https://api.typeform.com/forms', {
         method : 'GET',
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J"
+        }
     }); 
     result.json().then((response) => console.log(response))
   }
