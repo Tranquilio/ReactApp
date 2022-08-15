@@ -65,7 +65,7 @@ function SurveyPage() {
 
   //TODO: Click Button to CREATE Typeform Link
   async function createSurvey() {
-    const result = await fetch('http://localhost:5000/api/employees/test', {
+    const result = await fetch('http://localhost:5000/api/typeform/test', {
         method : 'GET',
     }); 
     result.json().then((response) => console.log(response))
@@ -129,8 +129,8 @@ function SurveyPage() {
 
           
             <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
-              <button onClick={sendEmail} >Test emails</button>
-              <button onClick={createSurvey} >Test on aws</button>
+              {/* <button onClick={sendEmail} >Test emails</button> */}
+              <button onClick={createSurvey} >Test typeform</button>
               <Link to="/profile/survey/create">
                 <div className="p-4 rounded-full bg-pink-400 px-10 text-center text-white hover:bg-pink-500">Next {">"}</div>
               </Link>
