@@ -1,16 +1,17 @@
 import logo from '../images/logotext1.png'
 import classes from "../profile/survey/nav.module.css"
 import {Link} from "react-router-dom"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Button from '@mui/material/Button'
 import { set } from 'mongoose'
 import { useNavigate, useLocation } from "react-router-dom"
 import { FaRegEnvelope } from "react-icons/fa"
 import { MdLockOutline } from "react-icons/md"
 import loginVid from '../loginVid.mp4'
+import { AuthContext } from '../context/AuthContext'
 
 function LoginForm() {
-
+    const auth = useContext(AuthContext)
     const [OTP,setOTP] = useState();
     const [OTPInput,setOTPInput] = useState();
     const [sendEmail,setSendEmail] = useState(false);
@@ -18,6 +19,7 @@ function LoginForm() {
     const [isEmailValid,setIsEmailValid] = useState(true);
     const [isOTPValid,setIsOTPValid] = useState(true);
     const [displayOTPInput,setDisplayOTPInput] = useState(false);
+    const [buttonClicked,setButtonClicked] = useState(false);
 
     const navigate = useNavigate();
 
@@ -61,7 +63,6 @@ function LoginForm() {
                 })
             });
             const overall =  await result.json(); 
-            console.log(overall)
             if (overall.message == "Email is valid") {
                 sendOTPEmail()
                 setDisplayOTPInput(true)
@@ -77,11 +78,32 @@ function LoginForm() {
         setIsOTPValid(true)
     }
 
+    const generateLoginToken = () => {
+        async function navigateToPage(token) {
+            console.log(token)
+            auth.login(email, token)
+        }
+        async function generateToken() {
+            const result = await fetch('http://localhost:4000/generate-redirect-token', {
+                method : 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                email: email,
+                })
+            });
+            const {token} =  await result.json();
+            navigateToPage(token)
+        }
+        generateToken()
+    }
+
     const validateOTPInput = () => {
         if (OTP != OTPInput) {
             setIsOTPValid(false)
         } else {
-            navigate("/profile/overview");
+            generateLoginToken()
         }
     }
 
@@ -161,6 +183,7 @@ function LoginForm() {
                             <div>
                                 { !displayOTPInput ? 
                                     <div>
+                                        <div> </div>
                                         <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
                                             <FaRegEnvelope className="text-gray-400 m-2" />
                                             <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 text-sm flex-1" type="text" placeholder='Email' />
@@ -169,8 +192,9 @@ function LoginForm() {
                                             <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateEmail}>Get OTP</div>
                                         </div>
                                     </div>
-                                    :
+                                    : 
                                     <div>
+                                        <div> </div>
                                         <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
                                             <FaRegEnvelope className="text-gray-400 m-2" />
                                             <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 text-sm flex-1" type="text" placeholder='Enter OTP' />
