@@ -12,28 +12,53 @@ import SettingsPage from "./profile/settings"
 import ErrorPage from "./extras/ErrorPage"
 import LoginForm from "./login/login"
 import './App.css'
+import { AuthContext } from './context/AuthContext'
+import React, { useState, useEffect, useCallback } from 'react'
+import { useAuth } from './hooks/auth-hook'
 
 function App() {
+    const {token, login, logout, email} = useAuth()
+    
+    let routes;
+  if (token) {
+    routes = (
+      <React.Fragment>
+      <Route path="/profile/overview" element={<OverviewPage />} />
+      <Route path="/profile/insights" element={<InsightsPage />} />
+      <Route path="/profile/recommendation" element={<RecommendationPage />} /> 
+      <Route path="/profile/survey" element={<SurveyPage />} />
+      <Route path="/profile/settings" element={<SettingsPage />} />
+      
+      <Route path="/profile/survey/create" element={<CreatePage />} />
+      <Route path="/profile/survey/preview" element={<PreviewPage />} />
+      <Route path="/profile/survey/deploy" element={<DeployPage />} />
+  
+      <Route path="/assessment" element={<Assessment />} /> 
+      <Route path="/survey" element={<Survey />} />
+      <Route path="/login" element={<Navigate to="/profile/overview" replace />} />
+      <Route path="*" element={<ErrorPage />} />      
+      </React.Fragment>
+    );
+  } else {
+    routes = (
+    <React.Fragment>
+    <Route path="/" element={<Navigate to="/login" replace />} />
+    <Route path="/login" element={<LoginForm /> } />
+    <Route path="*" element={<Navigate to="/login" replace />} />
+    </React.Fragment>
+    );
+  }
+
   return (
+    <AuthContext.Provider 
+    value={{isLoggedIn: !!token, token: token, email: email, login: login, logout: logout}}
+    >
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<LoginForm /> } />
-        <Route path="/profile/overview" element={<OverviewPage />} />
-        <Route path="/profile/insights" element={<InsightsPage />} />
-        <Route path="/profile/recommendation" element={<RecommendationPage />} /> 
-        <Route path="/profile/survey" element={<SurveyPage />} />
-        <Route path="/profile/settings" element={<SettingsPage />} />
-        
-        <Route path="/profile/survey/create" element={<CreatePage />} />
-        <Route path="/profile/survey/preview" element={<PreviewPage />} />
-        <Route path="/profile/survey/deploy" element={<DeployPage />} />
-    
-        <Route path="/assessment" element={<Assessment />} /> 
-        <Route path="/survey" element={<Survey />} />
-        <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="*" element={<ErrorPage />} />
+        {routes}
       </Routes>
     </BrowserRouter>
+    </ AuthContext.Provider>
   );
 }
 

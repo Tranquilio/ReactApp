@@ -11,13 +11,6 @@ const dbo = require("../conn");
 
 const { PRIVATE_KEY, NODEMAILER_EMAIL, NODEMAILER_PASSWORD, EMAIL_VERIFIER_API_KEY } = process.env
 
-router.post('/verify-redirect-token', verifyRedirectToken.verifyRedirectToken)
-
-router.post('/generate-redirect-token', (req, res, next) => {
-    const privateKeyBuffer = generateKeyBuffer.generateKeyBuffer(PRIVATE_KEY)
-    res.json(redirectToken.generateRedirectToken(privateKeyBuffer))
-})
-
 router.post('/verify-email-address', (req, res, next) => {
     const { email } = req.body
     let verifier = new Verifier(EMAIL_VERIFIER_API_KEY);

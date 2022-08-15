@@ -59,6 +59,10 @@ function OverviewPage() {
       {/* Sidebar */}
       <Sidebar />
 
+      <div className='mt-10 px-12'>
+                                            <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={() => {console.log('heee')}}>Sign In</div>
+                                        </div> 
+
       {/* Content area */}
       <div className="relative flex flex-col w-full overflow-y-auto overflow-x-hidden">
         
