@@ -53,10 +53,10 @@ function getAvg(object) {
 // });
 
 employeeRoutes.route("/api/employees/test").get(async function (req, res) {
-    const result = await fetch("https://api.typeform.com/me", {
+    const result = await fetch("https://api.typeform.com/forms/dm8f3m0K", {
       method : 'GET',
       headers: {
-        Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J",
+        Authorization: "Bearer tfp_EyfCPEreBUqzemumbWLoN4PU2abqQrcPfRiJ5MjMEXsL_3pco8hRkTLxitT",
         'Content-Type': 'application/json'
       }
     })

@@ -77,7 +77,7 @@ function SurveyPage() {
         method : 'GET',
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J"
+          Authorization: "Bearer tfp_EyfCPEreBUqzemumbWLoN4PU2abqQrcPfRiJ5MjMEXsL_3pco8hRkTLxitT"
         }
     }); 
     result.json().then((response) => console.log(response))
