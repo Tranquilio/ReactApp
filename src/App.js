@@ -17,7 +17,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useAuth } from './hooks/auth-hook'
 
 function App() {
-    const {token, login, logout, email} = useAuth()
+    const {token, login, logout, email, domain} = useAuth()
     
     let routes;
   if (token) {
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <AuthContext.Provider 
-    value={{isLoggedIn: !!token, token: token, email: email, login: login, logout: logout}}
+    value={{isLoggedIn: !!token, token: token, email: email, domain: domain, login: login, logout: logout}}
     >
     <BrowserRouter>
       <Routes>

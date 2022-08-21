@@ -1929,7 +1929,7 @@ const template = {
     "last_updated_at": "2022-07-20T10:57:38+00:00",
     "published_at": "2022-06-08T05:38:17+00:00",
     "_links": {
-        "display": "https://3oms1jii0jw.typeform.com/to/YbRGZKzc"
+        "display": "https://3oms1jii0jw.typeform.com/to/YbRGZKzc" //Need change for each survey (Random string gen maybe)
     }
 }
 

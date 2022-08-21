@@ -1,6 +1,9 @@
 import React from 'react'
+import {useContext} from 'react'
+import {AuthContext} from '../../context/AuthContext'
 
 function Banner() {
+  const auth = useContext(AuthContext)
   return (
     <div className="relative bg-pink-50 p-4 sm:p-6 rounded-sm overflow-hidden mb-8">
 
@@ -48,7 +51,7 @@ function Banner() {
 
       {/* Content */}
       <div className="relative">
-        <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-10">Hello, CompanyName 👋</h1>
+        <h1 className="text-2xl md:text-3xl text-slate-800 font-bold mb-10">Hello, {auth.domain} 👋</h1>
         <p className='text-sx font-semibold text-slate-800 mb-2'>YOUR HIGHLIGHTS:</p>
         <p>You reached your highest wellbeing score!</p>
       </div>
