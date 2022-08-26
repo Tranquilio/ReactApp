@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Survey from "./extras/survey"
 import SurveyPage from "./profile/surveypage"
 import CreatePage from "./profile/survey/create"
@@ -15,49 +15,52 @@ import './App.css'
 import { AuthContext } from './context/AuthContext'
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAuth } from './hooks/auth-hook'
+import DevAccess from "./login/devaccess"
 
 function App() {
-    const {token, login, logout, email, domain} = useAuth()
-    
-    let routes;
+  const { token, login, logout, email, domain } = useAuth()
+
+  let routes;
   if (token) {
     routes = (
       <React.Fragment>
-      <Route path="/profile/overview" element={<OverviewPage />} />
-      <Route path="/profile/insights" element={<InsightsPage />} />
-      <Route path="/profile/recommendation" element={<RecommendationPage />} /> 
-      <Route path="/profile/survey" element={<SurveyPage />} />
-      <Route path="/profile/settings" element={<SettingsPage />} />
-      
-      <Route path="/profile/survey/create" element={<CreatePage />} />
-      <Route path="/profile/survey/preview" element={<PreviewPage />} />
-      <Route path="/profile/survey/deploy" element={<DeployPage />} />
-  
-      <Route path="/assessment" element={<Assessment />} /> 
-      <Route path="/survey" element={<Survey />} />
-      <Route path="/login" element={<Navigate to="/profile/overview" replace />} />
-      <Route path="*" element={<ErrorPage />} />      
+        <Route path="/profile/overview" element={<OverviewPage />} />
+        <Route path="/profile/insights" element={<InsightsPage />} />
+        <Route path="/profile/recommendation" element={<RecommendationPage />} />
+        <Route path="/profile/survey" element={<SurveyPage />} />
+        <Route path="/profile/settings" element={<SettingsPage />} />
+
+        <Route path="/profile/survey/create" element={<CreatePage />} />
+        <Route path="/profile/survey/preview" element={<PreviewPage />} />
+        <Route path="/profile/survey/deploy" element={<DeployPage />} />
+
+        <Route path="/assessment" element={<Assessment />} />
+        <Route path="/survey" element={<Survey />} />
+        <Route path="/login" element={<Navigate to="/profile/overview" replace />} />
+        <Route path="/devaccess" element={<Navigate to="/profile/overview" replace />} />
+        <Route path="*" element={<ErrorPage />} />
       </React.Fragment>
     );
   } else {
     routes = (
-    <React.Fragment>
-    <Route path="/" element={<Navigate to="/login" replace />} />
-    <Route path="/login" element={<LoginForm /> } />
-    <Route path="*" element={<Navigate to="/login" replace />} />
-    </React.Fragment>
+      <React.Fragment>
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/devaccess" element={<DevAccess />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </React.Fragment>
     );
   }
 
   return (
-    <AuthContext.Provider 
-    value={{isLoggedIn: !!token, token: token, email: email, domain: domain, login: login, logout: logout}}
+    <AuthContext.Provider
+      value={{ isLoggedIn: !!token, token: token, email: email, domain: domain, login: login, logout: logout }}
     >
-    <BrowserRouter>
-      <Routes>
-        {routes}
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          {routes}
+        </Routes>
+      </BrowserRouter>
     </ AuthContext.Provider>
   );
 }
