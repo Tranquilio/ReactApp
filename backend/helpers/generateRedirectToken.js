@@ -31,15 +31,16 @@ const generateKeyPair = () => {
     }
 }
   
-const generateRedirectToken = (privateKeyBuffer) => {
+const generateRedirectToken = (privateKeyBuffer, email) => {
     const payload = {
       redirectType: 'login',
+      email
     }
   
     return jwt.sign(
       payload,
       { key: privateKeyBuffer, passphrase: SECRET_PASSPHRASE },
-      { algorithm: 'RS512' },
+      { algorithm: 'RS512', expiresIn: '1h' },
     )
   }
 

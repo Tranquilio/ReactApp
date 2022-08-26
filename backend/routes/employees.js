@@ -52,18 +52,6 @@ function getAvg(object) {
 //     });
 // });
 
-employeeRoutes.route("/api/employees/test").get(async function (req, res) {
-    const result = await fetch("https://api.typeform.com/me", {
-      method : 'GET',
-      headers: {
-        Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J",
-        'Content-Type': 'application/json'
-      }
-    })
-    body = await result.json()
-    res.json(body)
-});
-
 // This section will help you get a list of all the employee data. (To have average score -> use update to update the database)
 employeeRoutes.route("/api/employees/all").get(function (req, res) {
     let db_connect = dbo.getDb();
