@@ -3,6 +3,8 @@ import { Fade } from 'react-reveal'
 import { useState, useEffect } from 'react'
 import {CircleProgress} from 'react-gradient-progress'
 import autoprefixer from 'autoprefixer';
+import { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 var overall;
 var score;
@@ -10,11 +12,13 @@ var score;
 function OverviewPage() {
 
   const [loaded,setLoad] = useState(false);
+  const auth = useContext(AuthContext)
 
   useEffect(() => {
 
     async function getScore() {
-      const result = await fetch('http://localhost:5000/api/employees/scores/all', {
+      const companyName = "Test%20Company"
+      const result = await fetch(`http://localhost:5000/api/employees/scores/${companyName}`, {
           method : 'GET',
       }); 
   
@@ -59,10 +63,6 @@ function OverviewPage() {
       {/* Sidebar */}
       <Sidebar />
 
-      <div className='mt-10 px-12'>
-                                            <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={() => {console.log('heee')}}>Sign In</div>
-                                        </div> 
-
       {/* Content area */}
       <div className="relative flex flex-col w-full overflow-y-auto overflow-x-hidden">
         
@@ -70,7 +70,7 @@ function OverviewPage() {
         <Fade bottom>
           <div className='m-auto'>
             <div className='text-5xl text-center font-bold tracking-tight'>
-            companyName wellbeing score is
+            {auth.domain} wellbeing score is
             </div>
 
             <div className="text-center mt-10">

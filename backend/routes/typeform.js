@@ -8,6 +8,7 @@ const fetch = (...args) =>
 const typeformRoutes = express.Router();
  
 typeformRoutes.route("/api/typeform/test").get(async function (req, res) {
+    companyname = req.query.companyname
     payload = baseForm
     payload.title = "test now"
     const result = await fetch("https://api.typeform.com/forms", {
@@ -37,7 +38,7 @@ typeformRoutes.route("/api/typeform/test").get(async function (req, res) {
         }
       })
     body = await result3.json()
-    res.json(body)
+    res.json(body["_links"]["display"])
 });
 
 module.exports = typeformRoutes;
