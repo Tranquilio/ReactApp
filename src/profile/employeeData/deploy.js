@@ -11,7 +11,7 @@ function DeployPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (  
-    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-pink-50'>  
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-green-50'>  
 
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
@@ -21,17 +21,17 @@ function DeployPage() {
         
         <div className='-mt-20'>
           <ul className='p-48 flex -mt-10 gap-60'>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey">Onboard</Link>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/employeeData" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+              <Link to="/profile/employeeData">Onboard</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey/create">Create</Link>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/employeeData/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+              <Link to="/profile/employeeData/create">Create</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey/preview">Preview</Link>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/employeeData/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+              <Link to="/profile/employeeData/preview">Preview</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey/deploy">Deploy</Link>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/employeeData/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+              <Link to="/profile/employeeData/deploy">Deploy</Link>
             </li>
           </ul>
       
@@ -46,8 +46,8 @@ function DeployPage() {
 
               {/* Navigation */}
               <div className='gap-10 mt-10 mb-10 flex justify-center items-center'>
-                <Link to="/profile/survey/preview">
-                  <div className="p-4 rounded-full bg-pink-400 px-10 text-center text-white hover:bg-pink-500">{"<"} Back</div>
+                <Link to="/profile/employeeData/preview">
+                  <div className="p-4 rounded-full bg-pink-300 px-10 text-center text-white hover:bg-pink-400">{"<"} Back</div>
                 </Link>
               </div>
               

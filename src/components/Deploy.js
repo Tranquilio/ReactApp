@@ -77,7 +77,7 @@ const Deploy = () => {
             </div>
 
             <Link to="">
-                    <button className='shadow-xl py-5 px-5 rounded-lg text-white bg-pink-400 hover:bg-pink-500' onClick={clicked} >
+                    <button className='shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400' onClick={clicked} >
                         <a className='tracking-tight md:text-white text-rose-400 px-2'>{code}</a>
                     </button>
             </Link>
