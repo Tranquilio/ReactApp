@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Survey from "./extras/survey"
 import SurveyPage from "./profile/survey"
+import TrackPage from "./profile/survey/track"
+import SharePage from "./profile/survey/share"
 import CreatePage from "./profile/employeeData/create"
 import PreviewPage from "./profile/employeeData/preview"
 import DeployPage from "./profile/employeeData/deploy"
@@ -30,6 +32,9 @@ function App() {
         <Route path="/profile/recommendation" element={<RecommendationPage />} />
         <Route path="/profile/survey" element={<SurveyPage />} />
         <Route path="/profile/employeeData" element={<EmployeeDataPage />} />
+
+        <Route path="/profile/survey/track" element={<TrackPage />} />
+        <Route path="/profile/survey/share" element={<SharePage />} />
 
         <Route path="/profile/employeeData/create" element={<CreatePage />} />
         <Route path="/profile/employeeData/preview" element={<PreviewPage />} />
