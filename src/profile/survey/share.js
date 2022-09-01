@@ -1,0 +1,48 @@
+import React from 'react'
+import Sidebar from '../../components/Sidebar'
+import {Link} from "react-router-dom"
+import { Fade } from 'react-reveal'
+
+const SharePage = () => {
+  return (
+    <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-green-50'>  
+
+        {/* Sidebar */}
+        <Sidebar />
+
+        {/* Content area */}
+        <div className="relative flex flex-col flex-1">
+        {/* <div className='m-auto'> */}
+            {/* <Paper elevation={3} className='p-10'> */}
+            {/* <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div> */}
+
+            {/* Description */}
+            {/* <li className='mt-10 mb-2'>Recieve monthly reports on your organization's wellbeing insights</li> */}
+            {/* <li>Easily deploy, customize, and manage employee surveys in minutes</li> */}
+            {/* </Paper>   */}
+            {/* </div>   */}
+        </div>
+        <div className='-mt-20'>
+            <ul className='p-48 flex -mt-10 gap-96'>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                <Link to="/profile/survey">Design</Link>
+            </li>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/track" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                <Link to="/profile/survey/track">Track</Link>
+            </li>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/share" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+                <Link to="/profile/survey/share">Share</Link>
+            </li>
+            </ul> 
+            
+            <Fade cascade>  
+            
+            </Fade>
+
+        </div> 
+
+    </div>
+  )
+}
+
+export default SharePage
