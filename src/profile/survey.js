@@ -33,8 +33,8 @@ function surveyPage() {
             {/* </Paper>   */}
             {/* </div>   */}
         </div>
-        <div className='-mt-20'>
-            <ul className='p-48 flex -mt-10 gap-96'>
+        <div className='-mt-20 overflow-x-auto overflow-y-hidden p-auto'>
+            <ul className='p-48 flex -mt-10 gap-96 '>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                 <Link to="/profile/survey">Design</Link>
             </li>
@@ -47,10 +47,10 @@ function surveyPage() {
             </ul> 
             
             <Fade cascade>  
-            <div className='-mt-44 h-4/5 p-16 mb-10 grid grid-cols-4 grid-rows-4 gap-6'>
-                <div className='py-4 rounded-lg border border-black row-span-3 col-span-1 text-black text-center'>Toggle between survey types - general, JD, JC, eNPS</div>
-                <div className='py-4 rounded-lg border border-black row-span-3 col-span-2 text-black text-center'>Survey Preview</div>
-                <div className='relative py-4 rounded-lg border border-black row-span-4 col-span-1 text-black text-center'>
+            <div className='-mt-44 h-4/5 p-16 grid grid-cols-4 grid-rows-4 gap-6'>
+                <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-3 col-span-1 text-black text-center'>Toggle between survey types - general, JD, JC, eNPS</div>
+                <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-3 col-span-2 text-black text-center'>Survey Preview</div>
+                <div className='relative py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-4 col-span-1 text-black text-center'>
                     <div className='m-auto px-4'>Send Survey Interval - Send Reminder Date -</div>
                     <div className='absolute inset-x-0 bottom-10'>
                         <button className='shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
@@ -58,7 +58,7 @@ function surveyPage() {
                         </button>
                     </div>
                 </div>
-                <div className='py-4 rounded-lg border border-black col-span-3 text-black text-center'>Write a message (templates - first survey, new initiative, content))</div>
+                <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 col-span-3 text-black text-center'>Write a message (templates - first survey, new initiative, content))</div>
             </div>
             </Fade>
 

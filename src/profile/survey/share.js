@@ -11,7 +11,7 @@ const SharePage = () => {
         <Sidebar />
 
         {/* Content area */}
-        <div className="relative flex flex-col flex-1">
+        {/* <div className="relative flex flex-col flex-1"> */}
         {/* <div className='m-auto'> */}
             {/* <Paper elevation={3} className='p-10'> */}
             {/* <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div> */}
@@ -21,8 +21,8 @@ const SharePage = () => {
             {/* <li>Easily deploy, customize, and manage employee surveys in minutes</li> */}
             {/* </Paper>   */}
             {/* </div>   */}
-        </div>
-        <div className='-mt-20'>
+        {/* </div> */}
+        <div className='-mt-20 overflow-x-auto overflow-y-hidden p-auto'>
             <ul className='p-48 flex -mt-10 gap-96'>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                 <Link to="/profile/survey">Design</Link>
@@ -36,7 +36,20 @@ const SharePage = () => {
             </ul> 
             
             <Fade cascade>  
-            
+                <div className='-mt-44 p-16 h-4/5 grid grid-cols-2 gap-6'>
+                    {/* Employer Summary */}
+                    <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 text-black text-center'>
+                        <div>
+                            <div className='text-lg text-left px-6'>Employer Summary</div>
+                        </div>
+                    </div>
+                    {/* Employee Summary */}
+                    <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 text-black text-center'>
+                        <div>
+                            <div className='text-lg text-left px-6'>Employee Summary</div>
+                        </div>
+                    </div>
+                </div>
             </Fade>
 
         </div> 
