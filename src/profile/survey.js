@@ -48,17 +48,20 @@ function surveyPage() {
             
             <Fade cascade>  
             <div className='-mt-44 h-4/5 p-16 grid grid-cols-4 grid-rows-4 gap-6'>
-                <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-3 col-span-1 text-black text-center'>Toggle between survey types - general, JD, JC, eNPS</div>
-                <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-3 col-span-2 text-black text-center'>Survey Preview</div>
-                <div className='relative py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-4 col-span-1 text-black text-center'>
+                {/* <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-3 col-span-1 text-black text-center'>Toggle between survey types - general, JD, JC, eNPS</div> */}
+                {/* <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-3 col-span-2 text-black text-center'>
+                    Survey Preview
+                    </div> */}
+                {/* <div className='relative py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-4 col-span-1 text-black text-center'>
                     <div className='m-auto px-4'>Send Survey Interval - Send Reminder Date -</div>
                     <div className='absolute inset-x-0 bottom-10'>
-                        <button className='shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
-                            <a className='tracking-tight md:text-white text-rose-400 px-2'>Deploy</a>
-                        </button>
                     </div>
-                </div>
-                <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 col-span-3 text-black text-center'>Write a message (templates - first survey, new initiative, content))</div>
+                </div> */}
+                {/* <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 col-span-3 text-black text-center'>Write a message (templates - first survey, new initiative, content))</div> */}
+                {/* <div><div data-tf-widget="cmMpzd0F" data-tf-opacity="0" data-tf-hide-headers data-tf-iframe-props="title=Stress Test" data-tf-medium="snippet" style="width:100%;height:400px;"></div><script src="//embed.typeform.com/next/embed.js"></script></div> */}
+                <button className='shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
+                            <a className='tracking-tight md:text-white text-rose-400 px-2'>Deploy</a>
+                </button>
             </div>
             </Fade>
 
