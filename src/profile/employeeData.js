@@ -1,6 +1,6 @@
 import Sidebar from '../components/Sidebar'
 import SurveyInfo from '../components/SurveyTable'
-import classes from "./survey/nav.module.css"
+import classes from "./employeeData/nav.module.css"
 import {Link} from "react-router-dom"
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
@@ -8,7 +8,7 @@ import { Fade } from 'react-reveal'
 import { Paper } from '@material-ui/core'
 const emoji = require("emoji-dictionary")
 
-function SurveyPage() {
+function EmployeeDataPage() {
 
   const [emails, setEmails] = useState(null)  
   const [headers, setHeaders] = useState(null)
@@ -73,12 +73,17 @@ function SurveyPage() {
 
   //TODO: Retrieve Typeform Link for the company and send it to employees' email.
   async function sendEmail() {
-    const result = await fetch('https://api.typeform.com/forms', {
-        method : 'GET',
+    const result = await fetch('https://api.typeform.com/generate', {
+        method : 'POST',
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer tfp_EyfCPEreBUqzemumbWLoN4PU2abqQrcPfRiJ5MjMEXsL_3pco8hRkTLxitT"
-        }
+        },
+        body: JSON.stringify({
+          companyName: "Test company",
+          text: "Some text here"
+        })
+        
     }); 
     result.json().then((response) => console.log(response))
   }
@@ -109,17 +114,17 @@ function SurveyPage() {
       </div>
         <div className='-mt-20'>
           <ul className='p-48 flex -mt-10 gap-60'>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey">Onboard</Link>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/employeeData" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+              <Link to="/profile/employeeData">Onboard</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey/create">Create</Link>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/employeeData/create" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+              <Link to="/profile/employeeData/create">Create</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey/preview">Preview</Link>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/employeeData/preview" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+              <Link to="/profile/employeeData/preview">Preview</Link>
             </li>
-            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
-              <Link to="/profile/survey/deploy">Deploy</Link>
+            <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/employeeData/deploy" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
+              <Link to="/profile/employeeData/deploy">Deploy</Link>
             </li>
           </ul> 
             
@@ -131,8 +136,8 @@ function SurveyPage() {
             <div className='gap-10 mt-6 mb-10 flex justify-center items-center'>
               {/* <button onClick={sendEmail} >Test emails</button> */}
               <button onClick={createSurvey} >Test typeform</button>
-              <Link to="/profile/survey/create">
-                <div className="p-4 rounded-full bg-pink-400 px-10 text-center text-white hover:bg-pink-500">Next {">"}</div>
+              <Link to="/profile/employeeData/create">
+                <div className="p-4 rounded-full bg-pink-300 px-10 text-center text-white hover:bg-pink-400">Next {">"}</div>
               </Link>
             </div>
           </Fade>
@@ -143,4 +148,4 @@ function SurveyPage() {
   );  
 }
 
-export default SurveyPage;
+export default EmployeeDataPage;

@@ -9,6 +9,14 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:4000/verify-dev-name
+Content-Type: application/json
+
+{
+    "name": "VISHAL3415"
+}
+
+###
 POST http://localhost:5000/login-init
 Content-Type: application/json
 {
@@ -22,5 +30,15 @@ Content-Type: application/json
 
 {
     "redirectToken": "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJyZWRpcmVjdFR5cGUiOiJsb2dpbiIsImVtYWlsIjoidGhldmlzaGV0QGdtYWlsLmNvbSIsImlhdCI6MTY2MDU1MjI2MSwiZXhwIjoxNjYwNTU1ODYxfQ.FKvDt1fpJVMhkyu8-QfodAsYJJ6mPeiW236zJ6KOWxx6wK264Tlxy_vsL3yMetW2Kj6Cf5shjOIBmHQPHe2AvXIEwdoc2BBsmKWnctqerQlHxRN2Ygyusl1cFzgp5armeqKNmOySxvT2u5Q1iUyKeMSbGQqm7Zx8vyI-4zcpP-RMhUEGlRQIucevuXcjjEww0g98luWgh5T-fKhpJcp2A5G0qPbqxa4qHWltzaq3jAxO50j_1SJFPD-8kg0LkJhnrQ49FJ5nHKq_CFx9jOhr6wOVczK18PyWOLDtuvl0GmlfcZqxeWPfXZgAK5oI9BL-eQjo5j2RrFfBss9J5g9c5PW3hseE1PhN4G4Fhhmr-LWOGAqmZ0q9VQvS6-2L4WZohFnBDqLCaqeidn0g_9327dAmZUdSWNy5-osiGvPOFfjLW_VaQrU1sI_ZxSxi71hckVDaAUs70OTzFUXBNTlNKhDE5TVk-zhyUbp5GlHlK2aTXoBWbPMCYG9OJs2ecAHhS7EcK9w3cl1UsJI-HZ8cGjAb-KeWYd8cla44i55vBUsjYhpyoaqluOuQQkA0B4CQ5pNH5Bzg8JacXwBK0d_wgost5aAJCbYwMLmZEajbHFWc3d-V4v6-rkgqOxJYNLu7COMwYx_OAg-GWmbP0DDllhTPIjgOOlW2fbFrZq74Mcg"
+}
+
+###
+POST http://localhost:5000/api/typeform/generate
+Content-Type: application/json
+
+{
+    "companyname" :  "Oracle",
+    "title" : "Hey guys! Just checking in (30/8/22)",
+    "text": "This survey comes to you at a time of great need"
 }
 
