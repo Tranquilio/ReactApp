@@ -42,3 +42,7 @@ Content-Type: application/json
     "text": "This survey comes to you at a time of great need"
 }
 
+###
+GET http://localhost:5000/api/employees/scores/all
+
+
