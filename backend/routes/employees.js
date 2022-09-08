@@ -35,22 +35,22 @@ function getAvg(object) {
 // });
 
 // Update data to have the averageScore property
-// employeeRoutes.route("/api/employees/update").get(function (req, res) {
-//     let db_connect = dbo.getDb();
-//     cursor = db_connect.collection("typeform-response").find({});
-//     cursor.toArray(function (err, result) {
-//         if (err) throw err;
-//         for (element of result) {
-//             myquery = { _id: element._id };
-//             element["averageScore"] = getAvg(element);
-//             db_connect.collection("typeform-response").replaceOne(myquery, element, function (err, res) {
-//                 if (err) throw err;
-//                 console.log("1 document updated");
-//             });
-//         }
-//         res.json(result);
-//     });
-// });
+employeeRoutes.route("/api/employees/update").get(function (req, res) {
+    let db_connect = dbo.getDb();
+    cursor = db_connect.collection("typeform-response").find({});
+    cursor.toArray(function (err, result) {
+        if (err) throw err;
+        for (element of result) {
+            myquery = { _id: element._id };
+            element["averageScore"] = getAvg(element);
+            db_connect.collection("typeform-response").replaceOne(myquery, element, function (err, res) {
+                if (err) throw err;
+                console.log("1 document updated");
+            });
+        }
+        res.json(result);
+    });
+});
 
 // This section will help you get a list of all the employee data. (To have average score -> use update to update the database)
 employeeRoutes.route("/api/employees/all").get(function (req, res) {

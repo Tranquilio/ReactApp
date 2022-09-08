@@ -1,4 +1,5 @@
 const express = require("express");
+const { getDb } = require("../conn");
 const baseForm = require("../form-body")
 const fetch = (...args) =>
   import('node-fetch').then(({ default: fetch }) => fetch(...args));
@@ -38,6 +39,29 @@ typeformRoutes.route("/api/typeform/generate").post(async function (req, res) {
   console.log(body.items[0])
   res.json("https://3oms1jii0jw.typeform.com/to/" + formId)
 
+});
+
+typeformRoutes.route("/api/typeform/checkExisting/:id").get(async function (req, res) {
+  const {companyname, link} = req.body
+  let db = getDb()
+
+  cursor = db.collection("surveys").find({company: req.params.id})
+  cursor.toArray(function (err, result) {
+    if (err) throw err;
+    res.json({result});
+  });
+});
+
+typeformRoutes.route("/api/typeform/save").post(async function (req, res) {
+  const {companyName, link} = req.body
+  let db = getDb()
+
+  db.collection("surveys").insertOne({company: companyName, "survey_link": link})
+  cursor = db.collection("surveys").find({})
+  cursor.toArray(function (err, result) {
+    if (err) throw err;
+    res.json({result});
+  });
 });
 
 module.exports = typeformRoutes;

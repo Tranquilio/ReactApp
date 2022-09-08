@@ -35,7 +35,7 @@ function SurveyPage() {
     }
 
     useEffect(() => {
-        generateFirstFormLink()
+        // generateFirstFormLink()
     }, [])
 
     return (
