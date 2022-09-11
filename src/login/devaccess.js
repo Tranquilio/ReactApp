@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { Grid } from "@mui/material";
 import * as React from "react";
 import logo from '../images/logotext1.png'
-import classes from "../profile/survey/nav.module.css"
+import classes from "../profile/employeeData/nav.module.css"
 import { Link } from "react-router-dom"
 import { useState, useEffect, useContext } from 'react'
 import { set } from 'mongoose'

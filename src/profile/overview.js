@@ -16,8 +16,54 @@ function OverviewPage() {
 
   useEffect(() => {
 
+    async function checkSurvey() {
+      const company = auth.domain
+      const result = await fetch(`http://localhost:5000/api/typeform/checkExisting/${company}`, {
+          method: "GET"
+        }
+      )
+      let output =  await result.json(); 
+      console.log(output)
+      if(output.result.length === 0) {
+        getSurveyLink()
+      }
+      else {
+        console.log("Already exists don't make")
+        var link = output.result[0].survey_link
+        console.log(link)
+      }
+    }
+
+
+    async function getSurveyLink() {
+      const company = auth.domain
+      const linkresult = await fetch('http://localhost:5000/api/typeform/generate', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              companyname: company,
+              title: "Hey guys! Just checking in (30/8/22)",
+              text: "This survey comes to you at a time of great need"
+          })
+      });
+      const link = await linkresult.json();
+      console.log(link)
+      const result = await fetch('http://localhost:5000/api/typeform/save', {
+          method : 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            companyName: company,
+            link: link
+        })
+      }); 
+    }
+
     async function getScore() {
-      const companyName = "Test%20Company"
+      const companyName = auth.domain
       const result = await fetch(`http://localhost:5000/api/employees/scores/${companyName}`, {
           method : 'GET',
       }); 
@@ -29,6 +75,8 @@ function OverviewPage() {
       console.log(score)
     }      
     getScore();
+    checkSurvey();
+    //getSurveyLink();
 
   },[]);
 

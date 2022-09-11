@@ -10,7 +10,7 @@ const router = express.Router();
 const dbo = require("../conn");
 
 const { PRIVATE_KEY, NODEMAILER_EMAIL, NODEMAILER_PASSWORD, EMAIL_VERIFIER_API_KEY } = process.env
-console.log(process.env)
+// console.log(process.env)
 
 
 router.post('/verify-email-address', (req, res, next) => {
