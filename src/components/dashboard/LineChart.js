@@ -25,7 +25,7 @@ function LineChart01({
           backgroundColor: "rgb(94 234 212)",
         },
         layout: {
-          padding: 24,
+          padding: 22,
         },
         scales: {
           y: {

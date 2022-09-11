@@ -44,7 +44,7 @@ function SurveyPage() {
             {/* Sidebar */}
             <Sidebar />
             {/* Content area */}
-            <div className="relative flex flex-col flex-1">
+            {/* <div className="relative flex flex-col flex-1"> */}
                 {/* <div className='m-auto'> */}
                 {/* <Paper elevation={3} className='p-10'> */}
                 {/* <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div> */}
@@ -55,9 +55,9 @@ function SurveyPage() {
                 {/* </Paper>   */}
                 {/* </div>   */}
                 
-            </div>
-            <div className='-mt-20 overflow-x-auto overflow-y-hidden p-auto'>
-                <ul className='p-48 flex -mt-10 gap-96 '>
+            {/* </div> */}
+            <div className='relative mt-2 h-screen overflow-x-auto overflow-y-hidden p-auto'>
+                <ul className='p-48 flex flex-row -mt-32 gap-96 items-center'>
                     <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                         <Link to="/profile/survey">Design</Link>
                     </li>
@@ -68,11 +68,18 @@ function SurveyPage() {
                         <Link to="/profile/survey/share">Share</Link>
                     </li>
                 </ul>
-                <MyComponent />
 
-                <button className='shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
-                    <a className='tracking-tight md:text-white text-rose-400 px-2'>Deploy</a>
-                </button>
+                <Fade cascade>
+                    <div className='-mt-32 text-center flex-col mt-auto p-auto'>
+                        <div className='grid h-full place-items-center'>
+                        <MyComponent />
+                        </div>
+                        <button className='mt-10 shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
+                            <a className='tracking-tight md:text-white text-rose-400 px-2'>Deploy</a>
+                        </button>
+                    </div>
+                </Fade>
+
                 {/* <Fade cascade> */}
                     {/* <div className='-mt-44 h-4/5 p-16 grid grid-cols-4 grid-rows-4 gap-6'> */}
                         {/* <div className='py-4 bg-white shadow-lg rounded-sm border border-slate-200 row-span-3 col-span-1 text-black text-center'>Toggle between survey types - general, JD, JC, eNPS</div> */}
