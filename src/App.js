@@ -16,15 +16,16 @@ import ErrorPage from "./extras/ErrorPage"
 import LoginForm from "./login/login"
 import './App.css'
 import { AuthContext } from './context/AuthContext'
+import { FormContext } from "./context/FormContext"
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAuth } from './hooks/auth-hook'
+import { useForm } from "./hooks/form-hook" 
 import DevAccess from "./login/devaccess"
 
 function App() {
   const { token, login, logout, email, domain } = useAuth()
+  const { companyName, formLink, saveFormContext, clearFormContext } = useForm()
 
-
-  
   let routes;
   if (token) {
     routes = (
@@ -64,11 +65,15 @@ function App() {
     <AuthContext.Provider
       value={{ isLoggedIn: !!token, token: token, email: email, domain: domain, login: login, logout: logout }}
     >
+      <FormContext.Provider
+      value={{ companyName: companyName, formLink: formLink, saveFormContext: saveFormContext, clearFormContext: clearFormContext}}
+    >
       <BrowserRouter>
         <Routes>
           {routes}
         </Routes>
       </BrowserRouter>
+      </FormContext.Provider>
     </ AuthContext.Provider>
   );
 }

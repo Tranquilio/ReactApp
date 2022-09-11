@@ -1,6 +1,8 @@
 import { createContext } from "react";
 
 export const FormContext = createContext({
-  formLink : null,
-  companyName : null
+    companyName: null, 
+    formLink: null,
+    saveFormContext: () => {},
+    clearFormContext: () => {}
 });
