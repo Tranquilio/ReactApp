@@ -5,6 +5,7 @@ import {CircleProgress} from 'react-gradient-progress'
 import autoprefixer from 'autoprefixer';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { FormContext } from '../context/FormContext';
 
 var overall;
 var score;
@@ -13,6 +14,7 @@ function OverviewPage() {
 
   const [loaded,setLoad] = useState(false);
   const auth = useContext(AuthContext)
+  const form = useContext(FormContext)
 
   useEffect(() => {
 
@@ -31,6 +33,7 @@ function OverviewPage() {
         console.log("Already exists don't make")
         var link = output.result[0].survey_link
         console.log(link)
+        form.saveFormContext(company, link)
       }
     }
 
@@ -50,6 +53,7 @@ function OverviewPage() {
       });
       const link = await linkresult.json();
       console.log(link)
+      form.saveFormContext(company, link)
       const result = await fetch('http://localhost:5000/api/typeform/save', {
           method : 'POST',
           headers: {

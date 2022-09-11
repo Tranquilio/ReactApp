@@ -5,14 +5,21 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { RiLogoutBoxLine } from 'react-icons/ri'
 import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
+import { FormContext } from '../context/FormContext'
 
 function Sidebar() {
   const auth = useContext(AuthContext)
+  const form = useContext(FormContext)
 
   const location = useLocation();
   const { pathname } = location;
 
   const sidebar = useRef(null);
+
+  const logout = () => {
+    auth.logout()
+    form.clearFormContext()
+  }
       
   return (
     <div>
@@ -113,7 +120,7 @@ function Sidebar() {
         {/* Expand / collapse button */}
         <div className="mt-auto mb-4 text-slate-400 hover:text-black truncate transition duration-150 hover:bg-teal-100">
           <div className="ml-14">
-              <RiLogoutBoxLine onClick={() => {auth.logout()}} className='text-slate-400 w-7 h-7 shrink-0 ml-2' viewBox="0 0 24 24"/>
+              <RiLogoutBoxLine onClick={() => {logout()}} className='text-slate-400 w-7 h-7 shrink-0 ml-2' viewBox="0 0 24 24"/>
               <div className="text-sm font-medium 2xl:opacity-100 duration-200">Logout</div>
           </div>
         </div>
