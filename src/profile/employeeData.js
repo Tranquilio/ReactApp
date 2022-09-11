@@ -8,10 +8,13 @@ import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { Fade } from 'react-reveal'
 import { Paper } from '@material-ui/core'
+import { FormContext } from '../context/FormContext'
+
 const emoji = require("emoji-dictionary")
 
 function EmployeeDataPage() {
   const auth = useContext(AuthContext)
+  const form = useContext(FormContext)
   const [emails, setEmails] = useState(null)
   const [headers, setHeaders] = useState(null)
 
@@ -37,12 +40,13 @@ function EmployeeDataPage() {
       return
     }
 
+    console.log(form)
     for (var email of emails) {
       templateParams = {
         To_Email: email[emailIndex],
         Employee_Name: email[nameIndex],
         Company_Name: auth.domain,
-        Survey_Link: form.link
+        Survey_Link: form.formLink
       };
 
       emailjs.send('service_2suw4zs', 'template_z12igba', templateParams, "UCAOXByZZOnY9TBF1")

@@ -1,13 +1,13 @@
 import { useState, useCallback } from "react";
 
 export const useForm = () => {
-  const [companyName, setCompanyName] = useState(null)
+  const [company, setCompanyName] = useState(null)
   const [formLink, setFormLink] = useState(null)
 
-  const saveFormContext = useCallback((companyName, link) => {
-    setCompanyName(companyName)
+  const saveFormContext = useCallback((company, link) => {
+    setCompanyName(company)
     setFormLink(link)
-    console.log(companyName)
+    console.log(company)
     console.log(link)
     console.log('ssssss')
   }, []);
@@ -17,5 +17,5 @@ export const useForm = () => {
     setFormLink(null)
   }, []);
 
-  return { companyName, formLink, saveFormContext, clearFormContext }
+  return { company, formLink, saveFormContext, clearFormContext }
 };

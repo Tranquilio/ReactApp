@@ -73,7 +73,7 @@ typeformRoutes.route("/api/typeform/getres").get(async function (req, res) {
     },
   })
 
-  res.json(result)
+  result.json().then((out) => res.json(out))
 });
 
 module.exports = typeformRoutes;

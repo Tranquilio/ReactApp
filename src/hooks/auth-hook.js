@@ -13,7 +13,7 @@ export const useAuth = () => {
     let temp = email.slice(email.indexOf('@') + 1)
     temp = temp.slice(0, temp.indexOf('.'))
     if (email == 'DEVACCESS') {
-      setDomain('Test Company')
+      setDomain('Oracle')
     } else {
       setDomain(temp)
     }

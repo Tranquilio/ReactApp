@@ -2,6 +2,7 @@ import React from 'react'
 import LineChart from './LineChart'
 import { useState, useEffect } from 'react'
 import { useContext } from 'react';
+import { FormContext } from '../../context/FormContext'
 
 var overall;
 var score;
