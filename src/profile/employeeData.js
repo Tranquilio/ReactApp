@@ -42,7 +42,7 @@ function EmployeeDataPage() {
         To_Email: email[emailIndex],
         Employee_Name: email[nameIndex],
         Company_Name: auth.domain,
-        Survey_Link: ""
+        Survey_Link: form.link
       };
 
       emailjs.send('service_2suw4zs', 'template_z12igba', templateParams, "UCAOXByZZOnY9TBF1")

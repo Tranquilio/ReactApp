@@ -64,4 +64,16 @@ typeformRoutes.route("/api/typeform/save").post(async function (req, res) {
   });
 });
 
+typeformRoutes.route("/api/typeform/getres").get(async function (req, res) {
+  const result = await fetch("https://api.typeform.com/forms/STOHxflT/responses", {
+    method: 'GET',
+    headers: {
+      Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J",
+      'Content-Type': 'application/json'
+    },
+  })
+
+  res.json(result)
+});
+
 module.exports = typeformRoutes;

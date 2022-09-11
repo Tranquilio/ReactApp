@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -25,9 +25,12 @@ var scores = [];
 
 const Chart = () => {
 
+  const form = useContext(FormContext)
+  
   async function getChartData() {
+
     //Call api get answers
-    const result = await fetch('http://localhost:5000/api/scores', {
+    const result = await fetch(`http://localhost:5000/api/scores/${form.company}`, {
       method : 'GET',
     }); 
 

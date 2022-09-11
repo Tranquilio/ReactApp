@@ -23,6 +23,8 @@ import DevAccess from "./login/devaccess"
 function App() {
   const { token, login, logout, email, domain } = useAuth()
 
+
+  
   let routes;
   if (token) {
     routes = (

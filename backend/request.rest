@@ -45,4 +45,8 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/api/employees/update
 
+###
+GET http://localhost:5000/api/typeform/getres
 
+###
+GET http://localhost:5000/api/typeform/checkExisting/Test%20Company

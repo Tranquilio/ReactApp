@@ -9,9 +9,11 @@ var topIndex = [];
 
 const TopStressors = () => {
 
+    const form = useContext(FormContext)
+
     async function getChartData() {
         //Call api get answers
-        const result = await fetch('http://localhost:5000/api/scores', {
+        const result = await fetch(`http://localhost:5000/api/scores/${form.company}`, {
           method : 'GET',
         }); 
   

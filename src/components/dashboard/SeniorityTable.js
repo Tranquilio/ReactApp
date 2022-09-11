@@ -10,11 +10,12 @@ var threeOrMore;
 function SeniorityTable () {
 
     const [loaded,setLoad] = useState(false);
+    const form = useContext(FormContext)
 
     useEffect(() => {
 
     async function getScore() {
-      const result = await fetch('http://localhost:5000/api/employees/seniority/all', {
+      const result = await fetch(`http://localhost:5000/api/employees/seniority/${form.company}`, {
           method : 'GET',
       }); 
   

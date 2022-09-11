@@ -1,6 +1,7 @@
 import React from 'react'
 import LineChart from './LineChart'
 import { useState, useEffect } from 'react'
+import { useContext } from 'react';
 
 var overall;
 var score;
@@ -8,11 +9,12 @@ var score;
 function WellbeingCard() {
 
   const [loaded,setLoad] = useState(false);
+  const form = useContext(FormContext)
 
   useEffect(() => {
 
     async function getScore() {
-      const result = await fetch('http://localhost:5000/api/employees/scores/all', {
+      const result = await fetch(`http://localhost:5000/api/employees/scores/${form.company}`, {
           method : 'GET',
       }); 
   
