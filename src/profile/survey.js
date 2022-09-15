@@ -32,6 +32,8 @@ function SurveyPage() {
 
     const MyComponent = () => {
         return <Widget id="STOHxflT/?_dangerous-disable-submissions" style={{ width: '50vw', height: '50vh' }} className="my-form" />
+    //     return <div><div data-tf-widget="mdUHNTn2" data-tf-opacity="0" data-tf-iframe-props="title=Oracle survey" data-tf-medium="snippet" style="width:100%;height:400px;"></div><script src="//embed.typeform.com/next/embed.js"></script>
+    // </div>
     }
 
     useEffect(() => {
