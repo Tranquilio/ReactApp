@@ -34,7 +34,7 @@ function Sidebar() {
         {/* Sidebar header */}
         <div className="flex justify-between mb-10 pr-3 sm:px-2">
           {/* Logo */}
-          <img src={logo} height={100} width={200} alt="Logo" /> 
+          <img src={logo} height={100} width={150} alt="Logo" /> 
         </div>
 
         {/* Links */}
