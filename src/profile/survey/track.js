@@ -1,27 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/Sidebar'
 import {Link} from "react-router-dom"
 import { Fade } from 'react-reveal'
 
-const TrackPage = () => {
-  return (
+function TrackPage() {
+
+    // const [summary, setsSummary] = useState("")
+  
+    async function getSurveySummary() {
+        const result = await fetch('/api/typeform/summary', {
+            method: 'GET',
+        });
+        const overall = await result.json();
+        // setsSummary(overall);
+        result.json().then((response) => console.log(response))
+    }
+  
+    useEffect(() => {
+        getSurveySummary()
+    }, [])
+
+    return (
     <div className='flex h-screen overflow-hidden bg-gradient-to-r from-transparent to-green-50'>  
 
-        {/* Sidebar */}
         <Sidebar />
 
-        {/* Content area */}
-        {/* <div className="relative flex flex-col flex-1"> */}
-        {/* <div className='m-auto'> */}
-            {/* <Paper elevation={3} className='p-10'> */}
-            {/* <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div> */}
-
-            {/* Description */}
-            {/* <li className='mt-10 mb-2'>Recieve monthly reports on your organization's wellbeing insights</li> */}
-            {/* <li>Easily deploy, customize, and manage employee surveys in minutes</li> */}
-            {/* </Paper>   */}
-            {/* </div>   */}
-        {/* </div> */}
         <div className='relative mt-2 h-screen overflow-x-auto overflow-y-hidden p-auto'>
             <ul className='p-48 flex flex-row -mt-32 gap-96 items-center'>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
@@ -74,7 +77,10 @@ const TrackPage = () => {
                         </div>
                     </div>
                     {/* Survey Flow */}
-                    <div className=''></div>  
+                    <div className=''></div>
+                    {/* <button onClick={getSurveySummary} className='mt-10 shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
+                            <a className='tracking-tight md:text-white text-rose-400 px-2'>Get Summary</a>
+                    </button> */}
                     {/* Mini-insights boxes */}
                     <div className='absolute inset-x-0 bottom-0 p-16 grid grid-cols-4 grid-rows-2 gap-6'>
                         <div className='py-10 bg-white shadow-lg rounded-sm border border-slate-200 row-span-2 text-black text-center'>Reminders sent: </div>
@@ -91,4 +97,4 @@ const TrackPage = () => {
   )
 }
 
-export default TrackPage
+export default TrackPage;

@@ -176,7 +176,7 @@ function LoginForm() {
                         </div>
                     </div>
                     {/* Sign In Section (Right Side)  */}
-                    <div className="w-2/6 p-5 bg-gradient-to-r from-pink-100 to-teal-50">
+                    <div className="w-2/6 p-5 bg-gradient-to-r from-pink-50 to-teal-50">
                         <div className='flex flex-col h-screen -mt-10 items-center'>
                             <div className='m-auto'>
                                 <img src={logo} className="text-center" width={250} />
@@ -190,7 +190,7 @@ function LoginForm() {
                                                 <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 text-sm flex-1" type="text" placeholder='Email' />
                                             </div>
                                             <div className='mt-10 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white hover:bg-[#80A080]" onClick={validateEmail}>Get OTP</div>
+                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-sm hover:bg-[#80A080]" onClick={validateEmail}>Get OTP</div>
                                             </div>
                                         </div>
                                         :
@@ -201,7 +201,7 @@ function LoginForm() {
                                                 <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 text-sm flex-1" type="text" placeholder='Enter OTP' />
                                             </div>
                                             <div className='mt-10 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white hover:bg-[#80A080]" onClick={validateOTPInput}>Sign In</div>
+                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-sm hover:bg-[#80A080]" onClick={validateOTPInput}>Sign In</div>
                                             </div>
                                         </div>
                                     }
