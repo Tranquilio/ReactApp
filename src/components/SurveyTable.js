@@ -20,10 +20,6 @@ function SurveyTable(props) {
     const convertToJson = (headers,data) => {
         const rows = []
         data.forEach(row => {
-<<<<<<< HEAD
-            // console.log(row)
-=======
->>>>>>> cc412ce60731ad9e8112d1b7946fed43b010d810
             let rowData = {}
             row.forEach((element,index) => {
                 rowData[headers[index]] = element
