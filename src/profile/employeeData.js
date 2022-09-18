@@ -18,44 +18,66 @@ function EmployeeDataPage() {
   const [emails, setEmails] = useState(null)
   const [headers, setHeaders] = useState(null)
 
-  function sendEmails() {
+  async function sendEmails() {
+    
+    for(var profile of emails) {
+      console.log(profile)
+      profile["seniority"] = null
+      profile["department"] = null
+      profile["company"] = form.company
+    }
+
     console.log(emails)
+    console.log(JSON.stringify({data: emails}))
+
+
+    const result = await fetch('http://localhost:5000/api/employees/profiles', {
+        method : 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({data: emails})
+    }); 
+
+
+    console.log(emails)
+    console.log(headers)
     var templateParams = {}
-    var nameIndex = -1
-    var emailIndex = -1
-    for (var index in headers) {
+    var nameVal = ""
+    var emailVal = ""
+    for (var header of headers) {
       //Regex better
-      if (headers[index] === "name" || headers[index] === "Name") {
-        nameIndex = index
-      } else if (headers[index] === "email" || headers[index] === "Email") {
-        emailIndex = index
+      if (header === "name" || header === "Name") {
+        nameVal = header
+      } else if (header === "email" || header === "Email") {
+        emailVal = header
       }
     }
-    // console.log(nameIndex)
-    // console.log(emailIndex)
+    console.log(nameVal)
+    console.log(emailVal)
 
-    //If insufficient parameters in csv
-    if (nameIndex < 0 || emailIndex < 0) {
-      alert("csv file must contain a name column, email column")
-      return
-    }
+    // //If insufficient parameters in csv
+    // if (nameVal === "" || emailVal === "") {
+    //   alert("csv file must contain a name column, email column")
+    //   return
+    // }
 
-    console.log(form)
-    for (var email of emails) {
-      templateParams = {
-        To_Email: email[emailIndex],
-        Employee_Name: email[nameIndex],
-        Company_Name: auth.domain,
-        Survey_Link: form.formLink
-      };
+    // console.log(form)
+    // for (var email of emails) {
+    //   templateParams = {
+    //     To_Email: email[emailVal],
+    //     Employee_Name: email[nameVal],
+    //     Company_Name: auth.domain,
+    //     Survey_Link: form.formLink
+    //   };
 
-      emailjs.send('service_2suw4zs', 'template_z12igba', templateParams, "UCAOXByZZOnY9TBF1")
-        .then(function (response) {
-          console.log('SUCCESS!', response.status, response.text);
-        }, function (error) {
-          console.log('FAILED...', error);
-        });
-    }
+    //   emailjs.send('service_2suw4zs', 'template_z12igba', templateParams, "UCAOXByZZOnY9TBF1")
+    //     .then(function (response) {
+    //       console.log('SUCCESS!', response.status, response.text);
+    //     }, function (error) {
+    //       console.log('FAILED...', error);
+    //     });
+    // }
   }
 
   // async function sendEmail() {
