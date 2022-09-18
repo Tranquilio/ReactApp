@@ -54,3 +54,5 @@ GET http://localhost:5000/api/employees/scores/Oracle
 ###
 GET http://localhost:5000/api/typeform/summary
 
+###
+GET http://localhost:5000/api/employees/profiles/Oracle

@@ -24,6 +24,7 @@ function OverviewPage() {
           method: "GET"
         }
       )
+      console.log(result)
       let output =  await result.json(); 
       console.log(output)
       if(output.result.length === 0) {

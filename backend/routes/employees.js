@@ -161,4 +161,18 @@ employeeRoutes.route("/api/employees/seniority/:id").get(function (req, res) {
     });
 });
 
+//Fetches employee names and emails from mongoDB and puts it in an array
+employeeRoutes.route("/api/employees/profiles/:id").get(function (req, res) {
+    let db_connect = dbo.getDb();
+    cursor = db_connect.collection("profiles").aggregate([
+        { $match: { company: req.params.id } }
+    ]);
+    cursor.toArray(function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        res.json(result);
+    });
+     
+})
+
 module.exports = employeeRoutes;

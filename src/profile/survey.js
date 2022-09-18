@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Sidebar from '../components/Sidebar'
 import { Link } from "react-router-dom"
 import { Fade } from 'react-reveal'
 import { Widget } from '@typeform/embed-react'
+import { AuthContext } from '../context/AuthContext'
+import { FormContext } from '../context/FormContext'
+import emailjs from '@emailjs/browser'
 
 function SurveyPage() {
+    const auth = useContext(AuthContext)
+    const form = useContext(FormContext)
 
-    // const { data: session, status } = useSession();
     const [formId, setFormId] = useState("")
     const [formLink, setFormLink] = useState("")
 
@@ -29,6 +33,40 @@ function SurveyPage() {
         }
         obtainTypeformLink()
     }
+
+    async function getEmployeeData() {
+        const result = await fetch(`http://localhost:5000/api/employees/profiles/${form.company}`, {
+            method: 'GET',
+        });
+        const overall = await result.json();
+        console.log(overall);
+        return(overall);
+    }
+
+    async function sendEmails() {
+        //Retrieve email list from MongoDB
+        var templateParams = {}
+        var employeeData = await getEmployeeData()
+        console.log(employeeData)
+        
+        for (var data of employeeData) {
+            console.log(data);
+          templateParams = {
+            To_Email: data['email'],
+            Employee_Name: data['name'],
+            Company_Name: auth.domain,
+            Survey_Link: form.formLink
+          };
+    
+          emailjs.send('service_2suw4zs', 'template_z12igba', templateParams, "UCAOXByZZOnY9TBF1")
+            .then(function (response) {
+              console.log('SUCCESS!', response.status, response.text);
+            }, function (error) {
+              console.log('FAILED...', error);
+            });
+        }
+      }
+
 
     const MyComponent = () => {
         return <Widget id="STOHxflT/?_dangerous-disable-submissions" style={{ width: '50vw', height: '50vh' }} className="my-form" />
@@ -61,7 +99,7 @@ function SurveyPage() {
                         <div className='grid h-full place-items-center'>
                         <MyComponent />
                         </div>
-                        <button className='mt-10 shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
+                        <button onClick={sendEmails}className='mt-10 shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
                             <a className='tracking-tight md:text-white text-rose-400 px-2'>Deploy</a>
                         </button>
                     </div>

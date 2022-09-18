@@ -20,7 +20,7 @@ function SurveyTable(props) {
     const convertToJson = (headers,data) => {
         const rows = []
         data.forEach(row => {
-            console.log(row)
+            // console.log(row)
             let rowData = {}
             row.forEach((element,index) => {
             rowData[headers[index]] = element
@@ -96,8 +96,6 @@ function SurveyTable(props) {
                     }}
                 />
             
-                {/* <BootstrapTable data={data} >
-                </ BootstrapTable> */}
             </Fade>
         </div>
     );
