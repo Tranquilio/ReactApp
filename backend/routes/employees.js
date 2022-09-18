@@ -38,8 +38,19 @@ employeeRoutes.route("/api/employees/profiles").post(function (req, res) {
     let db_connect = dbo.getDb();
     const {data} = req.body
     data.forEach(element => {
-        db_connect.collection("profiles").insertOne(element)
-        console.log("New document added");
+        value = db_connect.collection("profiles").find(element)
+        value.count().then(
+            (result) => {
+                if(result == 0) {
+                    db_connect.collection("profiles").insertOne(element)
+                    console.log("New document added");
+                }
+                else {
+                    console.log("Document already exists")
+                }
+            }   
+        )
+        
     })
 });
 
