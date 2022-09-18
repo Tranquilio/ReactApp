@@ -47,9 +47,8 @@ router.post('/login-init', async (req, res, next) => {
 })
 
 router.post('/login-mongo', async (req, res, next) => {
-  const { email } = req.body
-  // splits = email.split("@")
-  domain = "tranquilio.co"
+  const { email, domain} = req.body
+  // splits = email.split("@") 
   let db_connect = dbo.getDb();
   result = await db_connect.collection("emails").findOne({ domain: domain });
   console.log(result)

@@ -41,21 +41,21 @@ typeformRoutes.route("/api/typeform/generate").post(async function (req, res) {
 
 });
 
-//Get summary of market research survey
-typeformRoutes.route("/api/typeform/summary").get(async function (req, res) {
+// //Get summary of market research survey
+// typeformRoutes.route("/api/typeform/summary").get(async function (req, res) {
 
-  const result = await fetch("https://api.typeform.com/insights/PqwjqxXz/summary", {
-    method: 'GET',
-    headers: {
-      Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J",
-      'Content-Type': 'application/json'
-    },
-  })
-  result.json().then((out) => res.json(out))
-});
+//   const result = await fetch("https://api.typeform.com/insights/PqwjqxXz/summary", {
+//     method: 'GET',
+//     headers: {
+//       Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J",
+//       'Content-Type': 'application/json'
+//     },
+//   })
+//   result.json().then((out) => res.json(out))
+// });
 
 typeformRoutes.route("/api/typeform/getres").get(async function (req, res) {
-  const result = await fetch("https://api.typeform.com/forms/STOHxflT/responses", {
+  const result = await fetch("https://api.typeform.com/forms/PqwjqxXz/responses", {
     method: 'GET',
     headers: {
       Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J",

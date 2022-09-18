@@ -20,10 +20,13 @@ function SurveyTable(props) {
     const convertToJson = (headers,data) => {
         const rows = []
         data.forEach(row => {
+<<<<<<< HEAD
             // console.log(row)
+=======
+>>>>>>> cc412ce60731ad9e8112d1b7946fed43b010d810
             let rowData = {}
             row.forEach((element,index) => {
-            rowData[headers[index]] = element
+                rowData[headers[index]] = element
             })
             rows.push(rowData)
         });
@@ -53,9 +56,9 @@ function SurveyTable(props) {
 
             //removing header
             fileData.splice(0,1)
-            sendToParent(fileData, headers)
-
+        
             setData(convertToJson(headers,fileData))
+            sendToParent(convertToJson(headers,fileData), headers)
         }
 
         if(file){
