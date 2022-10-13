@@ -145,7 +145,7 @@ const ARChart = () => {
               {x: 76 ,y: 5, month: 'August'},
               {x: 85 ,y: 3, month: 'September'},
               {x: 90 ,y: 2, month: 'October'},
-              {x: 80 ,y: 3, month: 'Novermber'},
+              {x: 80 ,y: 3, month: 'November'},
               {x: 60 ,y: 9, month: 'December'},
             ],
             showLine: false,

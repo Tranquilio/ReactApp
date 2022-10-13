@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { useContext } from 'react';
+import { FormContext } from '../../context/FormContext'
 
 var seniority;
 var zeroToHalf;
@@ -10,11 +12,12 @@ var threeOrMore;
 function SeniorityTable () {
 
     const [loaded,setLoad] = useState(false);
+    const form = useContext(FormContext)
 
     useEffect(() => {
 
     async function getScore() {
-      const result = await fetch('http://localhost:5000/api/employees/seniority/all', {
+      const result = await fetch(`http://localhost:5000/api/employees/seniority/${form.company}`, {
           method : 'GET',
       }); 
   
@@ -55,9 +58,9 @@ function SeniorityTable () {
  //   {"0-0.5":3.5,"0.5-1 Year":4.1875,"1-2 Years":3.84375,"2-3 Years":4.125,"0-0.5 Year":3.46875,"3+ Years":4.5}
 
     return (
-        <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-white-200 scrollbar-track-white-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
+        <div class="flex flex-col px-5 mt-3 scrollbar-thin scrollbar-thumb-white-200 scrollbar-track-white-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
             <div class="sm:-mx-6 lg:-mx-8">
-                <div class="py-2 inline-block sm:px-6 lg:px-8">
+                <div class="inline-block sm:px-6 lg:px-8">
                     <div class="m-auto">
                         <table class="text-center m-auto">
                             <thead class="border-b">
@@ -77,7 +80,7 @@ function SeniorityTable () {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         0 to 0.5 year
                                     </td>
@@ -91,7 +94,7 @@ function SeniorityTable () {
                                         
                                     </td>
                                 </tr>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         0.5 to 1 year
                                     </td>
@@ -105,7 +108,7 @@ function SeniorityTable () {
                                       
                                     </td>
                                 </tr>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         1 to 2 years
                                     </td>
@@ -119,7 +122,7 @@ function SeniorityTable () {
                                        
                                     </td>
                                 </tr>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         2 to 3 years
                                     </td>
@@ -133,7 +136,7 @@ function SeniorityTable () {
                                         
                                     </td>
                                 </tr>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         3+
                                     </td>

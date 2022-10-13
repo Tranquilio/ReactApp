@@ -1,4 +1,4 @@
-import logo from '../images/logotext1.png'
+import logo from '../images/logotext.png'
 import classes from "../profile/employeeData/nav.module.css"
 import { Link } from "react-router-dom"
 import { useState, useEffect, useContext } from 'react'
@@ -170,16 +170,16 @@ function LoginForm() {
                             <div className='absolute flex flex-col h-screen text-white w-full h-full top-0 left-0'>
                                 <div className='m-auto'>
                                     <div className='text-7xl font-bold '>Make Work, <br /> Stress Free</div>
-                                    <div className='text-xl mt-5 opacity-80'>Start by finding out your potential work stressors</div>
+                                    {/* <div className='text-xl mt-5 opacity-80'>Start by finding out your potential work stressors</div> */}
                                 </div>
                             </div>
                         </div>
                     </div>
                     {/* Sign In Section (Right Side)  */}
-                    <div className="w-2/6 p-5 bg-gradient-to-r from-pink-100 to-teal-50">
+                    <div className="w-2/6 p-5 bg-gradient-to-r from-pink-50 to-teal-50">
                         <div className='flex flex-col h-screen -mt-10 items-center'>
                             <div className='m-auto'>
-                                <img src={logo} className="text-center" width={300} />
+                                <img src={logo} className="text-center" width={250} />
                                 <div>
                                     {!displayOTPInput ?
                                         <div>
@@ -190,7 +190,7 @@ function LoginForm() {
                                                 <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 text-sm flex-1" type="text" placeholder='Email' />
                                             </div>
                                             <div className='mt-10 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateEmail}>Get OTP</div>
+                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-sm hover:bg-[#80A080]" onClick={validateEmail}>Get OTP</div>
                                             </div>
                                         </div>
                                         :
@@ -201,20 +201,20 @@ function LoginForm() {
                                                 <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 text-sm flex-1" type="text" placeholder='Enter OTP' />
                                             </div>
                                             <div className='mt-10 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-pink-400 text-center text-white hover:bg-pink-500" onClick={validateOTPInput}>Sign In</div>
+                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-sm hover:bg-[#80A080]" onClick={validateOTPInput}>Sign In</div>
                                             </div>
                                         </div>
                                     }
                                     {isEmailValid ?
                                         null :
                                         <div className='mt-5'>
-                                            <span className="text-sm text-red-300 font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
+                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
                                         </div>
                                     }
                                     {isOTPValid ?
                                         null :
                                         <div className='mt-5'>
-                                            <span className="text-sm text-red-300 font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
+                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
                                         </div>
                                     }
                                 </div>

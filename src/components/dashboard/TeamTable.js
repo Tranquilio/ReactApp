@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { useContext } from 'react';
+import { FormContext } from '../../context/FormContext'
 
 var dept;
 var sales;
@@ -11,10 +13,11 @@ function TeamTable () {
 
     const [loaded,setLoad] = useState(false);
 
+    const form = useContext(FormContext)
     useEffect(() => {
 
     async function getScore() {
-      const result = await fetch('http://localhost:5000/api/employees/dept/all', {
+      const result = await fetch(`http://localhost:5000/api/employees/dept/${form.company}`, {
           method : 'GET',
       }); 
   
@@ -51,9 +54,9 @@ function TeamTable () {
     }
 
     return (
-        <div class="flex flex-col p-5 scrollbar-thin scrollbar-thumb-white-200 scrollbar-track-white-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
+        <div class="flex flex-col px-5 mt-3 scrollbar-thin scrollbar-thumb-white-200 scrollbar-track-white-100 overflow-y-scroll overflow-x-hidden scrollbar-thumb-rounded scrollbar-track-rounded h-64">
             <div class="sm:-mx-6 lg:-mx-8">
-                <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="">
                         <table class="min-w-full text-center">
                             <thead class="border-b">
@@ -73,7 +76,7 @@ function TeamTable () {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Core
                                     </td>
@@ -87,7 +90,7 @@ function TeamTable () {
                                         
                                     </td>
                                 </tr>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Marketing
                                     </td>
@@ -101,7 +104,7 @@ function TeamTable () {
                                         
                                     </td>
                                 </tr>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Product Dev
                                     </td>
@@ -115,7 +118,7 @@ function TeamTable () {
                                         
                                     </td>
                                 </tr>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Sales
                                     </td>
@@ -129,7 +132,7 @@ function TeamTable () {
                                         
                                     </td>
                                 </tr>
-                                <tr class="border-b">
+                                <tr class="">
                                     <td class="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                                         Customer
                                     </td>

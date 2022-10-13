@@ -24,7 +24,7 @@ import DevAccess from "./login/devaccess"
 
 function App() {
   const { token, login, logout, email, domain } = useAuth()
-  const { companyName, formLink, saveFormContext, clearFormContext } = useForm()
+  const { company, formLink, saveFormContext, clearFormContext } = useForm()
 
   let routes;
   if (token) {
@@ -66,7 +66,7 @@ function App() {
       value={{ isLoggedIn: !!token, token: token, email: email, domain: domain, login: login, logout: logout }}
     >
       <FormContext.Provider
-      value={{ companyName: companyName, formLink: formLink, saveFormContext: saveFormContext, clearFormContext: clearFormContext}}
+      value={{ company: company, formLink: formLink, saveFormContext: saveFormContext, clearFormContext: clearFormContext}}
     >
       <BrowserRouter>
         <Routes>

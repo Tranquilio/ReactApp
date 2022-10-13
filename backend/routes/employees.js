@@ -34,6 +34,26 @@ function getAvg(object) {
 //     });
 // });
 
+employeeRoutes.route("/api/employees/profiles").post(function (req, res) {
+    let db_connect = dbo.getDb();
+    const {data} = req.body
+    data.forEach(element => {
+        value = db_connect.collection("profiles").find(element)
+        value.count().then(
+            (result) => {
+                if(result == 0) {
+                    db_connect.collection("profiles").insertOne(element)
+                    console.log("New document added");
+                }
+                else {
+                    console.log("Document already exists")
+                }
+            }   
+        )
+        
+    })
+});
+
 // Update data to have the averageScore property
 employeeRoutes.route("/api/employees/update").get(function (req, res) {
     let db_connect = dbo.getDb();
@@ -160,5 +180,19 @@ employeeRoutes.route("/api/employees/seniority/:id").get(function (req, res) {
         res.json(out);
     });
 });
+
+//Fetches employee names and emails from mongoDB and puts it in an array
+employeeRoutes.route("/api/employees/profiles/:id").get(function (req, res) {
+    let db_connect = dbo.getDb();
+    cursor = db_connect.collection("profiles").aggregate([
+        { $match: { company: req.params.id } }
+    ]);
+    cursor.toArray(function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        res.json(result);
+    });
+     
+})
 
 module.exports = employeeRoutes;

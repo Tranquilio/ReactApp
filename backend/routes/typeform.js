@@ -41,6 +41,31 @@ typeformRoutes.route("/api/typeform/generate").post(async function (req, res) {
 
 });
 
+// //Get summary of market research survey
+// typeformRoutes.route("/api/typeform/summary").get(async function (req, res) {
+
+//   const result = await fetch("https://api.typeform.com/insights/PqwjqxXz/summary", {
+//     method: 'GET',
+//     headers: {
+//       Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J",
+//       'Content-Type': 'application/json'
+//     },
+//   })
+//   result.json().then((out) => res.json(out))
+// });
+
+typeformRoutes.route("/api/typeform/getres").get(async function (req, res) {
+  const result = await fetch("https://api.typeform.com/forms/PqwjqxXz/responses", {
+    method: 'GET',
+    headers: {
+      Authorization: "Bearer tfp_7dMvjfhHtcYMFCSMytV8Fsop1UT6mHBVtVW7rdgFfPwN_3w5qgeFDNcwU8J",
+      'Content-Type': 'application/json'
+    },
+  })
+
+  result.json().then((out) => res.json(out))
+});
+
 typeformRoutes.route("/api/typeform/checkExisting/:id").get(async function (req, res) {
   const {companyname, link} = req.body
   let db = getDb()
@@ -63,5 +88,6 @@ typeformRoutes.route("/api/typeform/save").post(async function (req, res) {
     res.json({result});
   });
 });
+
 
 module.exports = typeformRoutes;

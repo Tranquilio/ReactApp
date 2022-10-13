@@ -45,4 +45,14 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/api/employees/update
 
+###
+GET http://localhost:5000/api/typeform/getres
 
+###
+GET http://localhost:5000/api/employees/scores/Oracle
+
+###
+GET http://localhost:5000/api/typeform/summary
+
+###
+GET http://localhost:5000/api/employees/profiles/Oracle

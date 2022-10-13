@@ -85,6 +85,15 @@ apiRoutes.route("/api/scores").get(function (req, res) {
     });
 });
 
+apiRoutes.route("/api/scores/:id").get(function (req, res) {
+    let db_connect = dbo.getDb();
+    cursor = db_connect.collection("typeform-response").find({companyName: req.params.id});
+    cursor.toArray(function (err, result) {
+        if (err) throw err;
+        res.json(calcInfo(result));
+    });
+});
+
 // apiRoutes.route("/api/topscores").get(function (req, res) {
 //     let db_connect = dbo.getDb();
 //     cursor = db_connect.collection("answers").find({});
