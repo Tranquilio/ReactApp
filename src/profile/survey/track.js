@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/Sidebar'
 import {Link} from "react-router-dom"
 import { Fade } from 'react-reveal'
+import Iframe from 'react-iframe'
 
 function TrackPage() {
 
@@ -37,7 +38,13 @@ function TrackPage() {
                 <Link to="/profile/survey/share">Share</Link>
             </li>
             </ul> 
-            
+            <Iframe url="https://3oms1jii0jw.typeform.com/report/PqwjqxXz/SJTGCbxQW5jS14RB"
+                            width="840vw"
+                            height="620bh"
+                            id=""
+                            className=""
+                            display="block"
+                            position="relative"/>   
             <Fade cascade>
                 <div className='grid grid-rows-4 gap-6'>
                     {/* No. of surveys Completed */}
@@ -76,7 +83,7 @@ function TrackPage() {
                             <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"></div>
                         </div>
                     </div>
-                    {/* Survey Flow */}
+                 {/* Survey Flow */}
                     <div className=''></div>
                     {/* <button onClick={getSurveySummary} className='mt-10 shadow-xl py-5 px-5 rounded-lg text-white bg-pink-300 hover:bg-pink-400'>
                             <a className='tracking-tight md:text-white text-rose-400 px-2'>Get Summary</a>
