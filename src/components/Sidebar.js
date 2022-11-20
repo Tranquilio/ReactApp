@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import logo from '../images/logotext.png'
+import logo from '../assets/logotext.png'
 import React, { useRef } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { RiLogoutBoxLine } from 'react-icons/ri'

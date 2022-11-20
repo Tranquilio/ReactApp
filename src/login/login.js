@@ -1,4 +1,4 @@
-import logo from '../images/logotext.png'
+import logo from '../assets/logotext.png'
 import classes from "../profile/employeeData/nav.module.css"
 import { Link } from "react-router-dom"
 import { useState, useEffect, useContext } from 'react'
@@ -7,7 +7,7 @@ import { set } from 'mongoose'
 import { useNavigate, useLocation } from "react-router-dom"
 import { FaRegEnvelope } from "react-icons/fa"
 import { MdLockOutline } from "react-icons/md"
-import loginVid from '../loginVid.mp4'
+// import loginVid from '../loginVid.mp4'
 import { AuthContext } from '../context/AuthContext'
 
 function LoginForm() {
@@ -166,7 +166,7 @@ function LoginForm() {
                     {/* Picture Section (Left Side)  */}
                     <div className="w-5/6">
                         <div className='relative'>
-                            <video className='w-full h-screen object-cover' src={loginVid} autoPlay loop muted boomerang />
+                            {/* <video className='w-full h-screen object-cover' src={loginVid} autoPlay loop muted boomerang /> */}
                             <div className='absolute flex flex-col h-screen text-white w-full h-full top-0 left-0'>
                                 <div className='m-auto'>
                                     <div className='text-7xl font-bold '>Make Work, <br /> Stress Free</div>

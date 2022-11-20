@@ -95,7 +95,7 @@ const Overview = () => {
               Nov
             </div>
             <div className="absolute top-[0px] left-[200px] inline-block w-[23.21px]">
-              Dec
+              Dec 
             </div>
           </div>
           <div className="absolute top-[0px] left-[0px] inline-block w-[30.02px] h-[27px]">
