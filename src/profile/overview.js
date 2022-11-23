@@ -1,8 +1,29 @@
 import { Stack, MenuButton, Menu, Button } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import MonthDropdown from "../components/monthDropdown";
+import { useEffect, useState } from "react";
 
 const Overview = () => {
+
+  
+  const [wellbeing, setWellbeing] = useState("");
+
+  useEffect(() => {
+
+    async function getWellbeing() {
+      const result = await fetch('http://localhost:5000/api/employees/scores/eg5tbesgbnjdav2yud723yy', {
+        method: 'GET',
+      });
+      result.json().then((response) => {
+        console.log(response)
+        setWellbeing(response["average"])
+      })
+    }
+  
+    getWellbeing();
+  
+    },[]);
+
   return (
     <div className="relative bg-white w-full h-[981px] text-left text-2xl text-black font-raleway">
       <div className="absolute top-[0px] left-[0px] w-[226px] h-[981px] text-xl">
@@ -531,7 +552,7 @@ const Overview = () => {
           10
         </div>
         <div className="absolute top-[72px] left-[224px] text-[20px] font-semibold inline-block">
-          89%
+          {wellbeing}
         </div>
         <img
           className="absolute h-[2.03%] w-[1.56%] top-[68.51%] right-[25.94%] bottom-[29.46%] left-[72.5%] max-w-full overflow-hidden max-h-full"

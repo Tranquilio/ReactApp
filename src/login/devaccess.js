@@ -30,7 +30,7 @@ function DevAccess() {
             auth.login("DEVACCESS", token)
         }
         async function generateToken() {
-            const result = await fetch('http://localhost:4000/generate-redirect-token', {
+            const result = await fetch('https://55o91qpfqi.execute-api.ap-southeast-1.amazonaws.com/dev/generate-redirect-token', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ function DevAccess() {
 
     const verifyDeveloperName = (name) => {
         async function verifyDevName(name) {
-            const result = await fetch('http://localhost:4000/verify-dev-name', {
+            const result = await fetch("https://55o91qpfqi.execute-api.ap-southeast-1.amazonaws.com/dev/verify-dev-name", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
