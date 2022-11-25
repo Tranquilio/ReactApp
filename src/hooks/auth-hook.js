@@ -7,6 +7,7 @@ export const useAuth = () => {
   const [tokenExpirationDate, setTokenExpirationDate] = useState()
   const [email, setEmail] = useState(null)
   const [domain, setDomain] = useState(null)
+
   const login = useCallback((email, token, expirationDate) => {
     setToken(token)
     setEmail(email)
@@ -14,8 +15,8 @@ export const useAuth = () => {
     temp = temp.slice(0, temp.indexOf('.'))
     if (email == 'DEVACCESS') {
       setDomain('Oracle')
-    } else {
-      setDomain(temp)
+    } else { 
+       setDomain(temp)
     }
     const tokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
     setTokenExpirationDate(tokenExpirationDate);

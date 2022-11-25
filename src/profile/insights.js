@@ -1,4 +1,4 @@
-import Sidebar from '..//components/Sidebar'
+import Sidebar from '..//components/Sidebar2'
 import React from 'react'
 import WellbeingCard from '../components/dashboard/WellbeingCard'
 import TeamCard from '../components/dashboard/TeamCard'

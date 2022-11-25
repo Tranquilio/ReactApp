@@ -2,6 +2,7 @@ import { Stack, MenuButton, Menu, Button } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import MonthDropdown from "../components/monthDropdown";
 import { useEffect, useState } from "react";
+import Sidebar from '../components/Sidebar2'
 
 const Overview = () => {
 
@@ -25,8 +26,11 @@ const Overview = () => {
     },[]);
 
   return (
-    <div className="relative bg-white w-full h-[981px] text-left text-2xl text-black font-raleway">
-      <div className="absolute top-[0px] left-[0px] w-[226px] h-[981px] text-xl">
+    <div>
+      <Sidebar />
+      Hi!
+    {/* <div className="relative bg-white w-full h-[981px] text-left text-2xl text-black font-raleway"> */}
+      {/* <div className="absolute top-[0px] left-[0px] w-[226px] h-[981px] text-xl">
         <div className="absolute top-[0px] left-[0px] bg-gray-100 w-[226px] h-[981px]" />
         <div className="absolute top-[79.57px] left-[87px] text-[22px] inline-block w-[100px] h-[28.34px]">
           tranquilio
@@ -71,8 +75,8 @@ const Overview = () => {
         <div className="absolute top-[70.85px] left-[47px] text-[36px] text-white inline-block w-[15.16px] h-[22.89px]">
           T
         </div>
-      </div>
-      <div className="absolute top-[21px] left-[284px] w-[1088px] h-[45.57px]">
+      // </div> */}
+      {/* <div className="absolute top-[21px] left-[284px] w-[1088px] h-[45.57px]">
         <div className="absolute top-[11.51px] left-[907.07px] font-medium inline-block w-[180.93px] h-[31.62px]">
           Aayush Mathur
         </div>
@@ -80,11 +84,11 @@ const Overview = () => {
           className="absolute top-[0px] left-[1027.34px] w-[44.93px] h-[45px] overflow-hidden"
           alt=""
           src="../arrow-drop-down.svg"
-        />
+        /> */}
         {/* <div className="absolute top-[10px] left-[890.34px] w-[24.93px] h-[45px] overflow-hidden">
           <MonthDropdown/>
         </div> */}
-
+{/* 
         <div className="absolute top-[13.95px] left-[0px] font-medium inline-block w-[119px] h-[31.62px]">
           Tranquilio Team
         </div>
@@ -537,7 +541,7 @@ const Overview = () => {
           </p>
         </div>
         {/* Button */}
-        <div className="absolute top-[11px] left-[248px] w-[61px] h-[13px] text-xs">
+        {/* <div className="absolute top-[11px] left-[248px] w-[61px] h-[13px] text-xs">
           <div className="absolute top-[0px] left-[0px] rounded-[3px] bg-gray-700 w-[61px] h-[13px]" />
           <div className="absolute top-[2px] left-[5.55px] inline-block w-[46.58px]">
             This month
@@ -625,6 +629,7 @@ const Overview = () => {
         alt=""
         src="../vector.svg"
       />
+    </div> */}
     </div>
   );
 };
