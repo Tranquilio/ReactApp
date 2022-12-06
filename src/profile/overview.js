@@ -1,18 +1,20 @@
 import { Stack, MenuButton, Menu, Button } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import MonthDropdown from "../components/monthDropdown";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Sidebar from '../components/Sidebar2'
+import { AuthContext } from '../context/AuthContext'
 
 const Overview = () => {
 
   
   const [wellbeing, setWellbeing] = useState("");
+  const auth = useContext(AuthContext)
 
   useEffect(() => {
 
     async function getWellbeing() {
-      const result = await fetch('http://localhost:5000/api/employees/scores/eg5tbesgbnjdav2yud723yy', {
+      const result = await fetch(`http://localhost:5000/api/employees/scores/${auth.cid}`, {
         method: 'GET',
       });
       result.json().then((response) => {

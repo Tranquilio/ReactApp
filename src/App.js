@@ -48,6 +48,7 @@ function App() {
         <Route path="/assessment" element={<Assessment />} />
         <Route path="/survey" element={<Survey />} />
         <Route path="/login" element={<Navigate to="/profile/overview" replace />} />
+        <Route path="/signup" element={<Navigate to="/profile/overview" replace />} />
         <Route path="/devaccess" element={<Navigate to="/profile/overview" replace />} />
         <Route path="*" element={<ErrorPage />} />
       </React.Fragment>
