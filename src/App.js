@@ -14,6 +14,7 @@ import SettingsPage from "./profile/settings"
 import EmployeeDataPage from "./profile/employeeData"
 import ErrorPage from "./extras/ErrorPage"
 import LoginForm from "./login/login"
+import SignUpForm from "./login/signup"
 import './App.css'
 import { AuthContext } from './context/AuthContext'
 import { FormContext } from "./context/FormContext"
@@ -56,6 +57,7 @@ function App() {
       <React.Fragment>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignUpForm />} />
         <Route path="/devaccess" element={<DevAccess />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </React.Fragment>
