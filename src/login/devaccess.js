@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { Grid } from "@mui/material";
 import * as React from "react";
-import logo from '../images/logotext1.png'
+import logo from '../assets/logotext1.png'
 import classes from "../profile/employeeData/nav.module.css"
 import { Link } from "react-router-dom"
 import { useState, useEffect, useContext } from 'react'
@@ -9,7 +9,7 @@ import { set } from 'mongoose'
 import { useNavigate, useLocation } from "react-router-dom"
 import { FaRegEnvelope } from "react-icons/fa"
 import { MdLockOutline } from "react-icons/md"
-import loginVid from '../loginVid.mp4'
+// import loginVid from '../loginVid.mp4'
 import { AuthContext } from '../context/AuthContext'
 
 
@@ -30,7 +30,7 @@ function DevAccess() {
             auth.login("DEVACCESS", token)
         }
         async function generateToken() {
-            const result = await fetch('http://localhost:4000/generate-redirect-token', {
+            const result = await fetch('https://55o91qpfqi.execute-api.ap-southeast-1.amazonaws.com/dev/generate-redirect-token', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ function DevAccess() {
 
     const verifyDeveloperName = (name) => {
         async function verifyDevName(name) {
-            const result = await fetch('http://localhost:4000/verify-dev-name', {
+            const result = await fetch("https://55o91qpfqi.execute-api.ap-southeast-1.amazonaws.com/dev/verify-dev-name", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

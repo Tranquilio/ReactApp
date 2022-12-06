@@ -1,4 +1,4 @@
-import Sidebar from '..//components/Sidebar'
+import Sidebar from '..//components/Sidebar2'
 import { Fade } from 'react-reveal'
 import { Paper } from '@material-ui/core'
 
@@ -23,13 +23,13 @@ function RecommendationPage() {
             {/* Content area */}
             <div className="relative flex flex-col flex-1">
                 <div className='m-auto'>
-                    <Paper elevation={3} className='p-10'>
+                    <Fade bottom>
                         <div className='text-3xl font-bold'>Stay tuned, Feature releasing soon! 🔥</div>
 
                         {/* Description */}
                         <li className='mt-10 mb-2'>Schedule monthly calls with an expert to guide your strategies to improve overall wellbeing</li>
                         <li>Keep track of the effectiveness of initiatives and tasks your employees are taking</li>
-                    </Paper>   
+                    </Fade>   
                 </div> 
             </div>
 

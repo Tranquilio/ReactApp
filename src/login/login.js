@@ -1,4 +1,4 @@
-import logo from '../images/logotext.png'
+import logo from '../assets/logotext.png'
 import classes from "../profile/employeeData/nav.module.css"
 import { Link } from "react-router-dom"
 import { useState, useEffect, useContext } from 'react'
@@ -7,7 +7,7 @@ import { set } from 'mongoose'
 import { useNavigate, useLocation } from "react-router-dom"
 import { FaRegEnvelope } from "react-icons/fa"
 import { MdLockOutline } from "react-icons/md"
-import loginVid from '../loginVid.mp4'
+// import loginVid from '../loginVid.mp4'
 import { AuthContext } from '../context/AuthContext'
 
 function LoginForm() {
@@ -108,69 +108,16 @@ function LoginForm() {
     }
 
     return (
-        // <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
-        //     <div className='hidden sm:block'>
-        //     <img className='w-fit h-fit object-contain mt-40' src={logo} alt=""/>
-        //     </div>
-        //     <div className='bg-slate-800 flex flex-col justify-center'>
-        //         <form className='max-w-[400px] w-full mx-auto bg-slate-600 p-8 px-8 rounded-lg'>
-        //             <div className='text-4l text-center font-bold mt-16 text-gray-400 '>
-        //                 Sign in to your account!
-        //             </div>
-
-        //             <div></div>
-        //             { !displayOTPInput ? 
-        //             <div>
-        //                 <div className='flex flex-col text-gray-300 py-2'>
-        //                     <span className="text-sm font-medium 2xl:opacity-100 duration-200">Email</span>
-        //                     <div text-black>
-        //                         <input onChange={updateEmail} className="mt-3 " type="text" placeholder=' Enter your email!' />
-        //                     </div>
-        //                 </div>
-        //                 <div className='gap-10 mt-6 flex justify-center items-center'>
-        //                     <Button onClick={validateEmail}>
-        //                         <div className={classes.nextarrow}>Get OTP</div>
-        //                     </Button>
-        //                 </div>
-        //            </div> 
-        //            : 
-        //            <div className='flex flex-col text-gray-300 py-2'>
-        //             <span className="text-sm font-medium 2xl:opacity-100 duration-200">OTP</span>
-        //                 <div text-black>
-        //                     <input onChange={updateOTPInput} className="mt-3 " type="text" placeholder=' Enter your OTP!' />
-        //                 </div>
-        //                 <Button onClick={validateOTPInput}>
-        //                     <div className={classes.nextarrow}>Sign in</div>
-        //                 </Button>
-        //             </div>
-        //             }
-        //             { isEmailValid ? 
-        //             null : 
-        //             <div className='flex flex-col text-red-300 py-2'>
-        //             <span className="text-sm font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
-        //            </div>
-        //            }
-        //            { isOTPValid ? 
-        //             null : 
-        //             <div className='flex flex-col text-red-300 py-2'>
-        //             <span className="text-sm font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
-        //            </div>
-        //            }
-        //         </form>
-        //     </div>
-        // </div>
-
         <div className="items-center justify-center h-screen">
             <main className="w-full text-center">
                 <div className="bg-white shadow-2xl flex h-screen">
                     {/* Picture Section (Left Side)  */}
                     <div className="w-5/6">
                         <div className='relative'>
-                            <video className='w-full h-screen object-cover' src={loginVid} autoPlay loop muted boomerang />
+                            {/* <video className='w-full h-screen object-cover' src={loginVid} autoPlay loop muted boomerang /> */}
                             <div className='absolute flex flex-col h-screen text-white w-full h-full top-0 left-0'>
                                 <div className='m-auto'>
                                     <div className='text-7xl font-bold '>Make Work, <br /> Stress Free</div>
-                                    {/* <div className='text-xl mt-5 opacity-80'>Start by finding out your potential work stressors</div> */}
                                 </div>
                             </div>
                         </div>

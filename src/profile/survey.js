@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../components/Sidebar2'
 import { Link } from "react-router-dom"
 import { Fade } from 'react-reveal'
 import { Widget } from '@typeform/embed-react'

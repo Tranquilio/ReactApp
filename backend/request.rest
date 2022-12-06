@@ -52,7 +52,22 @@ GET http://localhost:5000/api/typeform/getres
 GET http://localhost:5000/api/employees/scores/Oracle
 
 ###
-GET http://localhost:5000/api/typeform/summary
+GET http://localhost:5000/api/employees/profiles/Oracle
 
 ###
-GET http://localhost:5000/api/employees/profiles/Oracle
+GET http://localhost:5000/api/employees/write
+
+###
+GET http://localhost:5000/api/typeform/checkExisting/Some%20Company
+
+###
+GET http://localhost:5000/api/typeform/checkExisting/Google
+
+###
+POST http://localhost:5000/api/typeform/save
+Content-Type: application/json
+
+{
+    "companyName" :  "Some Company",
+    "link" : "Some link"
+}

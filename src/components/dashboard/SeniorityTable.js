@@ -101,7 +101,7 @@ function SeniorityTable () {
                                     <td class={`text-sm text-gray-900 ${colorPicker('-')} font-light px-6 py-4 whitespace-nowrap`}>
                                         -
                                     </td>
-                                    <td class={`text-sm text-gray-900 ${colorPicker(halfToOne)} font-light px-6 py-4 whitespace-nowrap`}>
+                                    <td class={`text-sm text-gray-900 ${colorPicker(halfToOne)} font-light px-6 py-4 whitespace-nowrap`}>tailw
                                         {halfToOne}
                                     </td>
                                     <td class={`text-sm text-gray-900 ${colorPicker()} font-light px-6 py-4 whitespace-nowrap`}>

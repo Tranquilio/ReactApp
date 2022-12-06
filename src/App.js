@@ -35,6 +35,7 @@ function App() {
         <Route path="/profile/recommendation" element={<RecommendationPage />} />
         <Route path="/profile/survey" element={<SurveyPage />} />
         <Route path="/profile/employeeData" element={<EmployeeDataPage />} />
+        <Route path="/profile/settings" element={<SettingsPage />} />
 
         <Route path="/profile/survey/track" element={<TrackPage />} />
         <Route path="/profile/survey/share" element={<SharePage />} />

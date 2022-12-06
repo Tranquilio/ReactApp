@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../components/Sidebar2'
 import SurveyInfo from '../components/SurveyTable'
 import classes from "./employeeData/nav.module.css"
 import { Link } from "react-router-dom"
