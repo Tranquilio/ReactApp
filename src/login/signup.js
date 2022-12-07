@@ -287,7 +287,7 @@ function SignUpForm() {
                                     {signUpState == 3 ?
                                         <div>
                                             <div className='mt-5 p-3'>
-                                                 <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200">Enter your company name!</span>
+                                                 <span className="text-[18px] text-[#82A284] font-medium 2xl:opacity-100 duration-200">Enter your company name</span>
                                             </div>
                                             <div> </div>
                                             <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
@@ -305,7 +305,7 @@ function SignUpForm() {
                                     {signUpState == 4 ?
                                         <div>
                                             <div className='mt-5 p-3'>
-                                                 <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">Select the industries that your company is involved in</span>
+                                                 <span className="text-[18px] text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">Select the industries that your company is involved in</span>
                                             </div>
                                             <div> </div>
                                             <Selector />

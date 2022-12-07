@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import industries from "./industries";
 
 const Selector = () => {
-  const [industries, setIndustries] = useState(['Abortion Policy/Anti-Abortion',
+  const [industries, setIndustries] = useState([
   'Information Technology',
   'Engineering',
   'Architecture',
@@ -14,7 +14,8 @@ const Selector = () => {
   'Education',
   'Government',
   'Health and Medicine',
-  'Law and Public Policy']);
+  'Law and Public Policy'
+  ]);
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState("");
   const [open, setOpen] = useState(false);
@@ -23,7 +24,7 @@ const Selector = () => {
     <div className="w-72 font-medium h-80">
       <div
         onClick={() => setOpen(!open)}
-        className={`bg-green w-full p-2 flex items-center justify-between rounded ${
+        className={`bg-green w-full p-2 flex items-center justify-between rounded font-raleway ${
           !selected && "text-green-700"
         }`}
       >
@@ -40,22 +41,22 @@ const Selector = () => {
         } `}
       >
         <div className="flex items-center px-2 sticky top-0 bg-white">
-          <AiOutlineSearch size={18} className="text-gray-700" />
+          <AiOutlineSearch size={18} className="text-black" />
           <input
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value.toLowerCase())}
             placeholder="Enter industry name"
-            className="placeholder:text-gray-700 p-2 outline-none"
+            className="placeholder:text-black p-2 outline-none font-raleway"
           />
         </div>
         {industries?.map((industry) => (
           <li
             key={industry}
-            className={`p-2 text-sm hover:bg-sky-600 hover:text-white
+            className={`p-2 text-s hover:bg-sky-600 hover:text-turquoise
             ${
               industry.toLowerCase() === selected?.toLowerCase() &&
-              "bg-sky-600 text-white"
+              "bg-sky-600 text-gray"
             }
             ${
               industry.toLowerCase().startsWith(inputValue)
