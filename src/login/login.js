@@ -53,6 +53,27 @@ function LoginForm() {
     }
 
     const validateEmail = () => {
+
+        async function obtainCompanyDetails() {
+            const result = await fetch('http://localhost:5000/obtain-company-details', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                })
+            });
+            const companyDetails = await result.json();
+            if (companyDetails == null) {
+                setIsEmailValid(false)
+            } else {
+                sendOTPEmail()
+                setDisplayOTPInput(true)
+                setfirstScreen(false)
+            }
+        }
+
         async function verifyEmail() {
             const result = await fetch('http://localhost:5000/verify-email-address', {
                 method: 'POST',
@@ -65,9 +86,7 @@ function LoginForm() {
             });
             const overall = await result.json();
             if (overall.message == "Email is valid") {
-                sendOTPEmail()
-                setDisplayOTPInput(true)
-                setfirstScreen(false)
+                obtainCompanyDetails()
             } else {
                 setIsEmailValid(false)
             }

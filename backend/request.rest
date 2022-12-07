@@ -9,23 +9,29 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:4000/verify-dev-name
+POST http://localhost:5000/verify-email-address
 Content-Type: application/json
 
 {
-    "name": "VISHAL3415"
+    "email": "TRANQ2023"
 }
 
 ###
-POST http://localhost:5000/login-init
+POST http://localhost:5000/save-profile-info
 Content-Type: application/json
+
 {
-    "email": "vishalsonic2000@gmail.com",
-    "otp": "564534"
+      "data" : {
+            "name": "Brosri Tech Corporation Industrial Park Tecg",
+            "cid": "1234412",
+            "members": [121313],
+            "admins": [121313],
+            "link": null
+       }
 }
 
 ###
-POST http://localhost:4000/verify-redirect-token
+POST http://localhost:5000/verify-redirect-token
 Content-Type: application/json
 
 {

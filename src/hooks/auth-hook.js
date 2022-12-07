@@ -6,17 +6,31 @@ export const useAuth = () => {
   const [token, setToken] = useState(null)
   const [tokenExpirationDate, setTokenExpirationDate] = useState()
   const [email, setEmail] = useState(null)
-  const [domain, setDomain] = useState(null)
+  const [cid, setcid] = useState(null)
 
   const login = useCallback((email, token, expirationDate) => {
     setToken(token)
     setEmail(email)
-    let temp = email.slice(email.indexOf('@') + 1)
-    temp = temp.slice(0, temp.indexOf('.'))
     if (email == 'DEVACCESS') {
-      setDomain('Oracle')
+      setcid('eg5tbesgbnjdav2yud723yy')
     } else { 
-       setDomain(temp)
+      async function obtainCompanyDetails() {
+        const result = await fetch('http://localhost:5000/obtain-company-details', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+            })
+        });
+        const companyDetails = await result.json();
+        console.log(companyDetails.companyinfo[0].name)
+        console.log(companyDetails.cid)
+        //navigateToPage(token)
+        setcid(companyDetails.cid)
+      }
+      obtainCompanyDetails()
     }
     const tokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
     setTokenExpirationDate(tokenExpirationDate);
@@ -30,7 +44,7 @@ export const useAuth = () => {
   const logout = useCallback(() => {
     setToken(null)
     setEmail(null)
-    setDomain(null)
+    setcid(null)
     setTokenExpirationDate(null)
     localStorage.removeItem('userData')
   }, []);
@@ -55,5 +69,5 @@ export const useAuth = () => {
     }
   }, [login]);
 
-  return { token, login, logout, email, domain };
+  return { token, login, logout, email, cid };
 };
