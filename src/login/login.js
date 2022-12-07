@@ -8,6 +8,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { FaRegEnvelope } from "react-icons/fa"
 import { MdLockOutline } from "react-icons/md"
 // import loginVid from '../loginVid.mp4'
+import backgroundImg from '../assets/green-marble-texture-background_38607-681.webp'
 import { AuthContext } from '../context/AuthContext'
 
 function LoginForm() {
@@ -116,10 +117,10 @@ function LoginForm() {
                     {/* Picture Section (Left Side)  */}
                     <div className="w-5/6">
                         <div className='relative'>
-                            {/* <video className='w-full h-screen object-cover' src={loginVid} autoPlay loop muted boomerang /> */}
+                            <img className='w-full h-screen object-cover' src={backgroundImg} />
                             <div className='absolute flex flex-col h-screen text-white w-full h-full top-0 left-0'>
                                 <div className='m-auto'>
-                                    <div className='text-7xl font-bold '>Make Work, <br /> Stress Free</div>
+                                    <div className='text-big font-bold '>Wellbeing Analytics <br /> For your workplace</div>
                                 </div>
                             </div>
                         </div>
@@ -133,13 +134,12 @@ function LoginForm() {
                                     {!displayOTPInput ?
                                         <div>
                                             <div> </div>
-                                            <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
-                                                <div></div>
+                                            <div className='bg-turquoise border-2 border-gray-20 p-4 flex items-center rounded-xl'>
                                                 <FaRegEnvelope className="text-gray-400 m-2" />
-                                                <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 text-xl flex-1" type="text" placeholder='Email' />
+                                                <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-xl flex-1" type="text" placeholder='Email' />
                                             </div>
-                                            <div className='mt-10 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-xl hover:bg-[#008631]" onClick={validateEmail}>Get OTP</div>
+                                            <div className='mt-1 px-4'>
+                                                <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#7D9D7F]" onClick={validateEmail}>Get OTP</div>
                                             </div>
                                         </div>
                                         :
@@ -147,10 +147,10 @@ function LoginForm() {
                                             <div> </div>
                                             <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
                                                 <FaRegEnvelope className="text-gray-400 m-2" />
-                                                <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 text-xl flex-1" type="text" placeholder='Enter OTP' />
+                                                <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 font-raleway text-xl flex-1" type="text" placeholder='Enter OTP' />
                                             </div>
-                                            <div className='mt-10 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-xl hover:bg-[#80A080]" onClick={validateOTPInput}>Sign In</div>
+                                            <div className='mt-8 px-4'>
+                                                <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#80A080]" onClick={validateOTPInput}>Sign In</div>
                                             </div>
                                         </div>
                                     }
@@ -168,7 +168,7 @@ function LoginForm() {
                                     }       
                                     {firstScreen ?
                                     <div className='mt-2 px-4'>
-                                        <div className="cursor-pointer p-3 rounded-full bg-[#73A5C6] text-center text-white text-xl hover:bg-[#0000FF]" onClick={() => navigate("/signup")}>Sign Up</div>
+                                        <div className="cursor-pointer p-3 rounded-md bg-white text-center text-black text-xl font-raleway" onClick={() => navigate("/signup")}>Sign Up</div>
                                     </div>
                                     : 
                                     null
