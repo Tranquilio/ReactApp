@@ -8,6 +8,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 import { FaRegEnvelope } from "react-icons/fa"
 import { MdLockOutline } from "react-icons/md"
 // import loginVid from '../loginVid.mp4'
+import backgroundImg from '../assets/green-marble-texture-background_38607-681.webp'
 import { AuthContext } from '../context/AuthContext'
 import Selector from '../components/Selector'
 
@@ -234,10 +235,10 @@ function SignUpForm() {
                     {/* Picture Section (Left Side)  */}
                     <div className="w-5/6">
                         <div className='relative'>
-                            {/* <video className='w-full h-screen object-cover' src={loginVid} autoPlay loop muted boomerang /> */}
+                            <img className='w-full h-screen object-cover' src={backgroundImg} />
                             <div className='absolute flex flex-col h-screen text-white w-full h-full top-0 left-0'>
                                 <div className='m-auto'>
-                                    <div className='text-7xl font-bold '>Make Work, <br /> Stress Free</div>
+                                    <div className='text-big font-bold '>Wellbeing Analytics <br /> For your workplace</div>
                                 </div>
                             </div>
                         </div>
@@ -250,17 +251,16 @@ function SignUpForm() {
                                 <div>
                                     {signUpState == 1 ?
                                         <div>
-                                            <div className='mt-5 p-3'>
+                                            {/* <div className='mt-5 p-3'>
                                                  <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200">Enter your company email address!</span>
-                                            </div>
+                                            </div> */}
                                             <div> </div>
-                                            <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
-                                                <div></div>
-                                                <FaRegEnvelope className="text-gray-400 m-2" />
-                                                <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 text-xl flex-1" type="text" placeholder='Email' />
+                                            <div className='bg-turquoise border-2 border-gray-20 p-4 flex items-center rounded-xl'>
+                                                {/* <FaRegEnvelope className="text-gray-400 m-2" /> */}
+                                                <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-2xl flex-1" type="text" placeholder='Email' />
                                             </div>
-                                            <div className='mt-2 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-xl hover:bg-[#008631]" onClick={validateEmail}>Next</div>
+                                            <div className='mt-1 px-4'>
+                                                <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#749477]" onClick={validateEmail}>Next</div>
                                             </div>
                                         </div>
                                         : 
@@ -269,16 +269,16 @@ function SignUpForm() {
                                     {signUpState == 2 ?
                                         <div>
                                             <div className='mt-5 p-3'>
-                                                 <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200">Enter the OTP sent to your email!</span>
+                                                 <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">Enter the OTP sent to your email</span>
                                             </div>
                                             <div> </div>
                                             <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
                                                 <div></div>
-                                                <FaRegEnvelope className="text-gray-400 m-2" />
-                                                <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 text-xl flex-1" type="text" placeholder='OTP' />
+                                                {/* <FaRegEnvelope className="text-gray-400 m-2" /> */}
+                                                <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-2xl flex-1" type="text" placeholder='Enter OTP' />
                                             </div>
                                             <div className='mt-2 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-xl hover:bg-[#008631]" onClick={validateOTPInput}>Next</div>
+                                                <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#749477]" onClick={validateOTPInput}>Next</div>
                                             </div>
                                         </div>
                                         : 
@@ -292,11 +292,11 @@ function SignUpForm() {
                                             <div> </div>
                                             <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
                                                 <div></div>
-                                                <FaRegEnvelope className="text-gray-400 m-2" />
-                                                <input onChange={updateCompanyName} className="bg-white outline-none border-none text-gray-400 text-xl flex-1" type="text" placeholder='Company Name' />
+                                                {/* <FaRegEnvelope className="text-gray-400 m-2" /> */}
+                                                <input onChange={updateCompanyName} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-2xl flex-1" type="text" placeholder='Company Name' />
                                             </div>
                                             <div className='mt-2 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-xl hover:bg-[#008631]" onClick={validateCompanyName}>Next</div>
+                                                <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#749477]" onClick={validateCompanyName}>Next</div>
                                             </div>
                                         </div>
                                         : 
@@ -305,12 +305,12 @@ function SignUpForm() {
                                     {signUpState == 4 ?
                                         <div>
                                             <div className='mt-5 p-3'>
-                                                 <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200">Select the industries that your company is involved in</span>
+                                                 <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">Select the industries that your company is involved in</span>
                                             </div>
                                             <div> </div>
                                             <Selector />
                                             <div className='mt-2 px-12'>
-                                                <div className="cursor-pointer p-3 rounded-full bg-[#82A284] text-center text-white text-xl hover:bg-[#008631]" onClick={saveCompanyInformation}>Submit and Proceed to Log In!</div>
+                                                <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#749477]" onClick={saveCompanyInformation}>Submit and Login</div>
                                             </div>
                                         </div>
                                         : 
@@ -319,28 +319,28 @@ function SignUpForm() {
                                     {isEmailValid ?
                                         null :
                                         <div className='mt-5'>
-                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
+                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">email is invalid, try again</span>
                                         </div>
                                     }
                                     {isOTPValid ?
                                         null :
                                         <div className='mt-5'>
-                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
+                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">try is invalid, try again</span>
                                         </div>
                                     }
                                     {IsCompanyNameValid ?
                                         null :
                                         <div className='mt-5'>
-                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200">Please enter a name for your company!</span>
+                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">Please enter your company name</span>
                                         </div>
                                     }
                                     {signUpState == 1 ?
                                     <div className='mt-2 px-4'>
-                                        <div className="cursor-pointer p-3 rounded-full bg-[#fa8072] text-center text-white text-xl hover:bg-[#FF0000]" onClick={() => navigate('/login')}>Back to Login</div>
+                                        <div className="cursor-pointer p-3 rounded-md bg-white text-center text-[#a9a9a9] hover:text-black text-xl font-raleway" onClick={() => navigate('/login')}>Back to Login</div>
                                     </div>
                                     : 
                                     <div className='mt-2 px-4'>
-                                        <div className="cursor-pointer p-3 rounded-full bg-[#fa8072] text-center text-white text-xl hover:bg-[#FF0000]" onClick={goBack}>Back</div>
+                                        <div className="cursor-pointer p-3 rounded-md bg-white text-center text-[#a9a9a9] hover:text-black text-xl font-raleway" onClick={goBack}>Back</div>
                                     </div>
                                     }
                                 </div>

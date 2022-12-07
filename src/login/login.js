@@ -154,19 +154,19 @@ function LoginForm() {
                                         <div>
                                             <div> </div>
                                             <div className='bg-turquoise border-2 border-gray-20 p-4 flex items-center rounded-xl'>
-                                                <FaRegEnvelope className="text-gray-400 m-2" />
-                                                <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-xl flex-1" type="text" placeholder='Email' />
+                                                {/* <FaRegEnvelope className="text-gray-400 m-2" /> */}
+                                                <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-2xl flex-1" type="text" placeholder='Email' />
                                             </div>
                                             <div className='mt-1 px-4'>
-                                                <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#7D9D7F]" onClick={validateEmail}>Get OTP</div>
+                                                <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#749477]" onClick={validateEmail}>Get OTP</div>
                                             </div>
                                         </div>
                                         :
                                         <div>
                                             <div> </div>
                                             <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
-                                                <FaRegEnvelope className="text-gray-400 m-2" />
-                                                <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 font-raleway text-xl flex-1" type="text" placeholder='Enter OTP' />
+                                                {/* <FaRegEnvelope className="text-gray-400 m-2" /> */}
+                                                <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-2xl flex-1" type="text" placeholder='Enter OTP' />
                                             </div>
                                             <div className='mt-8 px-4'>
                                                 <div className="cursor-pointer p-3 rounded-md bg-[#82A284] text-center text-white text-xl font-raleway hover:bg-[#80A080]" onClick={validateOTPInput}>Sign In</div>
@@ -176,18 +176,18 @@ function LoginForm() {
                                     {isEmailValid ?
                                         null :
                                         <div className='mt-5'>
-                                            <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200">Email is invalid!</span>
+                                            <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">email is invalid, try again</span>
                                         </div>
                                     }
                                     {isOTPValid ?
                                         null :
                                         <div className='mt-5'>
-                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200">OTP is invalid!</span>
+                                            <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">OTP is invalid, try again</span>
                                         </div>
                                     }       
                                     {firstScreen ?
                                     <div className='mt-2 px-4'>
-                                        <div className="cursor-pointer p-3 rounded-md bg-white text-center text-black text-xl font-raleway" onClick={() => navigate("/signup")}>Sign Up</div>
+                                        <div className="cursor-pointer p-3 rounded-md bg-white text-center text-[#a9a9a9] hover:text-black text-xl font-raleway" onClick={() => navigate("/signup")}>Sign Up</div>
                                     </div>
                                     : 
                                     null

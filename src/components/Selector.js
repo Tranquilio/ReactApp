@@ -5,11 +5,16 @@ import industries from "./industries";
 
 const Selector = () => {
   const [industries, setIndustries] = useState(['Abortion Policy/Anti-Abortion',
-  'Abortion Policy/Pro-Abortion Rights',
-  'Accountants',
-  'Advertising/Public Relations',
-  'Aerospace, Defense Contractors',
-  'Agribusiness']);
+  'Information Technology',
+  'Engineering',
+  'Architecture',
+  'Consulting',
+  'Communications',
+  'Community and Social Services',
+  'Education',
+  'Government',
+  'Health and Medicine',
+  'Law and Public Policy']);
   const [inputValue, setInputValue] = useState("");
   const [selected, setSelected] = useState("");
   const [open, setOpen] = useState(false);
