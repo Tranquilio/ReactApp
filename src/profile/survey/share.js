@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../../components/Sidebar'
+import Sidebar from '../../components/Sidebar2'
 import {Link} from "react-router-dom"
 import { Fade } from 'react-reveal'
 
@@ -22,7 +22,7 @@ const SharePage = () => {
             {/* </Paper>   */}
             {/* </div>   */}
         {/* </div> */}
-        <div className='relative mt-2 h-screen overflow-x-auto overflow-y-hidden p-auto'>
+        <div className='relative h-screen overflow-x-auto overflow-y-hidden p-auto'>
             <ul className='p-48 flex flex-row -mt-32 gap-96 items-center'>
             <li className={`cursor-pointer hover:text-pink-300 ${window.location.pathname === "/profile/survey" ? "text-pink-500 border-b-4 border-pink-500" : ""}`}>
                 <Link to="/profile/survey">Design</Link>

@@ -24,6 +24,8 @@ function Sidebar() {
     }
 
     return (
+      // <div className='flex h-screen overflow-hidden'>
+
       <div id="sidebar" ref={sidebar} className="relative bg-white w-1/6 h-screen flex flex-col p-[20px] box-border items-start justify-between text-left text-4xl text-blackish-700 font-raleway">
         <div className="self-stretch flex flex-col items-start justify-start gap-[20px]">
           <div className="self-stretch flex flex-row p-[8px] box-border items-center justify-start gap-[12px]">
@@ -87,6 +89,30 @@ function Sidebar() {
               </button>
               <div className="self-stretch relative bg-gray-700 h-[2px] shrink-0 hidden" />
             </NavLink>
+            
+            <NavLink style={{textDecoration: 'none'}} end to="/profile/assessment" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200 focus:bg-gray-1200">
+                <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200">
+                <img
+                  className="relative w-[20px] h-[20px] shrink-0 overflow-hidden"
+                  alt=""
+                  src="../public-sidebar/ucalender.svg"
+                />
+                <div className="flex-1 relative text-2xl leading-[20px] font-medium font-raleway text-blackish-700 text-left inline-block">
+                  Assessment
+                </div>
+                <img
+                  className="relative w-[20px] h-[20px] shrink-0 overflow-hidden hidden"
+                  alt=""
+                  src="../public-sidebar/upluscircle.svg"
+                />
+                <div className="rounded-[2000px] bg-red-100 hidden flex-col p-[2px_6px] box-border items-start justify-start">
+                  <div className="relative text-lg leading-[16px] font-raleway text-white text-center inline-block">
+                    2
+                  </div>
+                </div>
+              </button>
+              <div className="self-stretch relative bg-gray-700 h-[2px] shrink-0 hidden" />
+            </NavLink>
 
             <NavLink style={{textDecoration: 'none'}} end to="/profile/recommendation" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200 focus:bg-gray-1200">
               <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200">
@@ -102,30 +128,6 @@ function Sidebar() {
                   className="relative w-[20px] h-[20px] shrink-0 overflow-hidden hidden"
                   alt=""
                   src="../public-sidebar/uangledown.svg"
-                />
-                <div className="rounded-[2000px] bg-red-100 hidden flex-col p-[2px_6px] box-border items-start justify-start">
-                  <div className="relative text-lg leading-[16px] font-raleway text-white text-center inline-block">
-                    2
-                  </div>
-                </div>
-              </button>
-              <div className="self-stretch relative bg-gray-700 h-[2px] shrink-0 hidden" />
-            </NavLink>
-
-            <NavLink style={{textDecoration: 'none'}} end to="/profile/survey" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200 focus:bg-gray-1200">
-                <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200">
-                <img
-                  className="relative w-[20px] h-[20px] shrink-0 overflow-hidden"
-                  alt=""
-                  src="../public-sidebar/ucalender.svg"
-                />
-                <div className="flex-1 relative text-2xl leading-[20px] font-medium font-raleway text-blackish-700 text-left inline-block">
-                  Tracking
-                </div>
-                <img
-                  className="relative w-[20px] h-[20px] shrink-0 overflow-hidden hidden"
-                  alt=""
-                  src="../public-sidebar/upluscircle.svg"
                 />
                 <div className="rounded-[2000px] bg-red-100 hidden flex-col p-[2px_6px] box-border items-start justify-start">
                   <div className="relative text-lg leading-[16px] font-raleway text-white text-center inline-block">
@@ -263,6 +265,7 @@ function Sidebar() {
           </div>
         </div>
       </div>
+      // </div>
     );
   };
   

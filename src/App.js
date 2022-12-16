@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Survey from "./extras/survey"
-import SurveyPage from "./profile/survey"
+import AssessmentPage from "./profile/assessment"
 import TrackPage from "./profile/survey/track"
 import SharePage from "./profile/survey/share"
 import CreatePage from "./profile/employeeData/create"
@@ -34,7 +34,7 @@ function App() {
         <Route path="/profile/overview" element={<OverviewPage />} />
         <Route path="/profile/insights" element={<InsightsPage />} />
         <Route path="/profile/recommendation" element={<RecommendationPage />} />
-        <Route path="/profile/survey" element={<SurveyPage />} />
+        <Route path="/profile/assessment" element={<AssessmentPage />} />
         <Route path="/profile/employeeData" element={<EmployeeDataPage />} />
         <Route path="/profile/settings" element={<SettingsPage />} />
 
