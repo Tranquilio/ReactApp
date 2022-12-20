@@ -68,26 +68,21 @@ function DevAccess() {
 
     return (
         <div>
-            <Grid container justify="center" paddingTop={40} paddingLeft={112}>
-                <div className='mt-5'>
-                    <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200">Hello there developer!</span>
-                </div>
-                <div>
-
-                </div>
-                <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
-                    <input onChange={updateName} className="bg-white outline-none border-none text-gray-400 text-xl flex-1" type="text" placeholder='Enter developer password' />
-                    <Button onClick={() => verifyDeveloperName(devName)} color="primary" size="small" type="submit" variant="contained">
+            <div className='mt-5'>
+                <span className="text-sm text-[#82A284] font-medium 2xl:opacity-100 duration-200">Hello there developer!</span>
+            </div>
+            <div className='bg-white border-2 border-gray-200 w-64 p-2 flex items-center mt-5 rounded-xl'>
+                <input onChange={updateName} className="bg-white outline-none border-none text-gray-400 text-xl flex-1" type="text" placeholder='Enter developer password' />
+                    <button onClick={() => verifyDeveloperName(devName)} color="primary" size="small" type="submit" variant="contained">
                         Login
-                    </Button>
-                </div>
-                {isDevNameValid ?
+                    </button>
+            </div>
+                 {isDevNameValid ?
                     null :
                     <div className='mt-5'>
                         <span className="text-xl text-red-300 font-medium 2xl:opacity-100 duration-200">Password is invalid!</span>
                     </div>
                 }
-            </Grid>
         </div>
     )
 }

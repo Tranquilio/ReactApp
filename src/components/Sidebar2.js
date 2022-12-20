@@ -42,8 +42,8 @@ function Sidebar() {
             </div>
           </div>
           <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
-            <NavLink style={{textDecoration: 'none'}} end to="/profile/overview" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200" activeClassName="focus:bg-gray-1200">
-              <button className="[border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px]">
+            <NavLink style={{textDecoration: 'none'}} end to="/profile/overview" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px]">
+            <button className={`[border:none] p-[12px] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] hover:bg-gray-1200 ${pathname.includes('overview') ? "bg-gray-1200" : "bg-[transparent] hover:transparent"}`}>
                 <img
                   className="relative w-[20px] h-[20px] shrink-0 overflow-hidden"
                   alt=""
@@ -66,8 +66,8 @@ function Sidebar() {
               <div className="self-stretch relative bg-gray-700 h-[2px] shrink-0 hidden" />
             </NavLink>
 
-            <NavLink style={{textDecoration: 'none'}} end to="/profile/insights" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200 focus:bg-gray-1200">
-              <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200">
+            <NavLink style={{textDecoration: 'none'}} end to="/profile/insights" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px]">
+            <button className={`[border:none] p-[12px] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] hover:bg-gray-1200 ${pathname.includes('insights') ? "bg-gray-1200" : "bg-[transparent] hover:transparent"}`}>
                 <img
                   className="relative w-[20px] h-[20px] shrink-0 overflow-hidden"
                   alt=""
@@ -90,8 +90,8 @@ function Sidebar() {
               <div className="self-stretch relative bg-gray-700 h-[2px] shrink-0 hidden" />
             </NavLink>
             
-            <NavLink style={{textDecoration: 'none'}} end to="/profile/assessment" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200 focus:bg-gray-1200">
-                <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200">
+            <NavLink style={{textDecoration: 'none'}} end to="/profile/assessment" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px]">
+            <button className={`[border:none] p-[12px] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] hover:bg-gray-1200 ${pathname.includes('assessment') ? "bg-gray-1200" : "bg-[transparent] hover:transparent"}`}>
                 <img
                   className="relative w-[20px] h-[20px] shrink-0 overflow-hidden"
                   alt=""
@@ -114,8 +114,8 @@ function Sidebar() {
               <div className="self-stretch relative bg-gray-700 h-[2px] shrink-0 hidden" />
             </NavLink>
 
-            <NavLink style={{textDecoration: 'none'}} end to="/profile/recommendation" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200 focus:bg-gray-1200">
-              <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200">
+            <NavLink style={{textDecoration: 'none'}} end to="/profile/recommendation" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px]">
+            <button className={`[border:none] p-[12px] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] hover:bg-gray-1200 ${pathname.includes('recommendation') ? "bg-gray-1200" : "bg-[transparent] hover:transparent"}`}>
                 <img
                   className="relative w-[20px] h-[20px] shrink-0 overflow-hidden"
                   alt=""
@@ -138,8 +138,8 @@ function Sidebar() {
               <div className="self-stretch relative bg-gray-700 h-[2px] shrink-0 hidden" />
             </NavLink>
 
-            <NavLink style={{textDecoration: 'none'}} end to="/profile/employeeData" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200 focus:bg-gray-1200">
-                <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200">
+            <NavLink style={{textDecoration: 'none'}} end to="/profile/employeeData" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px]">
+            <button className={`[border:none] p-[12px] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] hover:bg-gray-1200 ${pathname.includes('employeeData') ? "bg-gray-1200" : "bg-[transparent] hover:transparent"}`}>
                 <img
                   className="relative w-[20px] h-[20px] shrink-0 overflow-hidden"
                   alt=""
@@ -165,7 +165,7 @@ function Sidebar() {
         <div className="self-stretch flex flex-col items-start justify-start gap-[12px] text-lg">
           <div className="self-stretch flex flex-col items-start justify-start gap-[12px]">
             <NavLink style={{textDecoration: 'none'}} end to="/profile/insights" className="cursor-pointer [border:none] p-[0] bg-[transparent] self-stretch rounded-[4px] flex flex-col items-center justify-center gap-[0px] hover:bg-gray-1200 focus:bg-gray-1200">
-                <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200">
+                <button className="cursor-pointer [border:none] p-[12px] bg-[transparent] self-stretch rounded-[4px] flex flex-row box-border items-center justify-center gap-[16px] focus:bg-gray-1200"> 
                 <img
                   className="relative w-[20px] h-[20px] shrink-0 overflow-hidden"
                   alt=""

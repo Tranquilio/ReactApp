@@ -8,17 +8,14 @@ import { FormContext } from '../context/FormContext'
 import emailjs from '@emailjs/browser'
 import { Tab } from '@headlessui/react'
 
-import PrepareCard from '../components/assessment/PrepareCard'
-import AnnounceCard from '../components/assessment/AnnounceCard'
-import CreateCard from '../components/assessment/CreateCard'
-import TestCard from '../components/assessment/TestCard'
-import LaunchCard from '../components/assessment/LaunchCard'
-import RemindCard from '../components/assessment/RemindCard'
+import AnnouncementsCard from '../components/assessment/AnnouncementsCard'
+import AssessmentsCard from '../components/assessment/AssessmentsCard'
 import MonitorCard from '../components/assessment/MonitorCard'
+import InfoModal from '../components/assessment/InfoModal'
 
 function AssessmentPage() {
     
-    const [active, setActive] = useState("PrepareCard")
+    const [active, setActive] = useState("AnnouncementsCard")
     
     return (
         <div className="flex flex-row">
@@ -26,22 +23,10 @@ function AssessmentPage() {
             <div className="basic-5/6 w-screen font-raleway items-center">
                 <ul className=' flex flex-row -ml-16 mt-7 gap-24 items-center list-none justify-center'>
                     <li>
-                        <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "PrepareCard" ? "font-semibold" : ""}`} onClick={() => setActive("PrepareCard")}>Prepare</button>
+                    <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "AnnouncementsCard" ? "font-semibold" : ""}`} onClick={() => setActive("AnnouncementsCard")}>Announcements</button>
                     </li>
                     <li>
-                    <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "AnnounceCard" ? "font-semibold" : ""}`} onClick={() => setActive("AnnounceCard")}>Announce</button>
-                    </li>
-                    <li>
-                    <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "CreateCard" ? "font-semibold" : ""}`} onClick={() => setActive("CreateCard")}>Create</button>
-                    </li>
-                    <li>
-                    <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "TestCard" ? "font-semibold" : ""}`} onClick={() => setActive("TestCard")}>Test</button>
-                    </li>
-                    <li>
-                    <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "LaunchCard" ? "font-semibold" : ""}`} onClick={() => setActive("LaunchCard")}>Launch</button>
-                    </li>
-                    <li>
-                    <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "RemindCard" ? "font-semibold" : ""}`} onClick={() => setActive("RemindCard")}>Remind</button>
+                    <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "AssessmentsCard" ? "font-semibold" : ""}`} onClick={() => setActive("AssessmentsCard")}>Assessments</button>
                     </li>
                     <li>
                     <button className={`cursor-pointer bg-white text-blackish-700 text-xl hover:font-semibold py-2 px-4 border-none rounded font-raleway ${active == "MonitorCard" ? "font-semibold" : ""}`} onClick={() => setActive("MonitorCard")}>Monitor</button>
@@ -50,16 +35,13 @@ function AssessmentPage() {
                 <hr class="my-4 h-px bg-gray-200 border-0 dark:bg-gray-700 mr-8"/>
 
                 <div>
-                    {active == "PrepareCard" && <PrepareCard/>}
-                    {active == "AnnounceCard" && <AnnounceCard/>}
-                    {active == "CreateCard" && <CreateCard/>}
-                    {active == "TestCard" && <TestCard/>}
-                    {active == "LaunchCard" && <LaunchCard/>}
-                    {active == "RemindCard" && <RemindCard/>}
+                    {active == "AnnouncementsCard" && <AnnouncementsCard/>}
+                    {active == "AssessmentsCard" && <AssessmentsCard/>}
                     {active == "MonitorCard" && <MonitorCard/>}                    
                 </div>
             </div>
 
+            <InfoModal />
 
 
         </div>

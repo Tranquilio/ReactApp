@@ -255,7 +255,7 @@ function SignUpForm() {
                                                  <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200">Enter your company email address!</span>
                                             </div> */}
                                             <div> </div>
-                                            <div className='bg-turquoise border-2 border-gray-20 p-4 flex items-center rounded-xl'>
+                                            <div className='bg-turquoise p-4 flex items-center rounded-xl'>
                                                 {/* <FaRegEnvelope className="text-gray-400 m-2" /> */}
                                                 <input onChange={updateEmail} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-2xl flex-1" type="text" placeholder='Email' />
                                             </div>
@@ -272,7 +272,7 @@ function SignUpForm() {
                                                  <span className="text-xl text-[#82A284] font-medium 2xl:opacity-100 duration-200 font-raleway">Enter the OTP sent to your email</span>
                                             </div>
                                             <div> </div>
-                                            <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
+                                            <div className='bg-white p-2 flex items-center rounded-xl'>
                                                 <div></div>
                                                 {/* <FaRegEnvelope className="text-gray-400 m-2" /> */}
                                                 <input onChange={updateOTPInput} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-2xl flex-1" type="text" placeholder='Enter OTP' />
@@ -290,7 +290,7 @@ function SignUpForm() {
                                                  <span className="text-[18px] text-[#82A284] font-medium 2xl:opacity-100 duration-200">Enter your company name</span>
                                             </div>
                                             <div> </div>
-                                            <div className='bg-white border-2 border-gray-20 p-2 flex items-center rounded-xl'>
+                                            <div className='bg-white p-2 flex items-center rounded-xl'>
                                                 <div></div>
                                                 {/* <FaRegEnvelope className="text-gray-400 m-2" /> */}
                                                 <input onChange={updateCompanyName} className="bg-white outline-none border-none text-gray-400 font-raleway rounded-md text-2xl flex-1" type="text" placeholder='Company Name' />

@@ -22,6 +22,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { useAuth } from './hooks/auth-hook'
 import { useForm } from "./hooks/form-hook" 
 import DevAccess from "./login/devaccess"
+import { ChakraProvider } from "@chakra-ui/react"
 
 function App() {
   const { token, login, logout, email, domain } = useAuth()
@@ -72,13 +73,17 @@ function App() {
       <FormContext.Provider
       value={{ company: company, formLink: formLink, saveFormContext: saveFormContext, clearFormContext: clearFormContext}}
     >
+          <ChakraProvider>
+
       <BrowserRouter>
         <Routes>
           {routes}
         </Routes>
       </BrowserRouter>
+      </ChakraProvider>
       </FormContext.Provider>
     </ AuthContext.Provider>
+
   );
 }
 

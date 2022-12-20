@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthContext'
 import { FormContext } from '../../context/FormContext'
 import emailjs from '@emailjs/browser'
 
-function PrepareCard() {
+function AnnounceCard() {
 
   const auth = useContext(AuthContext)
   const form = useContext(FormContext)
@@ -86,4 +86,4 @@ function PrepareCard() {
   );
 }
 
-export default PrepareCard;
+export default AnnounceCard;
